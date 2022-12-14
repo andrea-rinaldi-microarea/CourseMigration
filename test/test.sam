@@ -1,0 +1,62 @@
+...............................................................................
+         
+                         Corporate Group Management
+         --------------------------------------------------------
+                             Accademia Zucchetti
+...............................................................................
+
+[lang IT]
+
+[H1] Introduzione
+[H2] Gli Esercizi fiscali
+
+Le operazioni che consentono all'azienda di trarre dei profitti o delle perdite si svolgono nell'arco dell'**Esercizio**, un periodo che ** normalmente dura 12 mesi** a cui si riferiscono le registrazioni contabili dell'azienda. Non necessariamente coincide con l'anno solare.
+    
+[IMG "esercizi.png" Particolare della finestra Azienda - Anagrafiche | Tabelle]
+[IMGSPOT 189x124-30x85 "SP01"]
+[IMGSPOT 307x124-30x85 "SP02"]
+
+Nell'anagrafica Azienda la scheda _/Esercizi/_  contiene le **date di inizio e fine di ogni esercizio contabile**.
+
+Mago4 permette di gestire anche esercizi contabili che **non coincidono** con l'anno solare e che hanno una durata inferiore o superiore a dodici mesi.
+
+La [SPOT "SP01"]_/Data Apertura/_[/SPOT] e la [SPOT "SP02"]_/Data Chiusura/_[/SPOT] si possono modificare, a condizione che rimangano sempre consecutive.
+[+]Se si modificano le date di apertura e chiusura in corso d'anno, con vari movimenti gi� inseriti, occorre eseguire le varie procedure di ricostruzioni presenti nei _/Servizi/_ per allineare i saldi all'esercizio corretto.
+[/+]
+
+[+][IMG ModelloAssestam.png Particolare della finestra Modelli Contabili - Amministrazione | Tabelle | Modelli Contabili][/+]
+Il **Tipo Prima Nota** _/Assestamento/_ consente di stampare le registrazioni sul Libro Giornale subito prima delle registrazioni di chiusura.
+[/+]
+
+[IMG greseala.png] 
+
+[IMG "prezentare banci.png"] 
+
+Ogni conto del Piano dei Conti ha una scheda _/Saldi /_ che elenca i ** totali mensili** di ogni esercizio, aggiornati dai movimenti contabili.
+
+A seconda del tipo di registrazione contabile inserita, sul conto si aggiornano i saldi di natura ** _/Definitiva/_** o **_/Previsionale/_**.
+
+[EXAMPLE] I saldi di natura definitiva si riferiscono ad operazioni certe, quali ad esempio fatture emesse e ricevute, incassi e pagamenti, mentre i saldi di natura previsionale si riferiscono a movimenti non ancora certi, come affitti dei mesi a venire o fatture da ricevere.
+[/EXAMPLE]
+
+Nelle varie schede contabili e bilanci, la situazione economica dell'azienda può essere visualizzata considerando sia i saldi di naura definitiva, sia di natura previsionale. 
+
+Nella scheda _/Saldi/_ è sempre visibile l'importo attuale dei [SPOT "SP01"]_/ Saldi Definitivi/_[/SPOT], riferito ai saldi di natura definitiva, dei [SPOT "SP02"]_/ Saldi Previsionali/_[/SPOT], dei [SPOT "SP03"]_/ Saldi Simulati/_[/SPOT], ottenuti sommando i saldi di natura definitiva e previsionale. 
+
+[QUIZ]To define the new fiscal year the system suggests the same settings of the current fiscal year.
+
+[QUIZ To define the new fiscal year the system suggests the same settings of the current fiscal year]
+
+[QUIZ]      
+To define the new fiscal year the system suggests the same settings of the current fiscal year
+
+[IMG Class_posto.PNG "Classificazioni - INFOCRM"]
+
+**When confirming** an MO, **in the inventory is loaded a finished/semi-finished product and are issued raw materials ** (picked during the development). 
+
+[+]Obviously this situation is not acceptable: in order to work properly we need to know the data resulting from the previous year, ie the **Initial Amounts**. Also values as the ** Last Cost and the Standard Cost ** will be certainly very useful.
+[/+]
+
+          1         2         3
+0123456789012345678901234567890
+when **confirming **an order
