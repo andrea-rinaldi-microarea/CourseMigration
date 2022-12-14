@@ -2,6 +2,7 @@ formato accademia
 -----------------
 CGM\CGM
 CGM\CGM_EN
+*Financial\AmazonDSP
 Financial\Anagrafiche
 Financial\AnagraficheEN
 Financial\AnagraficheRO
@@ -31,7 +32,6 @@ Financial\Enasarco
 Financial\FatturazioneElettronica
 Financial\FatturazioneElettronicaAttiva
 Financial\FatturazioneElettronicaAttiva_CL
-Financial\FatturazioneElettronicaPassiva
 Financial\FatturazioneElettronicaPassiva
 Financial\FatturazioneElettronicaPassiva_CL
 Financial\FatturazioneElettronica_Autofatture
@@ -68,13 +68,21 @@ IMago\WizardDiConfigurazione
 Logistics\Articoli e relativi dati anagrafici
 Logistics\Articoli e relativi dati anagrafici - EN
 Logistics\Articoli e relativi dati anagrafici-CL
+*Logistics\ArticoliAcquisizione-EN
 Logistics\ArticoliERelativiDatiAnagrafici-CL EN
 Logistics\ArticoliERelativiDatiAnagrafici-CL-RO
 Logistics\Barcode-CL-EN
 Logistics\Barcode-EN
 Logistics\CodiceParlante - CL - EN
 Logistics\CodiceParlante-CL-RO
+*Logistics\ComeTrasferireMerceTraPV-EN
+*Logistics\ConfigurazioneInizialeMagoKonaKart
+*Logistics\ConfigurazioneInizialeMagoKonaKart_ENG
 Logistics\Convenzioni-EN
+*Logistics\DatiAlimentari-EN
+*Logistics\DESADV-EN
+*Logistics\EDI-EN
+*Logistics\EtichettePrezzoVendita-EN
 Logistics\EvasioneInterattivaOrdiniCliente
 Logistics\FatturazioneElettronicaGestioneAsincrona
 Logistics\FatturazioneElettronicaPassivaAvanzata
@@ -90,10 +98,11 @@ Logistics\IDatiClienteArticoloFornitoreArticolo-CL-RO
 Logistics\IDatiClienteArticoloFornitoreArticolo-EN
 Logistics\IDocumentiDelCicloAttivo
 Logistics\IDocumentiDelCicloAttivo-CL-EN
+*Logistics\IDocumentiDelCicloAttivo-CL-IT
 Logistics\IDocumentiDelCicloAttivo-CL-RO
 Logistics\IDocumentiDelCicloAttivo-EN
 Logistics\IDocumentiDelCicloPassivo
-Logistics\IDocumentiDelCicloPassivo-CL
+*Logistics\IDocumentiDelCicloPassivo-CL-IT
 Logistics\IlCodiceParlante
 Logistics\IlCodiceParlante-EN
 Logistics\IlDocumentoDiTrasporto
@@ -101,6 +110,14 @@ Logistics\IlDocumentoDiTrasporto-CL-IT
 Logistics\IlDocumentoDiTrasporto-CL-RO
 Logistics\IlDocumentoDiTrasporto-EN
 Logistics\IMovimentiAgenti
+*Logistics\InStoreApp-GoodReceipt-EN
+*Logistics\InStoreApp-InformazioniArticolo-EN
+*Logistics\InStoreApp-Inventario-EN
+*Logistics\InStoreApp-InventoryTransaction-EN
+*Logistics\InStoreApp-OrdineAFornitore-EN
+*Logistics\InStoreApp-TrasferimentoTraDepositi-EN
+*Logistics\InStoreAppIntroduction-EN
+*Logistics\InStoreAppTrasferimentiTraPuntiVendita-EN
 Logistics\IntroduzioneMagoCloud
 Logistics\IntroduzioneMagoCloudEN
 Logistics\IntroduzioneMagoCloudRO
@@ -112,6 +129,7 @@ Logistics\LaChiusuraDiMagazzino-CL-EN
 Logistics\LaChiusuraDiMagazzino-CL-RO
 Logistics\LaChiusuraDiMagazzino-EN
 Logistics\LaConfigurazioneDiUnDepositoDiWMS
+*Logistics\LaConfigurazioneDiUnDepositoDiWMS-CL-IT
 Logistics\LaConfigurazioneDiUnDepositoDiWMS-EN
 Logistics\LaFatturaAccompagnatoria
 Logistics\LaFatturaImmediata
@@ -124,6 +142,7 @@ Logistics\LaFatturazioneDifferitaDDT-CL-RO
 Logistics\LaFatturazioneDifferitaDDT-EN
 Logistics\LaGestioneDeiLotti
 Logistics\LaGestioneDeiLotti-CL-EN
+*Logistics\LaGestioneDeiLotti-CL-IT
 Logistics\LaGestioneDeiLotti-CL-RO
 Logistics\LaGestioneDeiLotti-EN
 Logistics\LaGestioneMatricole
@@ -131,21 +150,26 @@ Logistics\LaGestioneVarianti
 Logistics\LaGestioneVarianti-EN
 Logistics\LaManutenzioneDeiMovimenti
 Logistics\LaManutenzioneDeiMovimenti-CL-EN
+*Logistics\LaManutenzioneDeiMovimenti-CL-IT
 Logistics\LaManutenzioneDeiMovimenti-CL-RO
 Logistics\LaManutenzioneDeiMovimenti-EN
 Logistics\LaMovimentazioneDeiLotti
+*Logistics\LaMovimentazionedeiLotti-CL-IT
 Logistics\LaMovimentazioneDeiLotti-EN
 Logistics\LAnagraficaAgenti
+*Logistics\LAnagraficaAgenti-CL-IT
 Logistics\LaNotaDiCredito
 Logistics\LaNotaDiCredito-EN
 Logistics\LaRicevutaFiscale
 Logistics\LeProcedureAutomatiche
 Logistics\LeProcedureAutomatiche-EN
 Logistics\LeProcedureStampaRegistra
+*Logistics\LeProcedureStampaRegistra-CL-IT
 Logistics\LeProcedureStampaRegistra-Rev02
 Logistics\LeProvvigioniNeiDocumentiDelCicloAttivo
 Logistics\LeUnitaDiMisura
 Logistics\LeUnitaDiMisura-CL-EN
+*Logistics\LeUnitaDiMisura-CL-IT
 Logistics\LeUnitaDiMisura-CL-RO
 Logistics\LeUnitaDiMisura-EN
 Logistics\LOffertaACliente
@@ -161,17 +185,21 @@ Logistics\MovimentiDiMagazzino-EN
 Logistics\PosizionamentoDirettoWMS-EN
 Logistics\PrezziEScontiNelCicloAttivo
 Logistics\PrezziEScontiNelCicloAttivo-CL-EN
+*Logistics\PrezziEScontiNelCicloAttivo-CL-IT
 Logistics\PrezziEScontiNelCicloAttivo-CL-RO
 Logistics\PrezziEScontiNelCicloAttivo-EN
 Logistics\ProduttoriCategorieeTipi
 Logistics\ProduttoriCategorieeTipi-EN
+*Logistics\RiordinoPuntoVendita-EN
 Logistics\RivalutazioneLifoFifo
+*Logistics\Scontrini-EN
 Logistics\TCPOSPrimoAvvio
 Logistics\TCPOSPrimoAvvio-EN
+*Logistics\TransazioniDiCassa-EN
 Logistics\Transferimenti Tra Punti Vendita
 Logistics\Transferimenti Tra Punti Vendita -EN
-Logistics\VisibilitaTCPOS
-Logistics\VisibilitaTCPOS-EN
+Logistics\VisibilitàTCPOS
+Logistics\VisibilitàTCPOS-EN
 MigrazioneMago4\MigrazioneMago4
 Produzione\Configuratore
 Produzione\Configuratore-CL-EN
@@ -258,12 +286,3 @@ Logistics\Simulazioni
 Logistics\VideoMagoCloud
 Produzione\Videocorsi
 
-Nuovi
--------
-Logistics\LAnagraficaAgenti-CL-IT
-Logistics\LaConfigurazioneDiUnDepositoDiWMS-CL-IT
-Logistics\LaMovimentazionedeiLotti-CL-IT
-Logistics\PrezziEScontiNelCicloAttivo-CL-IT
-Logistics\LaGestioneDeiLotti-CL-IT
-Logistics\EDI-EN
-...

@@ -14,6 +14,7 @@ call convert_course Financial\Anagrafiche_CL             University_IT\MagoCloud
 call convert_course Financial\Anagrafiche_CL_EN          University_EN\MagoCloud\Masters\Masters
 call convert_course Financial\Anagrafiche_CL_RO          University_RO\MagoCloud\Masters\Masters
 
+call convert_course Financial\AmazonDSP                       University_IT\MagoCloud\Financial\AmazonDSP
 @REM call convert_course Financial\AssestamentiAutomatici     University_IT\Mago4\Financial\AccrualDeferrals
 @REM call convert_course Financial\BilanciConsolidati         University_IT\Mago4\Financial\Multicompany_Balances
 @REM call convert_course Financial\CespitiAmmortamenti        University_IT\Mago4\Financial\Fixed_Assets_Depreciations
@@ -77,13 +78,21 @@ call convert_course Financial\Anagrafiche_CL_RO          University_RO\MagoCloud
 @REM call convert_course "Logistics\Articoli e relativi dati anagrafici"         University_IT\Mago4\Logistics\Items_Master_Data
 @REM call convert_course "Logistics\Articoli e relativi dati anagrafici - EN"    University_EN\Mago4\Logistics\Items_Master_Data
 @REM call convert_course "Logistics\Articoli e relativi dati anagrafici-CL"      University_IT\MagoCloud\Logistics\Items_Master_Data
+@REM Logistics\ArticoliAcquisizione-EN
 @REM call convert_course "Logistics\ArticoliERelativiDatiAnagrafici-CL EN"       University_EN\MagoCloud\Logistics\Items_Master_Data
 @REM call convert_course Logistics\ArticoliERelativiDatiAnagrafici-CL-RO         University_RO\MagoCloud\Logistics\Items_Master_Data
 @REM call convert_course Logistics\Barcode-CL-EN                                 University_EN\MagoCloud\Logistics\Barcode
 @REM call convert_course Logistics\Barcode-EN                                    University_EN\Mago4\Logistics\Barcode
 @REM call convert_course "Logistics\CodiceParlante - CL - EN"                    University_EN\MagoCloud\Logistics\Smart_Codes
 @REM call convert_course Logistics\CodiceParlante-CL-RO                          University_RO\MagoCloud\Logistics\Smart_Codes
+@REM Logistics\ComeTrasferireMerceTraPV-EN
+@REM Logistics\ConfigurazioneInizialeMagoKonaKart
+@REM Logistics\ConfigurazioneInizialeMagoKonaKart_ENG
 @REM call convert_course Logistics\Convenzioni-EN                                University_EN\Mago4\Retail\Subsidies
+@REM Logistics\DatiAlimentari-EN
+@REM Logistics\DESADV-EN
+@REM Logistics\EDI-EN
+@REM Logistics\EtichettePrezzoVendita-EN
 @REM call convert_course Logistics\EvasioneInterattivaOrdiniCliente              University_IT\Mago4\Sales\Sale_Orders_Fulfillment
 @REM call convert_course Logistics\FatturazioneElettronicaGestioneAsincrona      University_IT\Mago4\MDC\Asynchronous_Electronic_Invoices
 @REM @REM call convert_course Logistics\FatturazioneElettronicaPassivaAvanzata        University_IT\Mago4\MDC\Advanced_Purchase_Electronic_Invoices
@@ -101,10 +110,11 @@ call convert_course Financial\Anagrafiche_CL_RO          University_RO\MagoCloud
 
 @REM call convert_course Logistics\IDocumentiDelCicloAttivo              University_IT\Mago4\Sales\Sale_Documents
 @REM call convert_course Logistics\IDocumentiDelCicloAttivo-CL-EN        University_EN\MagoCloud\Sales\Sale_Documents
+@REM Logistics\IDocumentiDelCicloAttivo-CL-IT
 @REM call convert_course Logistics\IDocumentiDelCicloAttivo-CL-RO        University_RO\MagoCloud\Sales\Sale_Documents
 @REM call convert_course Logistics\IDocumentiDelCicloAttivo-EN           University_EN\Mago4\Sales\Sale_Documents
 @REM call convert_course Logistics\IDocumentiDelCicloPassivo             University_IT\Mago4\Purchases\Purchase_Documents
-@REM call convert_course Logistics\IDocumentiDelCicloPassivo-CL          University_IT\MagoCloud\Purchases\Purchase_Documents
+@REM call convert_course Logistics\IDocumentiDelCicloPassivo-CL-IT       University_IT\MagoCloud\Purchases\Purchase_Documents
 @REM call convert_course Logistics\IlCodiceParlante                      University_IT\Mago4\Logistics\Smart_Codes
 @REM call convert_course Logistics\IlCodiceParlante-EN                   University_EN\Mago4\Logistics\Smart_Codes
 @REM call convert_course Logistics\IlDocumentoDiTrasporto                University_IT\Mago4\Sales\Delivery_Notes
@@ -112,6 +122,14 @@ call convert_course Financial\Anagrafiche_CL_RO          University_RO\MagoCloud
 @REM call convert_course Logistics\IlDocumentoDiTrasporto-CL-RO          University_RO\MagoCloud\Sales\Delivery_Notes
 @REM call convert_course Logistics\IlDocumentoDiTrasporto-EN             University_EN\Mago4\Sales\Delivery_Notes
 @REM call convert_course Logistics\IMovimentiAgenti                      University_IT\Mago4\Sales\Salespeople_Entries
+@REM Logistics\InStoreApp-GoodReceipt-EN
+@REM Logistics\InStoreApp-InformazioniArticolo-EN
+@REM Logistics\InStoreApp-Inventario-EN
+@REM Logistics\InStoreApp-InventoryTransaction-EN
+@REM Logistics\InStoreApp-OrdineAFornitore-EN
+@REM Logistics\InStoreApp-TrasferimentoTraDepositi-EN
+@REM Logistics\InStoreAppIntroduction-EN
+@REM Logistics\InStoreAppTrasferimentiTraPuntiVendita-EN
 @REM call convert_course Logistics\IntroduzioneMagoCloud                 University_IT\MagoCloud\Masters\MagoCloud_Introduction
 @REM call convert_course Logistics\IntroduzioneMagoCloudEN               University_EN\MagoCloud\Masters\MagoCloud_Introduction
 @REM call convert_course Logistics\IntroduzioneMagoCloudRO               University_RO\MagoCloud\Masters\MagoCloud_Introduction
@@ -123,6 +141,7 @@ call convert_course Financial\Anagrafiche_CL_RO          University_RO\MagoCloud
 @REM call convert_course Logistics\LaChiusuraDiMagazzino-CL-RO           University_RO\MagoCloud\Logistics\Inventory_Closing
 @REM call convert_course Logistics\LaChiusuraDiMagazzino-EN              University_EN\Mago4\Logistics\Inventory_Closing
 @REM call convert_course Logistics\LaConfigurazioneDiUnDepositoDiWMS     University_IT\Mago4\Logistics\WMS_Storage_Configuration
+@REM Logistics\LaConfigurazioneDiUnDepositoDiWMS-CL-IT
 @REM call convert_course Logistics\LaConfigurazioneDiUnDepositoDiWMS-EN  University_EN\Mago4\Logistics\WMS_Storage_Configuration
 @REM call convert_course Logistics\LaFatturaAccompagnatoria              University_IT\Mago4\Sales\Accompanying_Invoice
 @REM call convert_course Logistics\LaFatturaImmediata                    University_IT\Mago4\Sales\Sale_Invoice
@@ -136,6 +155,7 @@ REM call convert_course Logistics\LaFatturazioneDifferitaDDT-CL-RO          Univ
 REM call convert_course Logistics\LaFatturazioneDifferitaDDT-EN             University_EN\Mago4\Sales\Delivery_Notes_Deferred_Invoicing
 REM call convert_course Logistics\LaGestioneDeiLotti                        University_IT\Mago4\Logistics\Lots_Management
 REM call convert_course Logistics\LaGestioneDeiLotti-CL-EN                  University_EN\MagoCloud\Logistics\Lots_Management
+@REM Logistics\LaGestioneDeiLotti-CL-IT
 REM call convert_course Logistics\LaGestioneDeiLotti-CL-RO                  University_RO\MagoCloud\Logistics\Lots_Management
 REM call convert_course Logistics\LaGestioneDeiLotti-EN                     University_EN\Mago4\Logistics\Lots_Management
 REM call convert_course Logistics\LaGestioneMatricole                       University_IT\Mago4\Logistics\Serial_Number_Management
@@ -143,21 +163,26 @@ REM call convert_course Logistics\LaGestioneVarianti                        Univ
 REM call convert_course Logistics\LaGestioneVarianti-EN                     University_EN\Mago4\Logistics\Variants_Management
 REM call convert_course Logistics\LaManutenzioneDeiMovimenti                University_IT\Mago4\Logistics\Inventory_Entries_Maintenance
 REM call convert_course Logistics\LaManutenzioneDeiMovimenti-CL-EN          University_EN\MagoCloud\Logistics\Inventory_Entries_Maintenance
+@REM Logistics\LaManutenzioneDeiMovimenti-CL-IT
 REM call convert_course Logistics\LaManutenzioneDeiMovimenti-CL-RO          University_RO\MagoCloud\Logistics\Inventory_Entries_Maintenance
 REM call convert_course Logistics\LaManutenzioneDeiMovimenti-EN             University_EN\Mago4\Logistics\Inventory_Entries_Maintenance
 REM call convert_course Logistics\LaMovimentazioneDeiLotti                  University_IT\Mago4\Logistics\Lots_In_Documents
+@REM Logistics\LaMovimentazionedeiLotti-CL-IT
 REM call convert_course Logistics\LaMovimentazioneDeiLotti-EN               University_EN\Mago4\Logistics\Lots_In_Documents
 REM call convert_course Logistics\LAnagraficaAgenti                         University_IT\Mago4\Sales\Salespeople_Master
+@REM Logistics\LAnagraficaAgenti-CL-IT
 REM call convert_course Logistics\LaNotaDiCredito                           University_IT\Mago4\Sales\Credit_Notes
 REM call convert_course Logistics\LaNotaDiCredito-EN                        University_EN\Mago4\Sales\Credit_Notes
 REM call convert_course Logistics\LaRicevutaFiscale                         University_IT\Mago4\Sales\Fiscal_Receipt
 REM call convert_course Logistics\LeProcedureAutomatiche                    University_IT\Mago4\Logistics\Lots_Automatic_Procedures
 REM call convert_course Logistics\LeProcedureAutomatiche-EN                 University_EN\Mago4\Logistics\Lots_Automatic_Procedures
 REM @REM call convert_course Logistics\LeProcedureStampaRegistra                 University_IT\Mago4\Sales\Print_And_Post_Procedures
+@REM Logistics\LeProcedureStampaRegistra-CL-IT
 REM call convert_course Logistics\LeProcedureStampaRegistra-Rev02           University_IT\Mago4\Sales\Print_And_Post_Procedures
 REM call convert_course Logistics\LeProvvigioniNeiDocumentiDelCicloAttivo   University_IT\Mago4\Sales\Commissions_In_Sale_Documents
 REM call convert_course Logistics\LeUnitaDiMisura                           University_IT\Mago4\Logistics\Units_Of_Measure
 REM call convert_course Logistics\LeUnitaDiMisura-CL-EN                     University_EN\MagoCloud\Logistics\Units_Of_Measure
+@REM Logistics\LeUnitaDiMisura-CL-IT
 REM call convert_course Logistics\LeUnitaDiMisura-CL-RO                     University_RO\MagoCloud\Logistics\Units_Of_Measure
 REM call convert_course Logistics\LeUnitaDiMisura-EN                        University_EN\Mago4\Logistics\Units_Of_Measure
 
@@ -174,17 +199,21 @@ REM call convert_course Logistics\LeUnitaDiMisura-EN                        Univ
 @REM call convert_course Logistics\PosizionamentoDirettoWMS-EN                   University_EN\Mago4\Logistics\Good_Receipt_Direct_Putaway
 @REM call convert_course Logistics\PrezziEScontiNelCicloAttivo                   University_IT\Mago4\Sales\Price_Discount_Polices
 @REM call convert_course Logistics\PrezziEScontiNelCicloAttivo-CL-EN             University_EN\MagoCloud\Sales\Price_Discount_Polices
+@REM Logistics\PrezziEScontiNelCicloAttivo-CL-IT
 @REM call convert_course Logistics\PrezziEScontiNelCicloAttivo-CL-RO             University_RO\MagoCloud\Sales\Price_Discount_Polices
 @REM call convert_course Logistics\PrezziEScontiNelCicloAttivo-EN                University_EN\Mago4\Sales\Price_Discount_Polices
 @REM call convert_course Logistics\ProduttoriCategorieeTipi                      University_IT\Mago4\Logistics\Manufacturers_Categories_Types
 @REM call convert_course Logistics\ProduttoriCategorieeTipi-EN                   University_EN\Mago4\Logistics\Manufacturers_Categories_Types
+@REM Logistics\RiordinoPuntoVendita-EN
 @REM call convert_course Logistics\RivalutazioneLifoFifo                         University_IT\Mago4\Logistics\Annual_LIFO_FIFO_Revaluation
+@REM Logistics\Scontrini-EN
 @REM call convert_course Logistics\TCPOSPrimoAvvio                               University_IT\Mago4\Retail\TCPOS_Getting_Started
 @REM call convert_course Logistics\TCPOSPrimoAvvio-EN                            University_EN\Mago4\Retail\TCPOS_Getting_Started
+@REM Logistics\TransazioniDiCassa-EN
 @REM call convert_course "Logistics\Transferimenti Tra Punti Vendita"              University_IT\Mago4\Retail\InterStore_Movement_Documents
 @REM call convert_course "Logistics\Transferimenti Tra Punti Vendita -EN"          University_EN\Mago4\Retail\InterStore_Movement_Documents
-@REM call convert_course Logistics\VisibilitaTCPOS                               University_IT\Mago4\Retail\TCPOS_Visibility
-@REM call convert_course Logistics\VisibilitaTCPOS-EN                            University_EN\Mago4\Retail\TCPOS_Visibility
+@REM call convert_course Logistics\VisibilitàTCPOS                               University_IT\Mago4\Retail\TCPOS_Visibility
+@REM call convert_course Logistics\VisibilitàTCPOS-EN                            University_EN\Mago4\Retail\TCPOS_Visibility
 
 @REM call convert_course MigrazioneMago4\MigrazioneMago4                             University_IT\Mago4\TB_Studio\Mago4_Migration
 

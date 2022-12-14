@@ -47,8 +47,16 @@ IF exist "%ORIGIN%\%~1\index.html" (
         call Set "_migrate=1"
     )
 ) ELSE (
-    IF "%3" NEQ "/M" (
-        echo index.html not found in %ORIGIN%\%~1, assuming new SAM format >> errors.log
+    @REM recently generated courses has already a subfolder, named as the folder itself, containing the output: index.html is there
+    IF exist "%ORIGIN%\%~1\%~n1\index.html" (
+        @FIND "Supersam" "%ORIGIN%\%~1\%~n1\index.html" >nul
+        IF !ERRORLEVEL! NEQ 0 (
+            call Set "_migrate=1"
+        )
+    ) ELSE (
+        IF "%3" NEQ "/M" (
+            echo index.html not found in %ORIGIN%\%~1, assuming new SAM format >> errors.log
+        )
     )
 )
 
