@@ -1,0 +1,13 @@
+Masters
+Financial
+MDC
+Sales
+Retail
+Purchases
+Logistics
+Manufacturing
+CRM
+Preferences
+Services
+TB_Framework
+TB_Studio

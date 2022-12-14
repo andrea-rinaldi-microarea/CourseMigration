@@ -1,0 +1,26 @@
+.index_cnt #tree > li > .node > a,
+.index_cnt #tree > li > .node_selected > a {
+    font-weight: bold;
+}
+
+.index_cnt #expand_collapse_all {
+	position: absolute;
+	font-family: 'Material Design Icons';
+    font-size: 22px;
+    text-decoration: none;
+    color: #BEBEBE;
+    right: 0;
+	cursor: pointer;
+}
+
+.index_cnt #expand_collapse_all.expand::before {
+	content: "\f04c";
+}
+
+.index_cnt #expand_collapse_all.collapse::before {
+	content: "\f044";
+}
+
+.index_cnt #expand_collapse_all:hover {
+	color: black;
+}

@@ -1,0 +1,15 @@
+{
+  "name": "corsi-magocloud",
+  "version": "1.0.0",
+  "description": "tools per migrazione corsi mago",
+  "main": "convert_course.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andrea Rinaldi",
+  "license": "MIT",
+  "dependencies": {
+    "image-size": "^1.0.1",
+    "split": "^1.0.1"
+  }
+}

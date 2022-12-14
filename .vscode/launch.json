@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "pwa-node",
+            "name": "Styles",
+            "request": "launch",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/insert_styles",
+            "args": ["${workspaceFolder}/_styles.sam", "C:/Users/rinaldi/Documents/working/University/University_IT/Mago4/Masters/Masters/Masters.sam"]
+        },
+        {
+            "type": "pwa-node",
+            "name": "Migration",
+            "request": "launch",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\migrate_format.js",
+            "args": ["${workspaceFolder}\\test", "test.sam"]
+        }
+    ]
+}

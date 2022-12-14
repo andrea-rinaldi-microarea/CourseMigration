@@ -1,0 +1,103 @@
+/****************** Infinity Fusion Purple ******************/
+.prev_next_container_up {
+  background: linear-gradient(to right, #491859, #ad5389);
+}
+.index_logo,
+.index_logo img,
+.topnav a.active,
+.video_info_tag {
+  background-color: #481859 !important;
+}
+#searchInfo:hover,
+#searchCanc.active:hover,
+#collapsebar,
+#found_list .glossitem:before,
+#found_list .mediaitem:before,
+#found_list .bookitem:before,
+#found_list .editbutton:hover,
+#found_list .delbutton:hover,
+#found_list a:before,
+#found_list a.active.glossurls .glossicon:hover,
+#found_list a.active.glossurls.opened .glossicon:hover,
+div.exp_col:hover::before,
+.def_video_poster,
+ul.tree li .check_icon,
+ul.tree li .default_icon {
+  color: #481859 !important;
+}
+#searchIcon.speech:hover {
+  color: #481859;
+}
+#searchInput:focus {
+  border-bottom-color: #481859;
+}
+#entity_loading::before,
+#entity_loading::after {
+  border-top-color: #481859 !important;
+}
+.collbarclosed:hover,
+.collbaropenedsmall:hover,
+.collbaropened:hover {
+  background-color: rgba(72, 24, 89, 0.2);
+}
+/*************** VARIANTI DI COLORE ***************/
+.topnav a:hover,
+a:active,
+#found_list a:hover,
+.menu li:hover,
+.sub-menu li:hover,
+span.node:hover {
+  background-color: #f6dbff;
+}
+.head_btn a:hover {
+  background-color: #632079;
+}
+span.node_selected,
+#found_list a.active,
+#found_list .book_input {
+  border-color: #d887f2 !important;
+}
+#progress_header {
+  background-color: #d887f2;
+}
+span.node_selected,
+#found_list a.active {
+  background-color: #e6bef4;
+}
+.gloss_body #div_header {
+  color: #9500c7;
+}
+/************** SAM.CSS SKIN STANDARD *************/
+.cntpage a,
+.tooltip,
+.fontIcon {
+  color: #9500c7;
+}
+.cntpage a:active {
+  background-color: rgba(230, 190, 244, 0.3);
+}
+.titlesec_graphic_a {
+  background-color: #e6bef4;
+}
+.titlesec_graphic_c,
+.ftnoteref,
+.quiztitle,
+#quizbtn {
+  background-color: #481859 !important;
+}
+#quizbtn {
+  border-color: #73258d !important;
+}
+.titlesec_graphic_b,
+#quizbtn:hover {
+  background-color: #d887f2 !important;
+}
+#quizbtn:hover {
+  border-color: #481859 !important;
+}
+::-moz-selection {
+  background: #eabef8 !important;
+}
+::selection {
+  background: #eabef8 !important;
+}
