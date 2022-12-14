@@ -257,3 +257,13 @@ MyMagoStudio
 Logistics\Simulazioni
 Logistics\VideoMagoCloud
 Produzione\Videocorsi
+
+Nuovi
+-------
+Logistics\LAnagraficaAgenti-CL-IT
+Logistics\LaConfigurazioneDiUnDepositoDiWMS-CL-IT
+Logistics\LaMovimentazionedeiLotti-CL-IT
+Logistics\PrezziEScontiNelCicloAttivo-CL-IT
+Logistics\LaGestioneDeiLotti-CL-IT
+Logistics\EDI-EN
+...
