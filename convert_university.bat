@@ -1,20 +1,18 @@
 @echo off
-@REM set ORIGIN=C:\Users\rinaldi\Documents\working\courses
-@REM set DESTINATION=C:\Users\rinaldi\Documents\working\University
-set ORIGIN=C:\temp\courses
-set DESTINATION=C:\temp\University
+set ORIGIN=C:\eLearning4\courses
+set DESTINATION=C:\working\courses\University
 
-if exist log.txt del log.txt
+if exist errors.log del errors.log
 
 @REM =============================== già controllati
-@REM call convert_course CGM\CGM                              University_IT\Mago4\Masters\CGM
-@REM call convert_course CGM\CGM_EN                           University_EN\Mago4\Masters\CGM
-@REM call convert_course Financial\Anagrafiche                University_IT\Mago4\Masters\Masters
-@REM call convert_course Financial\AnagraficheEN              University_EN\Mago4\Masters\Masters
-@REM call convert_course Financial\AnagraficheRO              University_RO\Mago4\Masters\Masters
-@REM call convert_course Financial\Anagrafiche_CL             University_IT\MagoCloud\Masters\Masters
-@REM call convert_course Financial\Anagrafiche_CL_EN          University_EN\MagoCloud\Masters\Masters
-@REM call convert_course Financial\Anagrafiche_CL_RO          University_RO\MagoCloud\Masters\Masters
+call convert_course CGM\CGM                              University_IT\Mago4\Masters\CGM
+call convert_course CGM\CGM_EN                           University_EN\Mago4\Masters\CGM
+call convert_course Financial\Anagrafiche                University_IT\Mago4\Masters\Masters
+call convert_course Financial\AnagraficheEN              University_EN\Mago4\Masters\Masters
+call convert_course Financial\AnagraficheRO              University_RO\Mago4\Masters\Masters
+call convert_course Financial\Anagrafiche_CL             University_IT\MagoCloud\Masters\Masters
+call convert_course Financial\Anagrafiche_CL_EN          University_EN\MagoCloud\Masters\Masters
+call convert_course Financial\Anagrafiche_CL_RO          University_RO\MagoCloud\Masters\Masters
 
 @REM call convert_course Financial\AssestamentiAutomatici     University_IT\Mago4\Financial\AccrualDeferrals
 @REM call convert_course Financial\BilanciConsolidati         University_IT\Mago4\Financial\Multicompany_Balances
@@ -190,35 +188,35 @@ REM call convert_course Logistics\LeUnitaDiMisura-EN                        Univ
 
 @REM call convert_course MigrazioneMago4\MigrazioneMago4                             University_IT\Mago4\TB_Studio\Mago4_Migration
 
-@REM ===============================
+@REM =============================== da copntrollare
 
-call convert_course Produzione\Configuratore                                                            University_IT\Mago4\Manufacturing\Configurator
-call convert_course Produzione\Configuratore-CL-EN                                                      University_EN\MagoCloud\Manufacturing\Configurator
-call convert_course Produzione\ConfiguratoreEN                                                          University_EN\Mago4\Manufacturing\Configurator
-call convert_course Produzione\CriteriValorizzazionePuntuale\FIFOAScattiEsempiPraticiDiProduzione       University_IT\Mago4\Manufacturing\SingleStepFIFOPracticalExamples
-call convert_course Produzione\CriteriValorizzazionePuntualeEN\WAPProduzioneEN                          University_IT\Mago4\Manufacturing\WAP_In_Manufacturing
-call convert_course Produzione\DistintaBase\LaDistintaBase                                              University_IT\Mago4\Manufacturing\Bill_Of_Materials
-call convert_course Produzione\DistintaBase\LaProduzione                                                University_IT\Mago4\Manufacturing\Bill_Of_Materials_Production
-call convert_course Produzione\DistintaBase\LaProduzioneDaiDocumentiDiVendita                           University_IT\Mago4\Manufacturing\Production_Through_Sales_Documents
-call convert_course Produzione\DistintaBase\LeProcedure                                                 University_IT\Mago4\Manufacturing\Bill_Of_Materials_Procedures
-call convert_course Produzione\DistintaBase\TestFinaliDistintaBase                                      University_IT\Mago4\Manufacturing\Bill_Of_Materials_Final_Tests
-call convert_course Produzione\DistintaBase-CL\LaDistintaBase-CL                                        University_IT\MagoCloud\Manufacturing\Bill_Of_Materials
-call convert_course Produzione\DistintaBase-CL\LaProduzione-CL                                          University_IT\MagoCloud\Manufacturing\Bill_Of_Materials_Production                   
-call convert_course Produzione\DistintaBase-CL\LaProduzioneDaiDocumentiDiVendita-CL                     University_IT\MagoCloud\Manufacturing\Production_Through_Sales_Documents
-call convert_course Produzione\DistintaBase-CL\LeProcedure-CL                                           University_IT\MagoCloud\Manufacturing\Bill_Of_Materials_Procedures
-call convert_course Produzione\DistintaBase-CL\TestFinaliDistintaBase                                   University_IT\MagoCloud\Manufacturing\Bill_Of_Materials_Final_Tests
-call convert_course Produzione\DistintaBase-CL-EN\LaDistintaBase-CL-EN                                  University_EN\MagoCloud\Manufacturing\Bill_Of_Materials
-call convert_course Produzione\DistintaBase-CL-EN\LaProduzione-CL-EN                                    University_EN\MagoCloud\Manufacturing\Bill_Of_Materials_Production
-call convert_course Produzione\DistintaBase-CL-EN\LaProduzioneDaiDocumentiDiVendita-CL-EN               University_EN\MagoCloud\Manufacturing\Production_Through_Sales_Documents
-call convert_course Produzione\DistintaBase-CL-EN\LeProcedure-CL-EN                                     University_EN\MagoCloud\Manufacturing\Bill_Of_Materials_Procedures
-call convert_course Produzione\DistintaBaseEN\LaDistintaBaseEN                                          University_EN\Mago4\Manufacturing\Bill_Of_Materials
-call convert_course Produzione\DistintaBaseEN\LaProduzioneDaiDocumentiDiVenditaEN                       University_EN\Mago4\Manufacturing\Production_Through_Sales_Documents
-call convert_course Produzione\DistintaBaseEN\LaProduzioneEN                                            University_EN\Mago4\Manufacturing\Bill_Of_Materials_Production
-call convert_course Produzione\DistintaBaseEN\LeProcedureEN                                             University_EN\Mago4\Manufacturing\Bill_Of_Materials_Procedures
+@REM call convert_course Produzione\Configuratore                                                            University_IT\Mago4\Manufacturing\Configurator
+@REM call convert_course Produzione\Configuratore-CL-EN                                                      University_EN\MagoCloud\Manufacturing\Configurator
+@REM call convert_course Produzione\ConfiguratoreEN                                                          University_EN\Mago4\Manufacturing\Configurator
+@REM call convert_course Produzione\CriteriValorizzazionePuntuale\FIFOAScattiEsempiPraticiDiProduzione       University_IT\Mago4\Manufacturing\SingleStepFIFOPracticalExamples
+@REM call convert_course Produzione\CriteriValorizzazionePuntualeEN\WAPProduzioneEN                          University_IT\Mago4\Manufacturing\WAP_In_Manufacturing
+@REM call convert_course Produzione\DistintaBase\LaDistintaBase                                              University_IT\Mago4\Manufacturing\Bill_Of_Materials
+@REM call convert_course Produzione\DistintaBase\LaProduzione                                                University_IT\Mago4\Manufacturing\Bill_Of_Materials_Production
+@REM call convert_course Produzione\DistintaBase\LaProduzioneDaiDocumentiDiVendita                           University_IT\Mago4\Manufacturing\Production_Through_Sales_Documents
+@REM call convert_course Produzione\DistintaBase\LeProcedure                                                 University_IT\Mago4\Manufacturing\Bill_Of_Materials_Procedures
+@REM call convert_course Produzione\DistintaBase\TestFinaliDistintaBase                                      University_IT\Mago4\Manufacturing\Bill_Of_Materials_Final_Tests
+@REM call convert_course Produzione\DistintaBase-CL\LaDistintaBase-CL                                        University_IT\MagoCloud\Manufacturing\Bill_Of_Materials
+@REM call convert_course Produzione\DistintaBase-CL\LaProduzione-CL                                          University_IT\MagoCloud\Manufacturing\Bill_Of_Materials_Production                   
+@REM call convert_course Produzione\DistintaBase-CL\LaProduzioneDaiDocumentiDiVendita-CL                     University_IT\MagoCloud\Manufacturing\Production_Through_Sales_Documents
+@REM call convert_course Produzione\DistintaBase-CL\LeProcedure-CL                                           University_IT\MagoCloud\Manufacturing\Bill_Of_Materials_Procedures
+@REM call convert_course Produzione\DistintaBase-CL\TestFinaliDistintaBase                                   University_IT\MagoCloud\Manufacturing\Bill_Of_Materials_Final_Tests
+@REM call convert_course Produzione\DistintaBase-CL-EN\LaDistintaBase-CL-EN                                  University_EN\MagoCloud\Manufacturing\Bill_Of_Materials
+@REM call convert_course Produzione\DistintaBase-CL-EN\LaProduzione-CL-EN                                    University_EN\MagoCloud\Manufacturing\Bill_Of_Materials_Production
+@REM call convert_course Produzione\DistintaBase-CL-EN\LaProduzioneDaiDocumentiDiVendita-CL-EN               University_EN\MagoCloud\Manufacturing\Production_Through_Sales_Documents
+@REM call convert_course Produzione\DistintaBase-CL-EN\LeProcedure-CL-EN                                     University_EN\MagoCloud\Manufacturing\Bill_Of_Materials_Procedures
+@REM call convert_course Produzione\DistintaBaseEN\LaDistintaBaseEN                                          University_EN\Mago4\Manufacturing\Bill_Of_Materials
+@REM call convert_course Produzione\DistintaBaseEN\LaProduzioneDaiDocumentiDiVenditaEN                       University_EN\Mago4\Manufacturing\Production_Through_Sales_Documents
+@REM call convert_course Produzione\DistintaBaseEN\LaProduzioneEN                                            University_EN\Mago4\Manufacturing\Bill_Of_Materials_Production
+@REM call convert_course Produzione\DistintaBaseEN\LeProcedureEN                                             University_EN\Mago4\Manufacturing\Bill_Of_Materials_Procedures
 
 
-if exist log.txt (
+if exist errors.log (
     @echo.
     @echo Please check these problems:
-    type log.txt
+    type errors.log
 )

@@ -18,7 +18,7 @@ for %%T in (%DESTINATION%\%2\*.txt) do (
         @powershell -command "gc '%%T' | sc -encoding utf8 '%%~dpnT.sam'" 
         @del "%%T"
     ) else (
-        echo multiple text files in %DESTINATION%\%2 >> log.txt
+        echo multiple text files in %DESTINATION%\%2 >> errors.log
     )
 )
 
@@ -28,7 +28,7 @@ for %%T in (%DESTINATION%\%2\*.sam) do (
     set /a count+=1
 )
 IF %count% GTR 1 (
-    echo multiple text files in %DESTINATION%\%2 >> log.txt
+    echo multiple text files in %DESTINATION%\%2 >> errors.log
 ) else (
     for %%T in (%DESTINATION%\%2\*.sam) do (
         if not exist "%%~dpT%~n2.sam" (
@@ -48,7 +48,7 @@ IF exist "%ORIGIN%\%~1\index.html" (
     )
 ) ELSE (
     IF "%3" NEQ "/M" (
-        echo index.html not found in %ORIGIN%\%~1, assuming new SAM format >> log.txt
+        echo index.html not found in %ORIGIN%\%~1, assuming new SAM format >> errors.log
     )
 )
 

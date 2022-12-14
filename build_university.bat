@@ -1,10 +1,8 @@
 @echo off
 Setlocal EnableDelayedExpansion
 
-@REM set SOURCE=C:\Users\rinaldi\Documents\working\University
-@REM set OUTPUT=C:\Users\rinaldi\Documents\working\output
-set SOURCE=C:\temp\University
-set OUTPUT=C:\temp\output
+set SOURCE=C:\working\courses\University
+set OUTPUT=C:\working\courses\output
 
 @REM Call strLen.cmd %SOURCE% _len
 
