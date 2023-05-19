@@ -1,0 +1,8 @@
+Ciao Andrea,
+mi è venuto in mente come si fa a modificare la favicon.
+
+Devi aggiungere questo testo: [RESOURCES "favicon.png"] nel supersam sotto alle specifiche per le immagini logo e cover.
+Nella cartella dove già ci sono le altre immagini devi salvare la favicon che trovi in allegato.
+
+A disposizione per chiarimenti.
+Laura
