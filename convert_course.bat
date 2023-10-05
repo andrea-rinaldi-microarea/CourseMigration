@@ -24,19 +24,19 @@ ENDLOCAL
 
 SETLOCAL ENABLEDELAYEDEXPANSION
 
-for /r "%ORIGIN%\%~1" /d %%D in (*images*) do (
-    echo "%%~nxD"
-    if "%%~nxD"=="images" (
-        set sourceFolder=%%D
-        goto :CopyFiles
+if "%3" EQU "/F" (
+    for /r "%ORIGIN%\%~1" /d %%D in (*images*) do (
+        echo "%%~nxD"
+        if "%%~nxD"=="images" (
+            set sourceFolder=%%D
+            goto :CopyFiles
+        )
     )
 )
 
 :CopyFiles
 if defined sourceFolder (
     xcopy "%sourceFolder%\*" %DESTINATION%\%2 /S /I /Y /Q
-) else (
-    @REM echo No folder "images" found in %ORIGIN%\%~1.
 )
 
 ENDLOCAL
@@ -83,17 +83,33 @@ IF exist "%ORIGIN%\%~1\index.html" (
         call Set "_migrate=1"
     )
 ) ELSE (
-    @REM recently generated courses has already a subfolder, named as the folder itself, containing the output: index.html is there
-    IF exist "%ORIGIN%\%~1\%~n1\index.html" (
-        @FIND "Supersam" "%ORIGIN%\%~1\%~n1\index.html" >nul
-        IF !ERRORLEVEL! NEQ 0 (
-            call Set "_migrate=1"
+    set txtFileName=""
+    
+    for %%I in ("%ORIGIN%\%~1\*.txt") do ( 
+            set "txtFileName=%%~nI"
+        )
+             
+    if txtFileName NEQ "" (
+        echo "%ORIGIN%\%~1\%txtFileName%"
+        IF exist "%ORIGIN%\%~1\%txtFileName%\index.html" (
+            @FIND "Supersam" "%ORIGIN%\%~1\%txtFileName%\index.html" >nul
+            IF !ERRORLEVEL! NEQ 0 (
+                call Set "_migrate=1"
+            )
         )
     ) ELSE (
-        IF "%3" NEQ "/M" (
-            IF "%3" NEQ "/I" (
-               echo index.html not found in %ORIGIN%\%~1, assuming new SAM format >> errors.log
-             )
+        @REM recently generated courses has already a subfolder, named as the folder itself, containing the output: index.html is there
+        IF exist "%ORIGIN%\%~1\%~n1\index.html" (
+            @FIND "Supersam" "%ORIGIN%\%~1\%~n1\index.html" >nul
+            IF !ERRORLEVEL! NEQ 0 (
+                call Set "_migrate=1"
+            )
+        ) ELSE (
+            IF "%3" NEQ "/M" (
+                IF "%3" NEQ "/I" (
+                echo index.html not found in %ORIGIN%\%~1, assuming new SAM format >> errors.log
+                )
+            )
         )
     )
 )

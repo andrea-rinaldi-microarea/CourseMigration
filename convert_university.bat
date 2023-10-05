@@ -8,8 +8,9 @@ set DESTINATION=C:\working\courses\University
 
 if exist errors.log del errors.log
 
-
 goto:skip1
+
+
 
 call convert_course CGM\CGM                                                                             University_IT\Mago4\Masters\CGM 
 @REM MULTIIPLE TXT
@@ -21,7 +22,10 @@ call convert_course Financial\Anagrafiche_CL                                    
 call convert_course Financial\Anagrafiche_CL_EN                                                         University_EN\MagoCloud\Masters\Masters
 call convert_course Financial\Anagrafiche_CL_RO                                                         University_RO\MagoCloud\Masters\Masters
 call convert_course Financial\AmazonDSP                                                                 University_IT\MagoCloud\Financial\AmazonDSP
-call convert_course Financial\AmazonDSP_DE                                                              University_DE\MagoCloud\Financial\AmazonDSP /I
+:skip1
+call convert_course Financial\AmazonDSP_DE                                                              University_DE\MagoCloud\Financial\AmazonDSP 
+@REM /I guarda su gitkraken le differenze di questa cartella originale
+goto:skip2
 call convert_course Financial\AssestamentiAutomatici                                                    University_IT\Mago4\Financial\AccrualDeferrals
 call convert_course Financial\BilanciConsolidati                                                        University_IT\Mago4\Financial\Multicompany_Balances
 @REM WARNING
@@ -43,7 +47,6 @@ call convert_course Financial\EffettiEMandati_CL_EN                             
 call convert_course Financial\EffettiEMandati_CL_RO                                                     University_RO\MagoCloud\Financial\Bills_and_Payment_Orders
 call convert_course Financial\ElenchiIntrastat                                                          University_IT\Mago4\Financial\Intrastat
 call convert_course Financial\Enasarco                                                                  University_IT\Mago4\Financial\Enasarco
-
 call convert_course Financial\FatturazioneElettronica                                                   University_IT\Mago4\Financial\Electronic_Invoices
 @REM ERROR MISSING MULTIMEDIA FILE IN .SAM
 @REM riferimento sbagliato a file immagine dal file sam
@@ -58,7 +61,7 @@ call convert_course Financial\FatturazioneElettronicaPassiva                    
 call convert_course Financial\FatturazioneElettronicaPassiva_CL                                         University_IT\MagoCloud\MDC\Purchase_Electronic_Invoices
 @REM MULTIIPLE TXT
 
-call convert_course Financial\FatturazioneElettronica_Autofatture                                       University_IT\Mago4\MDC\Self_Electronic_Invoices /I
+call convert_course Financial\FatturazioneElettronica_Autofatture                                       University_IT\Mago4\MDC\Self_Electronic_Invoices 
 call convert_course Financial\FatturazioneElettronica_Integrazioni                                      University_IT\Mago4\MDC\Electronic_Invoices_Integrations
 call convert_course Financial\LocalizzazioniFinancialRomaniaEN                                          University_EN\Mago4\Financial\Romanian_Localizations
 call convert_course Financial\LocalizzazioniFinancialRomaniaRO                                          University_RO\Mago4\Financial\Romanian_Localizations
@@ -132,17 +135,17 @@ call convert_course "Logistics\FormatiUM - EN"                                  
 @REM ERROR MISSING MULTIMEDIA FILE IN .SAM
 @REM immagini in C:\eLearning4\eLearning4\courses\Logistics\FormatiUM - EN\formatium -en\images
 
+
 call convert_course Logistics\GestioneVouchers-EN                                                       University_EN\Mago4\Retail\Vouchers
 @REM ERROR MISSING MULTIMEDIA FILE IN .SAM
 @REM immagini in C:\eLearning4\eLearning4\courses\Logistics\GestioneVouchers-EN\gestionevouchers\images
 
 call convert_course Logistics\GliArticoliEquivalenti                                                    University_IT\Mago4\Logistics\Substitute_Items
 
-:skip1
 call convert_course Logistics\GliArticoliEquivalenti-CL-IT                                              University_IT\MagoCloud\Logistics\Substitute_Items
 @REM ERROR MISSING MULTIMEDIA FILE IN .SAM
 @REM immagini in C:\eLearning4\eLearning4\courses\Logistics\GliArticoliEquivalenti-CL-IT\gliarticoliequivalenti-cl-it\images
-goto:skip2
+@REM i riferimenti alle immagini sono a questa sottocartella gliarticoliequivalenti-cl-it\images che pero in fase di conversione non viene copiata 
 
 call convert_course Logistics\GliArticoliEquivalenti-CL-EN                                              University_EN\MagoCloud\Logistics\Substitute_Items
 @REM ERROR MISSING MULTIMEDIA FILE IN .SAM
