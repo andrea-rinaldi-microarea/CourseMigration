@@ -1,9 +1,45 @@
 @echo off
 
+chcp 65001 > nul
+
 @REM copy only useful files from the original folder
 @echo Converting %1 ...
 @del /S /Q %DESTINATION%\%2 >nul 2>&1
 @xcopy "%ORIGIN%\%~1" %DESTINATION%\%2 /S /I /Y /Q /EXCLUDE:nomove.txt > nul
+
+SETLOCAL ENABLEDELAYEDEXPANSION
+
+set special_characters='
+
+@REM adjust all name files to remove some characters
+for %%F in (%DESTINATION%\%2\*.*) do (
+    set "filename=%%~nF"
+    for %%C in (%special_characters%) do (
+        set "filename=!filename:%%C=_!"
+    )
+    @ren "%%F" "!filename!%%~xF"
+)
+
+ENDLOCAL
+
+SETLOCAL ENABLEDELAYEDEXPANSION
+
+for /r "%ORIGIN%\%~1" /d %%D in (*images*) do (
+    echo "%%~nxD"
+    if "%%~nxD"=="images" (
+        set sourceFolder=%%D
+        goto :CopyFiles
+    )
+)
+
+:CopyFiles
+if defined sourceFolder (
+    xcopy "%sourceFolder%\*" %DESTINATION%\%2 /S /I /Y /Q
+) else (
+    @REM echo No folder "images" found in %ORIGIN%\%~1.
+)
+
+ENDLOCAL
 
 @REM adjust encoding on .sam files
 for %%T in (%DESTINATION%\%2\*.sam) do (
@@ -55,7 +91,9 @@ IF exist "%ORIGIN%\%~1\index.html" (
         )
     ) ELSE (
         IF "%3" NEQ "/M" (
-            echo index.html not found in %ORIGIN%\%~1, assuming new SAM format >> errors.log
+            IF "%3" NEQ "/I" (
+               echo index.html not found in %ORIGIN%\%~1, assuming new SAM format >> errors.log
+             )
         )
     )
 )

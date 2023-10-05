@@ -1,7 +1,7 @@
-@echo off
 Setlocal EnableDelayedExpansion
 
-set SUPERSAM="C:\Program Files\Zucchetti Supersam\supersam.exe"
+@REM set SUPERSAM="C:\Program Files\Zucchetti Supersam\supersam.exe"
+set SUPERSAM="C:\Program Files (x86)\Zucchetti Supersam\supersam.exe"
 IF NOT DEFINED SOURCE set SOURCE=C:\working\courses\University
 IF NOT DEFINED OUTPUT set OUTPUT=C:\working\courses\output
 
