@@ -8,12 +8,84 @@ set DESTINATION=C:\working\courses\University
 
 if exist errors.log del errors.log
 
-goto:skip1
 
+@REM DEBUG
+set "folderPath=C:\working\courses"
+if exist "%folderPath%\University" (
+    rmdir /s /q "%folderPath%\University"
+)
+if exist "%folderPath%\output" (
+    rmdir /s /q "%folderPath%\output"
+)
 
+mkdir "%folderPath%\University"
+mkdir "%folderPath%\output"
 
+call convert_course Logistics\UscitaMerceWMS                                                            University_IT\MagoCloud\Logistics\Goods_Exit
+@REM CHIEDERE NOME ESATTO
+
+call convert_course Financial\BilanciConsolidati                                                        University_IT\Mago4\Financial\Multicompany_Balances
+@REM WARNING
+call convert_course Financial\Percipienti                                                               University_IT\Mago4\Financial\Payees
+@REM WARNING
+
+call convert_course Financial\FatturazioneElettronicaPassiva                                            University_IT\Mago4\MDC\Purchase_Electronic_Invoices /M
+@REM MULTIPLE TXT
 call convert_course CGM\CGM                                                                             University_IT\Mago4\Masters\CGM 
-@REM MULTIIPLE TXT
+@REM MULTIPLE TXT
+call convert_course Financial\FatturazioneElettronicaPassiva_CL                                         University_IT\MagoCloud\MDC\Purchase_Electronic_Invoices
+@REM MULTIPLE TXT
+call convert_course "Logistics\Articoli e relativi dati anagrafici"                                     University_IT\Mago4\Logistics\Items_Master_Data
+@REM MULTIPLE TXT
+call convert_course "Logistics\Articoli e relativi dati anagrafici-CL"                                  University_IT\MagoCloud\Logistics\Items_Master_Data
+@REM MULTIPLE TXT
+
+call convert_course "Logistics\Articoli e relativi dati anagrafici - EN"                                University_EN\Mago4\Logistics\Items_Master_Data
+@REM MULTIPLE TXT
+@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
+call convert_course Logistics\GuidaPerIniziareLaGestioneWMS                                             University_IT\Mago4\Logisitics\Wms_Starting_Guide
+@REM MULTIPLE TXT
+@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
+
+call convert_course Financial\FatturazioneElettronica                                                   University_IT\Mago4\Financial\Electronic_Invoices /F
+@REM riferimento sbagliato a file immagine dal file sam OPDigitalHubDettaglioAccessoallAzienda.png
+call convert_course Financial\FatturazioneElettronicaAttiva                                             University_IT\Mago4\Financial\Sales_Electronic_Invoices
+@REM riferimento sbagliato a file immagine dal file sam OPDigitalHubDettaglioAccessoallAzienda.png
+
+call convert_course Logistics\GliArticoliEquivalenti-CL-EN                                              University_EN\MagoCloud\Logistics\Substitute_Items
+@REM immagini non esistenti
+call convert_course Logistics\LaGestioneVarianti                                                        University_IT\Mago4\Logistics\Variants_Management /F
+@REM immagini non esistenti
+call convert_course Logistics\Barcode-CL-EN                                                             University_EN\MagoCloud\Logistics\Barcode /F
+@REM immagini non esistenti
+
+call convert_course Logistics\FatturazioneElettronicaPassivaAvanzata                                    University_IT\Mago4\MDC\Advanced_Purchase_Electronic_Invoices
+@REM doppioni
+call convert_course Logistics\FatturazioneElettronicaPassivaAvanzataNEW                                 University_IT\Mago4\MDC\Advanced_Purchase_Electronic_Invoices
+@REM doppioni
+
+call convert_course Logistics\GliArticoliEquivalenti-CL-IT                                              University_IT\MagoCloud\Logistics\Substitute_Items 
+@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
+@REM immagini in C:\eLearning4\eLearning4\courses\Logistics\GliArticoliEquivalenti-CL-IT\gliarticoliequivalenti-cl-it\images
+@REM i riferimenti nel file sam hanno \images davanti al nome dell immagine 
+call convert_course Logistics\IDocumentiDelCicloAttivo-CL-IT                                            University_IT\MagoCloud\Sales\Sale_Documents /F
+@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
+@REM immagini in C:\eLearning4\eLearning4\courses\Logistics\IDocumentiDelCicloAttivo-CL-IT\Images
+@REM i riferimenti nel file sam hanno \images davanti al nome dell immagine
+call convert_course Logistics\LAnagraficaAgenti-CL-IT                                                   University_IT\MagoCloud\Sales\Salespeople_Master /F
+@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
+@REM immagini in C:\eLearning4\eLearning4\courses\Logistics\LAnagraficaAgenti-CL-IT\Images
+@REM i riferimenti nel file sam hanno \images davanti al nome dell immagine
+call convert_course Logistics\LeUnitaDiMisura-CL-IT                                                     University_IT\MagoCloud\Logistics\Units_Of_Measure /F
+@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
+@REM immagini in C:\eLearning4\eLearning4\courses\Logistics\LeUnitaDiMisura-CL-IT\Images
+@REM i riferimenti nel file sam hanno \images davanti al nome dell immagine
+call convert_course Logistics\PrezziEScontiNelCicloAttivo-CL-IT                                         University_IT\MagoCloud\Sales\Price_Discount_Polices /F
+@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
+@REM immagini in C:\eLearning4\eLearning4\courses\Logistics\PrezziEScontiNelCicloAttivo-CL-IT\Images
+@REM i riferimenti nel file sam hanno \images davanti al nome dell immagine
+
+goto:skip2
 call convert_course CGM\CGM_EN                                                                          University_EN\Mago4\Masters\CGM 
 call convert_course Financial\Anagrafiche                                                               University_IT\Mago4\Masters\Masters
 call convert_course Financial\AnagraficheEN                                                             University_EN\Mago4\Masters\Masters
@@ -22,13 +94,8 @@ call convert_course Financial\Anagrafiche_CL                                    
 call convert_course Financial\Anagrafiche_CL_EN                                                         University_EN\MagoCloud\Masters\Masters
 call convert_course Financial\Anagrafiche_CL_RO                                                         University_RO\MagoCloud\Masters\Masters
 call convert_course Financial\AmazonDSP                                                                 University_IT\MagoCloud\Financial\AmazonDSP
-:skip1
-call convert_course Financial\AmazonDSP_DE                                                              University_DE\MagoCloud\Financial\AmazonDSP 
-@REM /I guarda su gitkraken le differenze di questa cartella originale
-goto:skip2
+call convert_course Financial\AmazonDSP_DE                                                              University_DE\MagoCloud\Financial\AmazonDSP /I
 call convert_course Financial\AssestamentiAutomatici                                                    University_IT\Mago4\Financial\AccrualDeferrals
-call convert_course Financial\BilanciConsolidati                                                        University_IT\Mago4\Financial\Multicompany_Balances
-@REM WARNING
 call convert_course Financial\CespitiAmmortamenti                                                       University_IT\Mago4\Financial\Fixed_Assets_Depreciations
 call convert_course Financial\CespitiAnagrafiche                                                        University_IT\Mago4\Financial\Fixed_Assets_Masters
 call convert_course Financial\CespitiDismissioni                                                        University_IT\Mago4\Financial\Fixed_Assets_Disposal
@@ -47,21 +114,7 @@ call convert_course Financial\EffettiEMandati_CL_EN                             
 call convert_course Financial\EffettiEMandati_CL_RO                                                     University_RO\MagoCloud\Financial\Bills_and_Payment_Orders
 call convert_course Financial\ElenchiIntrastat                                                          University_IT\Mago4\Financial\Intrastat
 call convert_course Financial\Enasarco                                                                  University_IT\Mago4\Financial\Enasarco
-call convert_course Financial\FatturazioneElettronica                                                   University_IT\Mago4\Financial\Electronic_Invoices
-@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
-@REM riferimento sbagliato a file immagine dal file sam
-
-call convert_course Financial\FatturazioneElettronicaAttiva                                             University_IT\Mago4\Financial\Sales_Electronic_Invoices
-@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
-@REM riferimento sbagliato a file immagine dal file sam
-
 call convert_course Financial\FatturazioneElettronicaAttiva_CL                                          University_IT\MagoCloud\Financial\Sales_Electronic_Invoices
-call convert_course Financial\FatturazioneElettronicaPassiva                                            University_IT\Mago4\MDC\Purchase_Electronic_Invoices /M
-
-call convert_course Financial\FatturazioneElettronicaPassiva_CL                                         University_IT\MagoCloud\MDC\Purchase_Electronic_Invoices
-@REM MULTIIPLE TXT
-
-call convert_course Financial\FatturazioneElettronica_Autofatture                                       University_IT\Mago4\MDC\Self_Electronic_Invoices 
 call convert_course Financial\FatturazioneElettronica_Integrazioni                                      University_IT\Mago4\MDC\Electronic_Invoices_Integrations
 call convert_course Financial\LocalizzazioniFinancialRomaniaEN                                          University_EN\Mago4\Financial\Romanian_Localizations
 call convert_course Financial\LocalizzazioniFinancialRomaniaRO                                          University_RO\Mago4\Financial\Romanian_Localizations
@@ -77,16 +130,13 @@ call convert_course Financial\PartiteRO                                         
 call convert_course Financial\Partite_CL                                                                University_IT\MagoCloud\Financial\AP_AR
 call convert_course Financial\Partite_CL_EN                                                             University_EN\MagoCloud\Financial\AP_AR
 call convert_course Financial\Partite_CL_RO                                                             University_RO\MagoCloud\Financial\AP_AR
-
-call convert_course Financial\Percipienti                                                               University_IT\Mago4\Financial\Payees
-@REM WARNING
-
 call convert_course Financial\StampeFiscali                                                             University_IT\Mago4\Financial\Fiscal_Printouts
 call convert_course Financial\StampeFiscaliEN                                                           University_EN\Mago4\Financial\Fiscal_Printouts
 call convert_course Financial\StampeFiscaliRO                                                           University_RO\Mago4\Financial\Fiscal_Printouts
 call convert_course Financial\StampeFiscali_CL                                                          University_IT\MagoCloud\Financial\Fiscal_Printouts
 call convert_course Financial\StampeFiscali_CL_EN                                                       University_EN\MagoCloud\Financial\Fiscal_Printouts
 call convert_course Financial\StampeFiscali_CL_RO                                                       University_RO\MagoCloud\Financial\Fiscal_Printouts
+call convert_course Financial\FatturazioneElettronica_Autofatture                                       University_IT\Mago4\MDC\Self_Electronic_Invoices /I
 call convert_course IMago\Gadget                                                                        University_IT\Mago4\CRM\Gadget
 call convert_course IMago\InstallazioneComponenti                                                       University_IT\Mago4\CRM\Components_Installation
 call convert_course IMago\Posta                                                                         University_IT\Mago4\CRM\Mail
@@ -95,32 +145,17 @@ call convert_course IMago\ProcessoDiValidazione                                 
 call convert_course IMago\SincroInfMago                                                                 University_IT\Mago4\CRM\Infinity_Mago_Synchronization
 call convert_course IMago\SsoMappatura                                                                  University_IT\Mago4\CRM\Mapping_SSO
 call convert_course IMago\WizardDiConfigurazione                                                        University_IT\Mago4\CRM\Configuration_Wizard
-
-call convert_course "Logistics\Articoli e relativi dati anagrafici"                                     University_IT\Mago4\Logistics\Items_Master_Data
-@REM MULTIIPLE TXT
-
-call convert_course "Logistics\Articoli e relativi dati anagrafici - EN"                                University_EN\Mago4\Logistics\Items_Master_Data
-@REM MULTIIPLE TXT
-@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
-
-call convert_course "Logistics\Articoli e relativi dati anagrafici-CL"                                  University_IT\MagoCloud\Logistics\Items_Master_Data
-@REM MULTIIPLE TXT
-
 call convert_course Logistics\ArticoliAcquisizione-EN                                                   University_IT\MagoCloud\Logistics\Acquisition_Item
 call convert_course "Logistics\ArticoliERelativiDatiAnagrafici-CL EN"                                   University_EN\MagoCloud\Logistics\Items_Master_Data
 call convert_course Logistics\ArticoliERelativiDatiAnagrafici-CL-RO                                     University_RO\MagoCloud\Logistics\Items_Master_Data
-call convert_course Logistics\Barcode-CL-EN                                                             University_EN\MagoCloud\Logistics\Barcode
 call convert_course Logistics\Barcode-EN                                                                University_EN\Mago4\Logistics\Barcode
 call convert_course "Logistics\CodiceParlante - CL - EN"                                                University_EN\MagoCloud\Logistics\Smart_Codes
 call convert_course Logistics\CodiceParlante-CL-RO                                                      University_RO\MagoCloud\Logistics\Smart_Codes
 call convert_course Logistics\ComeTrasferireMerceTraPV-EN                                               University_EN\MagoCloud\Logistics\Transfer_Between_Shops
 call convert_course Logistics\ConfigurazioneInizialeMagoKonaKart                                        University_IT\MagoCloud\Logistics\Konakart_Setup
 call convert_course Logistics\ConfigurazioneInizialeMagoKonaKart_ENG                                    University_EN\MagoCloud\Logistics\Konakart_Setup
-
-call convert_course Logistics\Convenzioni-EN                                                            University_EN\Mago4\Retail\Subsidies
-@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
+call convert_course Logistics\Convenzioni-EN                                                            University_EN\Mago4\Retail\Subsidies /F
 @REM immagini in C:\eLearning4\eLearning4\courses\Logistics\Convenzioni-EN\subsidy_last\images
-
 call convert_course Logistics\DatiAlimentari-EN                                                         University_EN\MagoCloud\Logistics\Alimentary_Data
 call convert_course Logistics\DESADV-EN                                                                 University_EN\MagoCloud\Logistics\DESADV
 call convert_course Logistics\EDI-EN                                                                    University_EN\MagoCloud\Logistics\EDI
@@ -128,35 +163,12 @@ call convert_course Logistics\EtichettePrezzoVendita-EN                         
 call convert_course Logistics\EvasioneInterattivaOrdiniCliente                                          University_IT\Mago4\Sales\Sale_Orders_Fulfillment
 call convert_course Logistics\EvasioneInterattivaOrdiniCliente-CL-IT                                    University_IT\MagoCloud\Sales\Sale_Orders_Fulfillment
 call convert_course Logistics\FatturazioneElettronicaGestioneAsincrona                                  University_IT\Mago4\MDC\Asynchronous_Electronic_Invoices
-call convert_course Logistics\FatturazioneElettronicaPassivaAvanzata                                    University_IT\Mago4\MDC\Advanced_Purchase_Electronic_Invoices
-call convert_course Logistics\FatturazioneElettronicaPassivaAvanzataNEW                                 University_IT\Mago4\MDC\Advanced_Purchase_Electronic_Invoices
-
-call convert_course "Logistics\FormatiUM - EN"                                                          University_EN\Mago4\Retail\UoM_Sizes
-@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
+call convert_course "Logistics\FormatiUM - EN"                                                          University_EN\Mago4\Retail\UoM_Sizes /F
 @REM immagini in C:\eLearning4\eLearning4\courses\Logistics\FormatiUM - EN\formatium -en\images
-
-
-call convert_course Logistics\GestioneVouchers-EN                                                       University_EN\Mago4\Retail\Vouchers
-@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
+call convert_course Logistics\GestioneVouchers-EN                                                       University_EN\Mago4\Retail\Vouchers /F
 @REM immagini in C:\eLearning4\eLearning4\courses\Logistics\GestioneVouchers-EN\gestionevouchers\images
-
 call convert_course Logistics\GliArticoliEquivalenti                                                    University_IT\Mago4\Logistics\Substitute_Items
-
-call convert_course Logistics\GliArticoliEquivalenti-CL-IT                                              University_IT\MagoCloud\Logistics\Substitute_Items
-@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
-@REM immagini in C:\eLearning4\eLearning4\courses\Logistics\GliArticoliEquivalenti-CL-IT\gliarticoliequivalenti-cl-it\images
-@REM i riferimenti alle immagini sono a questa sottocartella gliarticoliequivalenti-cl-it\images che pero in fase di conversione non viene copiata 
-
-call convert_course Logistics\GliArticoliEquivalenti-CL-EN                                              University_EN\MagoCloud\Logistics\Substitute_Items
-@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
-@REM mancano le immagini
-
 call convert_course Logistics\GliArticoliEquivalenti-EN                                                 University_EN\Mago4\Logistics\Substitute_Items
-
-call convert_course Logistics\GuidaPerIniziareLaGestioneWMS                                             University_IT\Mago4\Logisitics\Wms_Starting_Guide
-@REM MULTIIPLE TXT
-@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
-
 call convert_course Logistics\GuidaPerIniziareLaGestioneWMS_EN                                          University_EN\Mago4\Logisitics\Wms_Starting_Guide
 call convert_course Logistics\IDatiClienteArticoloFornitoreArticolo                                     University_IT\Mago4\Logistics\Item_Customers_Suppliers
 call convert_course Logistics\IDatiClienteArticoloFornitoreArticolo-CL-EN                               University_EN\MagoCloud\Logistics\Item_Customers_Suppliers
@@ -164,11 +176,6 @@ call convert_course Logistics\IDatiClienteArticoloFornitoreArticolo-CL-RO       
 call convert_course Logistics\IDatiClienteArticoloFornitoreArticolo-EN                                  University_EN\Mago4\Logistics\Item_Customers_Suppliers
 call convert_course Logistics\IDocumentiDelCicloAttivo                                                  University_IT\Mago4\Sales\Sale_Documents
 call convert_course Logistics\IDocumentiDelCicloAttivo-CL-EN                                            University_EN\MagoCloud\Sales\Sale_Documents
-
-call convert_course Logistics\IDocumentiDelCicloAttivo-CL-IT                                            University_IT\MagoCloud\Sales\Sale_Documents
-@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
-@REM immagini in C:\eLearning4\eLearning4\courses\Logistics\IDocumentiDelCicloAttivo-CL-IT\Images
-
 call convert_course Logistics\IDocumentiDelCicloAttivo-CL-RO                                            University_RO\MagoCloud\Sales\Sale_Documents
 call convert_course Logistics\IDocumentiDelCicloAttivo-EN                                               University_EN\Mago4\Sales\Sale_Documents
 call convert_course Logistics\IDocumentiDelCicloPassivo                                                 University_IT\Mago4\Purchases\Purchase_Documents
@@ -197,20 +204,12 @@ call convert_course Logistics\IntroduzioneMagoCloudRO                           
 call convert_course Logistics\KKPrimoAvvio                                                              University_IT\Mago4\Retail\KonaKart_Getting_Started
 call convert_course Logistics\KKPrimoAvvio-EN                                                           University_EN\Mago4\Retail\KonaKart_Getting_Started
 call convert_course Logistics\LAnagraficaAgenti                                                         University_IT\Mago4\Sales\Salespeople_Master
-
-call convert_course Logistics\LAnagraficaAgenti-CL-IT                                                   University_IT\MagoCloud\Sales\Salespeople_Master
-@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
-@REM immagini in C:\eLearning4\eLearning4\courses\Logistics\LAnagraficaAgenti-CL-IT\Images
-
 call convert_course Logistics\LAnagraficaAgenti-CL-EN                                                   University_EN\MagoCloud\Sales\Salespeople_Master
 call convert_course Logistics\LOffertaACliente                                                          University_IT\Mago4\Sales\Customer_Quotation
 call convert_course Logistics\LOffertaACliente-CL-IT                                                    University_IT\MagoCloud\Sales\Customer_Quotation
 call convert_course Logistics\LOrdineDaCliente                                                          University_IT\Mago4\Sales\Sales_Order
-
-call convert_course Logistics\LOrdineDaCliente-CL                                                       University_IT\MagoCloud\Sales\Sales_Order
-@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
+call convert_course Logistics\LOrdineDaCliente-CL                                                       University_IT\MagoCloud\Sales\Sales_Order /F
 @REM immagini in C:\eLearning4\eLearning4\courses\Logistics\LOrdineDaCliente-CL\lordinedacliente_cl\images
-
 call convert_course Logistics\LOrdineDaCliente-CL-EN                                                    University_EN\MagoCloud\Sales\Sales_Order
 call convert_course Logistics\LOrdineDaCliente-EN                                                       University_EN\Mago4\Sales\Sales_Order
 call convert_course Logistics\LaChiusuraDiMagazzino                                                     University_IT\Mago4\Logistics\Inventory_Closing
@@ -232,27 +231,16 @@ call convert_course Logistics\LaFatturazioneDifferitaDDT-CL-RO                  
 call convert_course Logistics\LaFatturazioneDifferitaDDT-EN                                             University_EN\Mago4\Sales\Delivery_Notes_Deferred_Invoicing
 call convert_course Logistics\LaGestioneDeiLotti                                                        University_IT\Mago4\Logistics\Lots_Management
 call convert_course Logistics\LaGestioneDeiLotti-CL-EN                                                  University_EN\MagoCloud\Logistics\Lots_Management
-
-call convert_course Logistics\LaGestioneDeiLotti-CL-IT                                                  University_IT\MagoCloud\Logistics\Lots_Management
-@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
+call convert_course Logistics\LaGestioneDeiLotti-CL-IT                                                  University_IT\MagoCloud\Logistics\Lots_Management /F
 @REM immagini in C:\eLearning4\eLearning4\courses\Logistics\LaGestioneDeiLotti-CL-IT\lagestionedeilotti-cl-it\images
-
 call convert_course Logistics\LaGestioneDeiLotti-CL-RO                                                  University_RO\MagoCloud\Logistics\Lots_Management
 call convert_course Logistics\LaGestioneDeiLotti-EN                                                     University_EN\Mago4\Logistics\Lots_Management
 call convert_course Logistics\LaGestioneMatricole                                                       University_IT\Mago4\Logistics\Serial_Number_Management
-
-call convert_course Logistics\LaGestioneVarianti                                                        University_IT\Mago4\Logistics\Variants_Management
-@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
-@REM immagini in C:\eLearning4\eLearning4\courses\Logistics\LaGestioneVarianti\lagestionevarianti\images
-
 call convert_course Logistics\LaGestioneVarianti-EN                                                     University_EN\Mago4\Logistics\Variants_Management
 call convert_course Logistics\LaManutenzioneDeiMovimenti                                                University_IT\Mago4\Logistics\Inventory_Entries_Maintenance
 call convert_course Logistics\LaManutenzioneDeiMovimenti-CL-EN                                          University_EN\MagoCloud\Logistics\Inventory_Entries_Maintenance
-
-call convert_course Logistics\LaManutenzioneDeiMovimenti-CL-IT                                          University_IT\MagoCloud\Logistics\Inventory_Entries_Maintenance
-@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
+call convert_course Logistics\LaManutenzioneDeiMovimenti-CL-IT                                          University_IT\MagoCloud\Logistics\Inventory_Entries_Maintenance /F
 @REM immagini in C:\eLearning4\eLearning4\courses\Logistics\LaManutenzioneDeiMovimenti-CL-IT\lamanutezionedeimovimenti_cl_it\images
-
 call convert_course Logistics\LaManutenzioneDeiMovimenti-CL-RO                                          University_RO\MagoCloud\Logistics\Inventory_Entries_Maintenance
 call convert_course Logistics\LaManutenzioneDeiMovimenti-EN                                             University_EN\Mago4\Logistics\Inventory_Entries_Maintenance
 call convert_course Logistics\LaMovimentazioneDeiLotti                                                  University_IT\Mago4\Logistics\Lots_In_Documents
@@ -266,28 +254,17 @@ call convert_course Logistics\LeProcedureAutomatichedeiLotti-CL-IT              
 call convert_course Logistics\LeProcedureAutomatiche                                                    University_IT\Mago4\Logistics\Lots_Automatic_Procedures
 call convert_course Logistics\LeProcedureAutomatiche-EN                                                 University_EN\Mago4\Logistics\Lots_Automatic_Procedures
 call convert_course Logistics\LeProcedureStampaRegistra                                                 University_IT\Mago4\Sales\Print_And_Post_Procedures
-
-call convert_course Logistics\LeProcedureStampaRegistra-CL-IT                                           University_IT\MagoCloud\Sales\Print_And_Post_Procedures
-@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
+call convert_course Logistics\LeProcedureStampaRegistra-CL-IT                                           University_IT\MagoCloud\Sales\Print_And_Post_Procedures /F
 @REM immagini in C:\eLearning4\eLearning4\courses\Logistics\LeProcedureStampaRegistra-CL-IT\leprocedurestamparegistra-cl-it\images
-
 call convert_course Logistics\LeProcedureStampaRegistra-CL-EN                                           University_EN\MagoCloud\Sales\Print_And_Post_Procedures
 call convert_course Logistics\LeProcedureStampaRegistra-Rev02                                           University_IT\Mago4\Sales\Print_And_Post_Procedures
 call convert_course Logistics\LeProvvigioniNeiDocumentiDelCicloAttivo                                   University_IT\Mago4\Sales\Commissions_In_Sale_Documents
 call convert_course Logistics\LeUnitaDiMisura                                                           University_IT\Mago4\Logistics\Units_Of_Measure
 call convert_course Logistics\LeUnitaDiMisura-CL-EN                                                     University_EN\MagoCloud\Logistics\Units_Of_Measure
-
-call convert_course Logistics\LeUnitaDiMisura-CL-IT                                                     University_IT\MagoCloud\Logistics\Units_Of_Measure
-@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
-@REM immagini in C:\eLearning4\eLearning4\courses\Logistics\LeUnitaDiMisura-CL-IT\Images
-
 call convert_course Logistics\LeUnitaDiMisura-CL-RO                                                     University_RO\MagoCloud\Logistics\Units_Of_Measure
 call convert_course Logistics\LeUnitaDiMisura-EN                                                        University_EN\Mago4\Logistics\Units_Of_Measure
-
-call convert_course Logistics\MovimentiDiCassa-EN                                                       University_EN\Mago4\Retail\Cash_Transaction
-@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
+call convert_course Logistics\MovimentiDiCassa-EN                                                       University_EN\Mago4\Retail\Cash_Transaction /F
 @REM immagini in C:\eLearning4\eLearning4\courses\Logistics\MovimentiDiCassa-EN\movimentidicassa-en\images
-
 call convert_course Logistics\MovimentiDiMagazzino                                                      University_IT\Mago4\Logistics\Inventory_Entries
 call convert_course Logistics\MovimentiDiMagazzino-CL                                                   University_IT\MagoCloud\Logistics\Inventory_Entries
 call convert_course Logistics\MovimentiDiMagazzino-CL-EN                                                University_EN\MagoCloud\Logistics\Inventory_Entries
@@ -296,11 +273,6 @@ call convert_course Logistics\MovimentiDiMagazzino-EN                           
 call convert_course Logistics\PosizionamentoDirettoWMS-EN                                               University_EN\Mago4\Logistics\Good_Receipt_Direct_Putaway_Wms
 call convert_course Logistics\PrezziEScontiNelCicloAttivo                                               University_IT\Mago4\Sales\Price_Discount_Polices
 call convert_course Logistics\PrezziEScontiNelCicloAttivo-CL-EN                                         University_EN\MagoCloud\Sales\Price_Discount_Polices
-
-call convert_course Logistics\PrezziEScontiNelCicloAttivo-CL-IT                                         University_IT\MagoCloud\Sales\Price_Discount_Polices
-@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
-@REM immaginin in C:\eLearning4\eLearning4\courses\Logistics\PrezziEScontiNelCicloAttivo-CL-IT\Images
-
 call convert_course Logistics\PrezziEScontiNelCicloAttivo-CL-RO                                         University_RO\MagoCloud\Sales\Price_Discount_Polices
 call convert_course Logistics\PrezziEScontiNelCicloAttivo-EN                                            University_EN\Mago4\Sales\Price_Discount_Polices
 call convert_course Logistics\ProduttoriCategorieeTipi                                                  University_IT\Mago4\Logistics\Manufacturers_Categories_Types
@@ -315,26 +287,14 @@ call convert_course Logistics\Scontrini-EN                                      
 call convert_course Logistics\TCPOSPrimoAvvio                                                           University_IT\Mago4\Retail\TCPOS_Getting_Started
 call convert_course Logistics\TCPOSPrimoAvvio-EN                                                        University_EN\Mago4\Retail\TCPOS_Getting_Started
 call convert_course Logistics\TransazioniDiCassa-EN                                                     University_EN\MagoCloud\Retail\Cash_Transaction
-
-call convert_course "Logistics\Transferimenti Tra Punti Vendita"                                        University_IT\Mago4\Retail\InterStore_Movement_Documents
-@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
+call convert_course "Logistics\Transferimenti Tra Punti Vendita"                                        University_IT\Mago4\Retail\InterStore_Movement_Documents /F
 @REM immagini in C:\eLearning4\eLearning4\courses\Logistics\Transferimenti Tra Punti Vendita\transferimenti tra punti vendita\Images
-
-call convert_course "Logistics\Transferimenti Tra Punti Vendita -EN"                                    University_EN\Mago4\Retail\InterStore_Movement_Documents
-@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
+call convert_course "Logistics\Transferimenti Tra Punti Vendita -EN"                                    University_EN\Mago4\Retail\InterStore_Movement_Documents /F
 @REM immagini in C:\eLearning4\eLearning4\courses\Logistics\Transferimenti Tra Punti Vendita -EN\transferimenti tra punti vendita -en\images
-
-call convert_course Logistics\UscitaMerceWMS                                                            University_IT\MagoCloud\Logistics\Goods_Exit
-@REM CHIEDERE NOME ESATTO
-
-call convert_course "Logistics\VisibilitàTCPOS"                                                         University_IT\Mago4\Retail\TCPOS_Visibility
-@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
+call convert_course "Logistics\VisibilitàTCPOS"                                                         University_IT\Mago4\Retail\TCPOS_Visibility /F
 @REM immagini in C:\eLearning4\eLearning4\courses\Logistics\VisibilitàTCPOS\visibilitàtcpos\Images
-
-call convert_course "Logistics\VisibilitàTCPOS-EN"                                                      University_EN\Mago4\Retail\TCPOS_Visibility
-@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
+call convert_course "Logistics\VisibilitàTCPOS-EN"                                                      University_EN\Mago4\Retail\TCPOS_Visibility /F
 @REM immagini in C:\eLearning4\eLearning4\courses\Logistics\VisibilitàTCPOS-EN\visibilitàtcpos -en\images
-
 call convert_course MigrazioneMago4\MigrazioneMago4                                                     University_IT\Mago4\TB_Studio\Mago4_Migration
 call convert_course MyMagoStudio\MMS_For_Power_User                                                     University_IT\Mago4\TB_Studio\MMS_For_Power_User
 call convert_course Produzione\Configuratore                                                            University_IT\Mago4\Manufacturing\Configurator
@@ -389,11 +349,8 @@ call convert_course Produzione\ProduzioneAvanzataEN\ProduzioneAvanzataLaGestione
 call convert_course Produzione\ProduzioneAvanzataEN\ProduzioneAvanzataLaProduzioneEN                    University_EN\Mago4\Manufacturing\Adv_Prod_Materials_Production
 call convert_course Produzione\ProduzioneAvanzataEN\ProduzioneAvanzataLeProcedureDiProduzioneEN         University_EN\Mago4\Manufacturing\Adv_Prod_Materials_Procedures
 call convert_course "Produzione\ProduzioneBase - CL\ProduzioneBaseLaDistintaBase-CL"                    University_IT\MagoCloud\Manufacturing\Base_Prod_Bill_Of_Materials
-
-call convert_course Produzione\ProduzioneBase-CL-EN\ProduzioneBaseIlContoLavoro-CL-EN                   University_EN\MagoCloud\Manufacturing\Base_Prod_Subcontracting
-@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
+call convert_course Produzione\ProduzioneBase-CL-EN\ProduzioneBaseIlContoLavoro-CL-EN                   University_EN\MagoCloud\Manufacturing\Base_Prod_Subcontracting /F
 @REM immagini in C:\eLearning4\eLearning4\courses\Produzione\ProduzioneBase-CL-EN\ProduzioneBaseIlContoLavoro-CL-EN\produzionebaseilcontolavoro-cl-en\images
-
 call convert_course Produzione\ProduzioneBase-CL-EN\ProduzioneBaseLaDistintaBase-CL-EN                  University_EN\MagoCloud\Manufacturing\Base_Prod_Bill_Of_Materials
 call convert_course Produzione\ProduzioneBase-CL-EN\ProduzioneBaseLaPianificazioneProduzione-CL-EN      University_EN\MagoCloud\Manufacturing\Base_Prod_Planning
 call convert_course Produzione\ProduzioneBase-CL-EN\ProduzioneBaseLaProduzione-CL-EN                    University_EN\MagoCloud\Manufacturing\Base_Production

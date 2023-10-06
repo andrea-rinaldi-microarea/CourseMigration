@@ -26,8 +26,16 @@ SETLOCAL ENABLEDELAYEDEXPANSION
 
 if "%3" EQU "/F" (
     for /r "%ORIGIN%\%~1" /d %%D in (*images*) do (
-        echo "%%~nxD"
         if "%%~nxD"=="images" (
+            set sourceFolder=%%D
+            goto :CopyFiles
+        )
+    )
+)
+
+if "%3" EQU "/F" (
+    for /r "%ORIGIN%\%~1" /d %%D in (*Images*) do (
+        if "%%~nxD"=="Images" (
             set sourceFolder=%%D
             goto :CopyFiles
         )
@@ -36,7 +44,7 @@ if "%3" EQU "/F" (
 
 :CopyFiles
 if defined sourceFolder (
-    xcopy "%sourceFolder%\*" %DESTINATION%\%2 /S /I /Y /Q
+    xcopy "%sourceFolder%\*" %DESTINATION%\%2 /S /I /Y /Q > nul
 )
 
 ENDLOCAL
@@ -77,27 +85,13 @@ Setlocal EnableDelayedExpansion
 Set "_migrate="
 @REM migrate old SAM format. To detect it, look into index.html for a "supersam" string: if not found, it is in the old format
 :: If no index.html is present (and no /M option used), the output was not yet generated, assume is in the new format
+
 IF exist "%ORIGIN%\%~1\index.html" (
     @FIND "Supersam" "%ORIGIN%\%~1\index.html" >nul
     IF !ERRORLEVEL! NEQ 0 (
         call Set "_migrate=1"
     )
 ) ELSE (
-    set txtFileName=""
-    
-    for %%I in ("%ORIGIN%\%~1\*.txt") do ( 
-            set "txtFileName=%%~nI"
-        )
-             
-    if txtFileName NEQ "" (
-        echo "%ORIGIN%\%~1\%txtFileName%"
-        IF exist "%ORIGIN%\%~1\%txtFileName%\index.html" (
-            @FIND "Supersam" "%ORIGIN%\%~1\%txtFileName%\index.html" >nul
-            IF !ERRORLEVEL! NEQ 0 (
-                call Set "_migrate=1"
-            )
-        )
-    ) ELSE (
         @REM recently generated courses has already a subfolder, named as the folder itself, containing the output: index.html is there
         IF exist "%ORIGIN%\%~1\%~n1\index.html" (
             @FIND "Supersam" "%ORIGIN%\%~1\%~n1\index.html" >nul
@@ -111,8 +105,8 @@ IF exist "%ORIGIN%\%~1\index.html" (
                 )
             )
         )
-    )
 )
+
 
 @REM some courses however are in the old format even if the :supersam" string is present: migration can be forced
 If "%3" EQU "/M" Set "_migrate=1"
