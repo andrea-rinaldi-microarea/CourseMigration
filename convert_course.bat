@@ -44,6 +44,18 @@ if "%3" EQU "/F" (
 
 :CopyFiles
 if defined sourceFolder (
+
+set special_characters='
+
+    @REM adjust all name files to remove some characters
+    for %%F in (%sourceFolder%\*.*) do (
+        set "filename=%%~nF"
+        for %%C in (%special_characters%) do (
+            set "filename=!filename:%%C=_!"
+        )
+        @ren "%%F" "!filename!%%~xF"
+    )
+
     xcopy "%sourceFolder%\*" %DESTINATION%\%2 /S /I /Y /Q > nul
 )
 

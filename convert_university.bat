@@ -8,8 +8,7 @@ set DESTINATION=C:\working\courses\University
 
 if exist errors.log del errors.log
 
-
-@REM DEBUG
+@REM Only for debug, clearing the folders
 set "folderPath=C:\working\courses"
 if exist "%folderPath%\University" (
     rmdir /s /q "%folderPath%\University"
@@ -21,48 +20,47 @@ if exist "%folderPath%\output" (
 mkdir "%folderPath%\University"
 mkdir "%folderPath%\output"
 
-call convert_course Logistics\UscitaMerceWMS                                                            University_IT\MagoCloud\Logistics\Goods_Exit
-@REM CHIEDERE NOME ESATTO
+
 
 call convert_course Financial\BilanciConsolidati                                                        University_IT\Mago4\Financial\Multicompany_Balances
 @REM WARNING
 call convert_course Financial\Percipienti                                                               University_IT\Mago4\Financial\Payees
 @REM WARNING
 
+goto:skip2
+
+call convert_course Logistics\UscitaMerceWMS                                                            University_IT\MagoCloud\Logistics\Goods_Exit
+@REM CHIEDERE NOME ESATTO
+
 call convert_course Financial\FatturazioneElettronicaPassiva                                            University_IT\Mago4\MDC\Purchase_Electronic_Invoices /M
-@REM MULTIPLE TXT
+@REM MULTIPLI TXT
 call convert_course CGM\CGM                                                                             University_IT\Mago4\Masters\CGM 
-@REM MULTIPLE TXT
+@REM MULTIPLI TXT
 call convert_course Financial\FatturazioneElettronicaPassiva_CL                                         University_IT\MagoCloud\MDC\Purchase_Electronic_Invoices
-@REM MULTIPLE TXT
+@REM MULTIPLI TXT
 call convert_course "Logistics\Articoli e relativi dati anagrafici"                                     University_IT\Mago4\Logistics\Items_Master_Data
-@REM MULTIPLE TXT
+@REM MULTIPLI TXT
 call convert_course "Logistics\Articoli e relativi dati anagrafici-CL"                                  University_IT\MagoCloud\Logistics\Items_Master_Data
-@REM MULTIPLE TXT
+@REM MULTIPLI TXT
 
 call convert_course "Logistics\Articoli e relativi dati anagrafici - EN"                                University_EN\Mago4\Logistics\Items_Master_Data
-@REM MULTIPLE TXT
+@REM MULTIPLI TXT
 @REM ERROR MISSING MULTIMEDIA FILE IN .SAM
 call convert_course Logistics\GuidaPerIniziareLaGestioneWMS                                             University_IT\Mago4\Logisitics\Wms_Starting_Guide
-@REM MULTIPLE TXT
+@REM MULTIPLI TXT
 @REM ERROR MISSING MULTIMEDIA FILE IN .SAM
 
-call convert_course Financial\FatturazioneElettronica                                                   University_IT\Mago4\Financial\Electronic_Invoices /F
-@REM riferimento sbagliato a file immagine dal file sam OPDigitalHubDettaglioAccessoallAzienda.png
-call convert_course Financial\FatturazioneElettronicaAttiva                                             University_IT\Mago4\Financial\Sales_Electronic_Invoices
-@REM riferimento sbagliato a file immagine dal file sam OPDigitalHubDettaglioAccessoallAzienda.png
-
 call convert_course Logistics\GliArticoliEquivalenti-CL-EN                                              University_EN\MagoCloud\Logistics\Substitute_Items
-@REM immagini non esistenti
+@REM IMMAGINI MANCANTI, NON PUBBLICATO IN UNIVERSITY, DA VERIFICARE
 call convert_course Logistics\LaGestioneVarianti                                                        University_IT\Mago4\Logistics\Variants_Management /F
-@REM immagini non esistenti
+@REM IMMAGINI MANCANTI, NON PUBBLICATO IN UNIVERSITY, DA VERIFICARE
 call convert_course Logistics\Barcode-CL-EN                                                             University_EN\MagoCloud\Logistics\Barcode /F
-@REM immagini non esistenti
+@REM IMMAGINI MANCANTI, NON PUBBLICATO IN UNIVERSITY, DA VERIFICARE
 
 call convert_course Logistics\FatturazioneElettronicaPassivaAvanzata                                    University_IT\Mago4\MDC\Advanced_Purchase_Electronic_Invoices
-@REM doppioni
+@REM DOPPIONI
 call convert_course Logistics\FatturazioneElettronicaPassivaAvanzataNEW                                 University_IT\Mago4\MDC\Advanced_Purchase_Electronic_Invoices
-@REM doppioni
+@REM DOPPIONI
 
 call convert_course Logistics\GliArticoliEquivalenti-CL-IT                                              University_IT\MagoCloud\Logistics\Substitute_Items 
 @REM ERROR MISSING MULTIMEDIA FILE IN .SAM
@@ -85,7 +83,11 @@ call convert_course Logistics\PrezziEScontiNelCicloAttivo-CL-IT                 
 @REM immagini in C:\eLearning4\eLearning4\courses\Logistics\PrezziEScontiNelCicloAttivo-CL-IT\Images
 @REM i riferimenti nel file sam hanno \images davanti al nome dell immagine
 
-goto:skip2
+@REM quindi mi copio tutta la cartella images 
+
+:skip2
+goto:skip1
+
 call convert_course CGM\CGM_EN                                                                          University_EN\Mago4\Masters\CGM 
 call convert_course Financial\Anagrafiche                                                               University_IT\Mago4\Masters\Masters
 call convert_course Financial\AnagraficheEN                                                             University_EN\Mago4\Masters\Masters
@@ -137,6 +139,8 @@ call convert_course Financial\StampeFiscali_CL                                  
 call convert_course Financial\StampeFiscali_CL_EN                                                       University_EN\MagoCloud\Financial\Fiscal_Printouts
 call convert_course Financial\StampeFiscali_CL_RO                                                       University_RO\MagoCloud\Financial\Fiscal_Printouts
 call convert_course Financial\FatturazioneElettronica_Autofatture                                       University_IT\Mago4\MDC\Self_Electronic_Invoices /I
+call convert_course Financial\FatturazioneElettronica                                                   University_IT\Mago4\Financial\Electronic_Invoices /F
+call convert_course Financial\FatturazioneElettronicaAttiva                                             University_IT\Mago4\Financial\Sales_Electronic_Invoices
 call convert_course IMago\Gadget                                                                        University_IT\Mago4\CRM\Gadget
 call convert_course IMago\InstallazioneComponenti                                                       University_IT\Mago4\CRM\Components_Installation
 call convert_course IMago\Posta                                                                         University_IT\Mago4\CRM\Mail
@@ -375,7 +379,7 @@ call convert_course Produzione\WMSEN                                            
 call convert_course Visibility\LaVisibilita                                                             University_IT\Mago4\TB_Framework\Visibility
 call convert_course Visibility\LaVisibilitaEN                                                           University_EN\Mago4\TB_Framework\Visibility
 
-:skip2
+:skip1
 
 if exist errors.log (
     @echo.

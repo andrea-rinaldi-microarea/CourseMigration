@@ -48,11 +48,21 @@ function convert_image(line) {
         caption = line.substr(stop + 1,line.length - stop - 2).trim();
     }
     if (caption.trim().length == 0) {
-        return `[IMG "${filename}" ${size}]`;
+        return `[IMG "${formatFilename(filename)}" ${size}]`;
     } else {
-        return `[IMG "${filename}" ${size}]\n[LABEL ${caption}]`;
+        return `[IMG "${formatFilename(filename)}" ${size}]\n[LABEL ${caption}]`;
     }
 }
+
+function formatFilename(fileName) {
+    const parts = fileName.split('.');
+    if (parts.length > 1) {
+      const ext = parts.pop();
+      return parts.join('.').replace("'", '_') + '.' + ext;
+    } else {
+      return parts.join('.').replace("'", '_') + '.' + ext;
+    }
+  }
 
 function convert_spot(line) {
     var coords = line.substr(0,line.length - 1).slice("[IMGSPOT ".length).split(/[-x ]/);
