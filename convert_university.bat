@@ -22,12 +22,37 @@ mkdir "%folderPath%\output"
 
 
 
+
+
+call convert_course Logistics\GliArticoliEquivalenti-CL-IT                                              University_IT\MagoCloud\Logistics\Substitute_Items /F /F
+@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
+@REM immagini in C:\eLearning4\eLearning4\courses\Logistics\GliArticoliEquivalenti-CL-IT\gliarticoliequivalenti-cl-it\images
+@REM i riferimenti nel file sam hanno \images davanti al nome dell immagine 
+call convert_course Logistics\LAnagraficaAgenti-CL-IT                                                   University_IT\MagoCloud\Sales\Salespeople_Master /F /F
+@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
+@REM immagini in C:\eLearning4\eLearning4\courses\Logistics\LAnagraficaAgenti-CL-IT\Images
+@REM i riferimenti nel file sam hanno \images davanti al nome dell immagine
+
+goto:skip2
+
+call convert_course Logistics\IDocumentiDelCicloAttivo-CL-IT                                            University_IT\MagoCloud\Sales\Sale_Documents /F /F
+@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
+@REM immagini in C:\eLearning4\eLearning4\courses\Logistics\IDocumentiDelCicloAttivo-CL-IT\Images
+@REM i riferimenti nel file sam hanno \images davanti al nome dell immagine
+
+call convert_course Logistics\LeUnitaDiMisura-CL-IT                                                     University_IT\MagoCloud\Logistics\Units_Of_Measure /F /F
+@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
+@REM immagini in C:\eLearning4\eLearning4\courses\Logistics\LeUnitaDiMisura-CL-IT\Images
+@REM i riferimenti nel file sam hanno \images davanti al nome dell immagine
+call convert_course Logistics\PrezziEScontiNelCicloAttivo-CL-IT                                         University_IT\MagoCloud\Sales\Price_Discount_Polices /F /F
+@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
+@REM immagini in C:\eLearning4\eLearning4\courses\Logistics\PrezziEScontiNelCicloAttivo-CL-IT\Images
+@REM i riferimenti nel file sam hanno \images davanti al nome dell immagine
+
 call convert_course Financial\BilanciConsolidati                                                        University_IT\Mago4\Financial\Multicompany_Balances
 @REM WARNING
 call convert_course Financial\Percipienti                                                               University_IT\Mago4\Financial\Payees
 @REM WARNING
-
-goto:skip2
 
 call convert_course Logistics\UscitaMerceWMS                                                            University_IT\MagoCloud\Logistics\Goods_Exit
 @REM CHIEDERE NOME ESATTO
@@ -61,29 +86,6 @@ call convert_course Logistics\FatturazioneElettronicaPassivaAvanzata            
 @REM DOPPIONI
 call convert_course Logistics\FatturazioneElettronicaPassivaAvanzataNEW                                 University_IT\Mago4\MDC\Advanced_Purchase_Electronic_Invoices
 @REM DOPPIONI
-
-call convert_course Logistics\GliArticoliEquivalenti-CL-IT                                              University_IT\MagoCloud\Logistics\Substitute_Items 
-@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
-@REM immagini in C:\eLearning4\eLearning4\courses\Logistics\GliArticoliEquivalenti-CL-IT\gliarticoliequivalenti-cl-it\images
-@REM i riferimenti nel file sam hanno \images davanti al nome dell immagine 
-call convert_course Logistics\IDocumentiDelCicloAttivo-CL-IT                                            University_IT\MagoCloud\Sales\Sale_Documents /F
-@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
-@REM immagini in C:\eLearning4\eLearning4\courses\Logistics\IDocumentiDelCicloAttivo-CL-IT\Images
-@REM i riferimenti nel file sam hanno \images davanti al nome dell immagine
-call convert_course Logistics\LAnagraficaAgenti-CL-IT                                                   University_IT\MagoCloud\Sales\Salespeople_Master /F
-@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
-@REM immagini in C:\eLearning4\eLearning4\courses\Logistics\LAnagraficaAgenti-CL-IT\Images
-@REM i riferimenti nel file sam hanno \images davanti al nome dell immagine
-call convert_course Logistics\LeUnitaDiMisura-CL-IT                                                     University_IT\MagoCloud\Logistics\Units_Of_Measure /F
-@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
-@REM immagini in C:\eLearning4\eLearning4\courses\Logistics\LeUnitaDiMisura-CL-IT\Images
-@REM i riferimenti nel file sam hanno \images davanti al nome dell immagine
-call convert_course Logistics\PrezziEScontiNelCicloAttivo-CL-IT                                         University_IT\MagoCloud\Sales\Price_Discount_Polices /F
-@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
-@REM immagini in C:\eLearning4\eLearning4\courses\Logistics\PrezziEScontiNelCicloAttivo-CL-IT\Images
-@REM i riferimenti nel file sam hanno \images davanti al nome dell immagine
-
-@REM quindi mi copio tutta la cartella images 
 
 :skip2
 goto:skip1
