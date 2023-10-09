@@ -1,5 +1,6 @@
 @echo off
 
+@REM set the code for italian special characters
 chcp 65001 > nul
 
 @REM copy only useful files from the original folder
@@ -7,11 +8,11 @@ chcp 65001 > nul
 @del /S /Q %DESTINATION%\%2 >nul 2>&1
 @xcopy "%ORIGIN%\%~1" %DESTINATION%\%2 /S /I /Y /Q /EXCLUDE:nomove.txt > nul
 
-SETLOCAL ENABLEDELAYEDEXPANSION
+SetLocal EnableDelayedExpansion
 
+@REM adjust all name files to remove apostrophe that gives error during supersam building
 set special_characters='
 
-@REM adjust all name files to remove some characters
 for %%F in (%DESTINATION%\%2\*.*) do (
     set "filename=%%~nF"
     for %%C in (%special_characters%) do (
@@ -20,9 +21,10 @@ for %%F in (%DESTINATION%\%2\*.*) do (
     @ren "%%F" "!filename!%%~xF"
 )
 
-ENDLOCAL
+EndLocal
 
-SETLOCAL ENABLEDELAYEDEXPANSION
+@REM copy all images in from the image folder at any level
+SetLocal EnableDelayedExpansion
 
 if "%3" EQU "/F" (
     for /r "%ORIGIN%\%~1" /d %%D in (*images*) do (
@@ -35,7 +37,7 @@ if "%3" EQU "/F" (
 
 if "%3" EQU "/F" (
     for /r "%ORIGIN%\%~1" /d %%D in (*Images*) do (
-        if "%%~nxD"=="Images" (
+        if /i "%%~nxD"=="Images" (
             set sourceFolder=%%D
             goto :CopyFiles
         )
@@ -47,9 +49,28 @@ if defined sourceFolder (
     if "%4" EQU "/F" (
         for %%i in ("!sourceFolder!") do (
             set "lastFolderName=%%~nxi"
-            echo !lastFolderName!
         )
         xcopy "!sourceFolder!" %DESTINATION%\%2\!lastFolderName! /S /I /Y /Q /E /H /K > nul
+        
+        @REM sometimes there is a different path reference to the same image
+        if "%5" EQU "/F" (
+            xcopy "%sourceFolder%\*" %DESTINATION%\%2 /S /I /Y /Q > nul
+        )
+        
+        @REM sometimes there are images inside an image folder inside a folder with the same name of the sam file
+        set "subSourceFolder="
+        if "%5" EQU "/L" (
+            for /r "%ORIGIN%\%~1" %%F in (*.sam) do (
+                set "fileName=%%~nF"
+                for /d %%D in ("%%~dpF*") do (
+                    set "folderName=%%~nxD"
+                    if /i "!folderName!"=="!fileName!" (
+                        set "subSourceFolder=%%~dpD"
+                        xcopy "!subSourceFolder!!folderName!\images" %DESTINATION%\%2\!folderName!\images\ /S /I /Y /Q /E /H /K >nul
+                    )
+                )
+            )
+        )
     ) else (
         set special_characters='
         for %%F in (%sourceFolder%\*.*) do (
@@ -64,7 +85,7 @@ if defined sourceFolder (
     )
 )
 
-ENDLOCAL
+EndLocal
 
 @REM adjust encoding on .sam files
 for %%T in (%DESTINATION%\%2\*.sam) do (
@@ -79,7 +100,9 @@ for %%T in (%DESTINATION%\%2\*.txt) do (
         @powershell -command "gc '%%T' | sc -encoding utf8 '%%~dpnT.sam'" 
         @del "%%T"
     ) else (
-        echo multiple text files in %DESTINATION%\%2 >> errors.log
+        if "%4" NEQ "/S" (
+           echo multiple text files in %DESTINATION%\%2 >> errors.log
+        )
     )
 )
 
@@ -89,7 +112,9 @@ for %%T in (%DESTINATION%\%2\*.sam) do (
     set /a count+=1
 )
 IF %count% GTR 1 (
-    echo multiple text files in %DESTINATION%\%2 >> errors.log
+    if "%4" NEQ "/S" (
+       echo multiple text files in %DESTINATION%\%2 >> errors.log
+    )
 ) else (
     for %%T in (%DESTINATION%\%2\*.sam) do (
         if not exist "%%~dpT%~n2.sam" (

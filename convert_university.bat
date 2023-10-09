@@ -20,60 +20,28 @@ if exist "%folderPath%\output" (
 mkdir "%folderPath%\University"
 mkdir "%folderPath%\output"
 
-
-
-
-
-call convert_course Logistics\GliArticoliEquivalenti-CL-IT                                              University_IT\MagoCloud\Logistics\Substitute_Items /F /F
-@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
-@REM immagini in C:\eLearning4\eLearning4\courses\Logistics\GliArticoliEquivalenti-CL-IT\gliarticoliequivalenti-cl-it\images
-@REM i riferimenti nel file sam hanno \images davanti al nome dell immagine 
-call convert_course Logistics\LAnagraficaAgenti-CL-IT                                                   University_IT\MagoCloud\Sales\Salespeople_Master /F /F
-@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
-@REM immagini in C:\eLearning4\eLearning4\courses\Logistics\LAnagraficaAgenti-CL-IT\Images
-@REM i riferimenti nel file sam hanno \images davanti al nome dell immagine
+@REM C:\eLearning4\eLearning4\courses\Financial\VideoMagoCloud
+@REM C:\eLearning4\eLearning4\courses\Logistics\VideoMagoCloud
+@REM C:\eLearning4\eLearning4\courses\Produzione\Videocorsi
+@REM C:\eLearning4\eLearning4\courses\Task Builder\Videocorsi
 
 goto:skip2
 
-call convert_course Logistics\IDocumentiDelCicloAttivo-CL-IT                                            University_IT\MagoCloud\Sales\Sale_Documents /F /F
-@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
-@REM immagini in C:\eLearning4\eLearning4\courses\Logistics\IDocumentiDelCicloAttivo-CL-IT\Images
-@REM i riferimenti nel file sam hanno \images davanti al nome dell immagine
-
-call convert_course Logistics\LeUnitaDiMisura-CL-IT                                                     University_IT\MagoCloud\Logistics\Units_Of_Measure /F /F
-@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
-@REM immagini in C:\eLearning4\eLearning4\courses\Logistics\LeUnitaDiMisura-CL-IT\Images
-@REM i riferimenti nel file sam hanno \images davanti al nome dell immagine
-call convert_course Logistics\PrezziEScontiNelCicloAttivo-CL-IT                                         University_IT\MagoCloud\Sales\Price_Discount_Polices /F /F
-@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
-@REM immagini in C:\eLearning4\eLearning4\courses\Logistics\PrezziEScontiNelCicloAttivo-CL-IT\Images
-@REM i riferimenti nel file sam hanno \images davanti al nome dell immagine
-
-call convert_course Financial\BilanciConsolidati                                                        University_IT\Mago4\Financial\Multicompany_Balances
-@REM WARNING
-call convert_course Financial\Percipienti                                                               University_IT\Mago4\Financial\Payees
-@REM WARNING
-
-call convert_course Logistics\UscitaMerceWMS                                                            University_IT\MagoCloud\Logistics\Goods_Exit
-@REM CHIEDERE NOME ESATTO
-
-call convert_course Financial\FatturazioneElettronicaPassiva                                            University_IT\Mago4\MDC\Purchase_Electronic_Invoices /M
-@REM MULTIPLI TXT
-call convert_course CGM\CGM                                                                             University_IT\Mago4\Masters\CGM 
-@REM MULTIPLI TXT
-call convert_course Financial\FatturazioneElettronicaPassiva_CL                                         University_IT\MagoCloud\MDC\Purchase_Electronic_Invoices
-@REM MULTIPLI TXT
-call convert_course "Logistics\Articoli e relativi dati anagrafici"                                     University_IT\Mago4\Logistics\Items_Master_Data
-@REM MULTIPLI TXT
-call convert_course "Logistics\Articoli e relativi dati anagrafici-CL"                                  University_IT\MagoCloud\Logistics\Items_Master_Data
-@REM MULTIPLI TXT
-
 call convert_course "Logistics\Articoli e relativi dati anagrafici - EN"                                University_EN\Mago4\Logistics\Items_Master_Data
 @REM MULTIPLI TXT
-@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
+@REM BUILDA CON TUTTI E DUE, FORSE SONO DA FARE DUE CORSI SEPARATI? 
+call convert_course "Logistics\Articoli e relativi dati anagrafici"                                     University_IT\Mago4\Logistics\Items_Master_Data
+@REM MULTIPLI TXT
+@REM BUILDA CON TUTTI E DUE, FORSE SONO DA FARE DUE CORSI SEPARATI? 
+call convert_course "Logistics\Articoli e relativi dati anagrafici-CL"                                  University_IT\MagoCloud\Logistics\Items_Master_Data
+@REM MULTIPLI TXT
+@REM BUILDA CON TUTTI E DUE, FORSE SONO DA FARE DUE CORSI SEPARATI? 
 call convert_course Logistics\GuidaPerIniziareLaGestioneWMS                                             University_IT\Mago4\Logisitics\Wms_Starting_Guide
 @REM MULTIPLI TXT
-@REM ERROR MISSING MULTIMEDIA FILE IN .SAM
+@REM IL SECONDO TXT E' VUOTO, CANCELLARLO A MANO? 
+call convert_course CGM\CGM                                                                             University_IT\Mago4\Masters\CGM 
+@REM MULTIPLI TXT
+@REM SONO DIVERSI 
 
 call convert_course Logistics\GliArticoliEquivalenti-CL-EN                                              University_EN\MagoCloud\Logistics\Substitute_Items
 @REM IMMAGINI MANCANTI, NON PUBBLICATO IN UNIVERSITY, DA VERIFICARE
@@ -87,10 +55,17 @@ call convert_course Logistics\FatturazioneElettronicaPassivaAvanzata            
 call convert_course Logistics\FatturazioneElettronicaPassivaAvanzataNEW                                 University_IT\Mago4\MDC\Advanced_Purchase_Electronic_Invoices
 @REM DOPPIONI
 
+call convert_course Financial\BilanciConsolidati                                                        University_IT\Mago4\Financial\Multicompany_Balances
+@REM WARNING
+call convert_course Financial\Percipienti                                                               University_IT\Mago4\Financial\Payees
+@REM WARNING
+
 :skip2
 goto:skip1
 
 call convert_course CGM\CGM_EN                                                                          University_EN\Mago4\Masters\CGM 
+call convert_course Financial\FatturazioneElettronicaPassiva_CL                                         University_IT\MagoCloud\MDC\Purchase_Electronic_Invoices /S
+call convert_course Financial\FatturazioneElettronicaPassiva                                            University_IT\Mago4\MDC\Purchase_Electronic_Invoices /M /S
 call convert_course Financial\Anagrafiche                                                               University_IT\Mago4\Masters\Masters
 call convert_course Financial\AnagraficheEN                                                             University_EN\Mago4\Masters\Masters
 call convert_course Financial\AnagraficheRO                                                             University_RO\Mago4\Masters\Masters
@@ -151,6 +126,13 @@ call convert_course IMago\ProcessoDiValidazione                                 
 call convert_course IMago\SincroInfMago                                                                 University_IT\Mago4\CRM\Infinity_Mago_Synchronization
 call convert_course IMago\SsoMappatura                                                                  University_IT\Mago4\CRM\Mapping_SSO
 call convert_course IMago\WizardDiConfigurazione                                                        University_IT\Mago4\CRM\Configuration_Wizard
+call convert_course Logistics\UscitaMerceWMS                                                            University_IT\MagoCloud\Logistics\Goods_Delivery
+call convert_course Logistics\UscitaMerceWMS_EN                                                         University_EN\MagoCloud\Logistics\Goods_Delivery
+call convert_course Logistics\GliArticoliEquivalenti-CL-IT                                              University_IT\MagoCloud\Logistics\Substitute_Items /F /F /L
+call convert_course Logistics\LAnagraficaAgenti-CL-IT                                                   University_IT\MagoCloud\Sales\Salespeople_Master /F /F /F
+call convert_course Logistics\IDocumentiDelCicloAttivo-CL-IT                                            University_IT\MagoCloud\Sales\Sale_Documents /F /F
+call convert_course Logistics\LeUnitaDiMisura-CL-IT                                                     University_IT\MagoCloud\Logistics\Units_Of_Measure /F /F
+call convert_course Logistics\PrezziEScontiNelCicloAttivo-CL-IT                                         University_IT\MagoCloud\Sales\Price_Discount_Polices /F /F
 call convert_course Logistics\ArticoliAcquisizione-EN                                                   University_IT\MagoCloud\Logistics\Acquisition_Item
 call convert_course "Logistics\ArticoliERelativiDatiAnagrafici-CL EN"                                   University_EN\MagoCloud\Logistics\Items_Master_Data
 call convert_course Logistics\ArticoliERelativiDatiAnagrafici-CL-RO                                     University_RO\MagoCloud\Logistics\Items_Master_Data
@@ -161,7 +143,6 @@ call convert_course Logistics\ComeTrasferireMerceTraPV-EN                       
 call convert_course Logistics\ConfigurazioneInizialeMagoKonaKart                                        University_IT\MagoCloud\Logistics\Konakart_Setup
 call convert_course Logistics\ConfigurazioneInizialeMagoKonaKart_ENG                                    University_EN\MagoCloud\Logistics\Konakart_Setup
 call convert_course Logistics\Convenzioni-EN                                                            University_EN\Mago4\Retail\Subsidies /F
-@REM immagini in C:\eLearning4\eLearning4\courses\Logistics\Convenzioni-EN\subsidy_last\images
 call convert_course Logistics\DatiAlimentari-EN                                                         University_EN\MagoCloud\Logistics\Alimentary_Data
 call convert_course Logistics\DESADV-EN                                                                 University_EN\MagoCloud\Logistics\DESADV
 call convert_course Logistics\EDI-EN                                                                    University_EN\MagoCloud\Logistics\EDI
@@ -170,9 +151,7 @@ call convert_course Logistics\EvasioneInterattivaOrdiniCliente                  
 call convert_course Logistics\EvasioneInterattivaOrdiniCliente-CL-IT                                    University_IT\MagoCloud\Sales\Sale_Orders_Fulfillment
 call convert_course Logistics\FatturazioneElettronicaGestioneAsincrona                                  University_IT\Mago4\MDC\Asynchronous_Electronic_Invoices
 call convert_course "Logistics\FormatiUM - EN"                                                          University_EN\Mago4\Retail\UoM_Sizes /F
-@REM immagini in C:\eLearning4\eLearning4\courses\Logistics\FormatiUM - EN\formatium -en\images
 call convert_course Logistics\GestioneVouchers-EN                                                       University_EN\Mago4\Retail\Vouchers /F
-@REM immagini in C:\eLearning4\eLearning4\courses\Logistics\GestioneVouchers-EN\gestionevouchers\images
 call convert_course Logistics\GliArticoliEquivalenti                                                    University_IT\Mago4\Logistics\Substitute_Items
 call convert_course Logistics\GliArticoliEquivalenti-EN                                                 University_EN\Mago4\Logistics\Substitute_Items
 call convert_course Logistics\GuidaPerIniziareLaGestioneWMS_EN                                          University_EN\Mago4\Logisitics\Wms_Starting_Guide
@@ -215,7 +194,6 @@ call convert_course Logistics\LOffertaACliente                                  
 call convert_course Logistics\LOffertaACliente-CL-IT                                                    University_IT\MagoCloud\Sales\Customer_Quotation
 call convert_course Logistics\LOrdineDaCliente                                                          University_IT\Mago4\Sales\Sales_Order
 call convert_course Logistics\LOrdineDaCliente-CL                                                       University_IT\MagoCloud\Sales\Sales_Order /F
-@REM immagini in C:\eLearning4\eLearning4\courses\Logistics\LOrdineDaCliente-CL\lordinedacliente_cl\images
 call convert_course Logistics\LOrdineDaCliente-CL-EN                                                    University_EN\MagoCloud\Sales\Sales_Order
 call convert_course Logistics\LOrdineDaCliente-EN                                                       University_EN\Mago4\Sales\Sales_Order
 call convert_course Logistics\LaChiusuraDiMagazzino                                                     University_IT\Mago4\Logistics\Inventory_Closing
@@ -238,7 +216,6 @@ call convert_course Logistics\LaFatturazioneDifferitaDDT-EN                     
 call convert_course Logistics\LaGestioneDeiLotti                                                        University_IT\Mago4\Logistics\Lots_Management
 call convert_course Logistics\LaGestioneDeiLotti-CL-EN                                                  University_EN\MagoCloud\Logistics\Lots_Management
 call convert_course Logistics\LaGestioneDeiLotti-CL-IT                                                  University_IT\MagoCloud\Logistics\Lots_Management /F
-@REM immagini in C:\eLearning4\eLearning4\courses\Logistics\LaGestioneDeiLotti-CL-IT\lagestionedeilotti-cl-it\images
 call convert_course Logistics\LaGestioneDeiLotti-CL-RO                                                  University_RO\MagoCloud\Logistics\Lots_Management
 call convert_course Logistics\LaGestioneDeiLotti-EN                                                     University_EN\Mago4\Logistics\Lots_Management
 call convert_course Logistics\LaGestioneMatricole                                                       University_IT\Mago4\Logistics\Serial_Number_Management
@@ -246,7 +223,6 @@ call convert_course Logistics\LaGestioneVarianti-EN                             
 call convert_course Logistics\LaManutenzioneDeiMovimenti                                                University_IT\Mago4\Logistics\Inventory_Entries_Maintenance
 call convert_course Logistics\LaManutenzioneDeiMovimenti-CL-EN                                          University_EN\MagoCloud\Logistics\Inventory_Entries_Maintenance
 call convert_course Logistics\LaManutenzioneDeiMovimenti-CL-IT                                          University_IT\MagoCloud\Logistics\Inventory_Entries_Maintenance /F
-@REM immagini in C:\eLearning4\eLearning4\courses\Logistics\LaManutenzioneDeiMovimenti-CL-IT\lamanutezionedeimovimenti_cl_it\images
 call convert_course Logistics\LaManutenzioneDeiMovimenti-CL-RO                                          University_RO\MagoCloud\Logistics\Inventory_Entries_Maintenance
 call convert_course Logistics\LaManutenzioneDeiMovimenti-EN                                             University_EN\Mago4\Logistics\Inventory_Entries_Maintenance
 call convert_course Logistics\LaMovimentazioneDeiLotti                                                  University_IT\Mago4\Logistics\Lots_In_Documents
@@ -261,7 +237,6 @@ call convert_course Logistics\LeProcedureAutomatiche                            
 call convert_course Logistics\LeProcedureAutomatiche-EN                                                 University_EN\Mago4\Logistics\Lots_Automatic_Procedures
 call convert_course Logistics\LeProcedureStampaRegistra                                                 University_IT\Mago4\Sales\Print_And_Post_Procedures
 call convert_course Logistics\LeProcedureStampaRegistra-CL-IT                                           University_IT\MagoCloud\Sales\Print_And_Post_Procedures /F
-@REM immagini in C:\eLearning4\eLearning4\courses\Logistics\LeProcedureStampaRegistra-CL-IT\leprocedurestamparegistra-cl-it\images
 call convert_course Logistics\LeProcedureStampaRegistra-CL-EN                                           University_EN\MagoCloud\Sales\Print_And_Post_Procedures
 call convert_course Logistics\LeProcedureStampaRegistra-Rev02                                           University_IT\Mago4\Sales\Print_And_Post_Procedures
 call convert_course Logistics\LeProvvigioniNeiDocumentiDelCicloAttivo                                   University_IT\Mago4\Sales\Commissions_In_Sale_Documents
@@ -270,7 +245,6 @@ call convert_course Logistics\LeUnitaDiMisura-CL-EN                             
 call convert_course Logistics\LeUnitaDiMisura-CL-RO                                                     University_RO\MagoCloud\Logistics\Units_Of_Measure
 call convert_course Logistics\LeUnitaDiMisura-EN                                                        University_EN\Mago4\Logistics\Units_Of_Measure
 call convert_course Logistics\MovimentiDiCassa-EN                                                       University_EN\Mago4\Retail\Cash_Transaction /F
-@REM immagini in C:\eLearning4\eLearning4\courses\Logistics\MovimentiDiCassa-EN\movimentidicassa-en\images
 call convert_course Logistics\MovimentiDiMagazzino                                                      University_IT\Mago4\Logistics\Inventory_Entries
 call convert_course Logistics\MovimentiDiMagazzino-CL                                                   University_IT\MagoCloud\Logistics\Inventory_Entries
 call convert_course Logistics\MovimentiDiMagazzino-CL-EN                                                University_EN\MagoCloud\Logistics\Inventory_Entries
@@ -294,13 +268,9 @@ call convert_course Logistics\TCPOSPrimoAvvio                                   
 call convert_course Logistics\TCPOSPrimoAvvio-EN                                                        University_EN\Mago4\Retail\TCPOS_Getting_Started
 call convert_course Logistics\TransazioniDiCassa-EN                                                     University_EN\MagoCloud\Retail\Cash_Transaction
 call convert_course "Logistics\Transferimenti Tra Punti Vendita"                                        University_IT\Mago4\Retail\InterStore_Movement_Documents /F
-@REM immagini in C:\eLearning4\eLearning4\courses\Logistics\Transferimenti Tra Punti Vendita\transferimenti tra punti vendita\Images
 call convert_course "Logistics\Transferimenti Tra Punti Vendita -EN"                                    University_EN\Mago4\Retail\InterStore_Movement_Documents /F
-@REM immagini in C:\eLearning4\eLearning4\courses\Logistics\Transferimenti Tra Punti Vendita -EN\transferimenti tra punti vendita -en\images
 call convert_course "Logistics\VisibilitàTCPOS"                                                         University_IT\Mago4\Retail\TCPOS_Visibility /F
-@REM immagini in C:\eLearning4\eLearning4\courses\Logistics\VisibilitàTCPOS\visibilitàtcpos\Images
 call convert_course "Logistics\VisibilitàTCPOS-EN"                                                      University_EN\Mago4\Retail\TCPOS_Visibility /F
-@REM immagini in C:\eLearning4\eLearning4\courses\Logistics\VisibilitàTCPOS-EN\visibilitàtcpos -en\images
 call convert_course MigrazioneMago4\MigrazioneMago4                                                     University_IT\Mago4\TB_Studio\Mago4_Migration
 call convert_course MyMagoStudio\MMS_For_Power_User                                                     University_IT\Mago4\TB_Studio\MMS_For_Power_User
 call convert_course Produzione\Configuratore                                                            University_IT\Mago4\Manufacturing\Configurator
@@ -356,7 +326,6 @@ call convert_course Produzione\ProduzioneAvanzataEN\ProduzioneAvanzataLaProduzio
 call convert_course Produzione\ProduzioneAvanzataEN\ProduzioneAvanzataLeProcedureDiProduzioneEN         University_EN\Mago4\Manufacturing\Adv_Prod_Materials_Procedures
 call convert_course "Produzione\ProduzioneBase - CL\ProduzioneBaseLaDistintaBase-CL"                    University_IT\MagoCloud\Manufacturing\Base_Prod_Bill_Of_Materials
 call convert_course Produzione\ProduzioneBase-CL-EN\ProduzioneBaseIlContoLavoro-CL-EN                   University_EN\MagoCloud\Manufacturing\Base_Prod_Subcontracting /F
-@REM immagini in C:\eLearning4\eLearning4\courses\Produzione\ProduzioneBase-CL-EN\ProduzioneBaseIlContoLavoro-CL-EN\produzionebaseilcontolavoro-cl-en\images
 call convert_course Produzione\ProduzioneBase-CL-EN\ProduzioneBaseLaDistintaBase-CL-EN                  University_EN\MagoCloud\Manufacturing\Base_Prod_Bill_Of_Materials
 call convert_course Produzione\ProduzioneBase-CL-EN\ProduzioneBaseLaPianificazioneProduzione-CL-EN      University_EN\MagoCloud\Manufacturing\Base_Prod_Planning
 call convert_course Produzione\ProduzioneBase-CL-EN\ProduzioneBaseLaProduzione-CL-EN                    University_EN\MagoCloud\Manufacturing\Base_Production
