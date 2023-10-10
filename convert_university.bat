@@ -1,5 +1,6 @@
 @echo off
 
+@REM set encoding for italian special accents
 chcp 65001 > nul
 
 @REM set ORIGIN=C:\eLearning4\courses 
@@ -23,9 +24,9 @@ mkdir "%folderPath%\output"
 @REM C:\eLearning4\eLearning4\courses\Financial\VideoMagoCloud
 @REM C:\eLearning4\eLearning4\courses\Logistics\VideoMagoCloud
 @REM C:\eLearning4\eLearning4\courses\Produzione\Videocorsi
-@REM C:\eLearning4\eLearning4\courses\Task Builder\Videocorsi
+@REM C:\eLearning4\eLearning4\courses\Task Builder\Videocorsi 
 
-goto:skip2
+goto:skipToOk
 
 call convert_course "Logistics\Articoli e relativi dati anagrafici - EN"                                University_EN\Mago4\Logistics\Items_Master_Data
 @REM MULTIPLI TXT
@@ -51,19 +52,17 @@ call convert_course Logistics\Barcode-CL-EN                                     
 @REM IMMAGINI MANCANTI, NON PUBBLICATO IN UNIVERSITY, DA VERIFICARE
 
 call convert_course Logistics\FatturazioneElettronicaPassivaAvanzata                                    University_IT\Mago4\MDC\Advanced_Purchase_Electronic_Invoices
-@REM DOPPIONI
+@REM DOPPIONE
 call convert_course Logistics\FatturazioneElettronicaPassivaAvanzataNEW                                 University_IT\Mago4\MDC\Advanced_Purchase_Electronic_Invoices
-@REM DOPPIONI
+@REM DOPPIONE
 
-call convert_course Financial\BilanciConsolidati                                                        University_IT\Mago4\Financial\Multicompany_Balances
-@REM WARNING
-call convert_course Financial\Percipienti                                                               University_IT\Mago4\Financial\Payees
-@REM WARNING
-
-:skip2
-goto:skip1
+:skipToOk
+goto:skipToEnd
 
 call convert_course CGM\CGM_EN                                                                          University_EN\Mago4\Masters\CGM 
+call convert_course CGM\CGM_EN                                                                          University_EN\Mago4\Masters\CGM 
+call convert_course Financial\Percipienti                                                               University_IT\Mago4\Financial\Payees @REM WARNING MISSING CONTEXT
+call convert_course Financial\BilanciConsolidati                                                        University_IT\Mago4\Financial\Multicompany_Balances @REM WARNING MISSING CONTEXT
 call convert_course Financial\FatturazioneElettronicaPassiva_CL                                         University_IT\MagoCloud\MDC\Purchase_Electronic_Invoices /S
 call convert_course Financial\FatturazioneElettronicaPassiva                                            University_IT\Mago4\MDC\Purchase_Electronic_Invoices /M /S
 call convert_course Financial\Anagrafiche                                                               University_IT\Mago4\Masters\Masters
@@ -350,7 +349,7 @@ call convert_course Produzione\WMSEN                                            
 call convert_course Visibility\LaVisibilita                                                             University_IT\Mago4\TB_Framework\Visibility
 call convert_course Visibility\LaVisibilitaEN                                                           University_EN\Mago4\TB_Framework\Visibility
 
-:skip1
+:skipToEnd
 
 if exist errors.log (
     @echo.

@@ -23,7 +23,7 @@ for %%F in (%DESTINATION%\%2\*.*) do (
 
 EndLocal
 
-@REM copy all images in from the image folder at any level
+@REM copy all images from the image folder at any level
 SetLocal EnableDelayedExpansion
 
 if "%3" EQU "/F" (
@@ -148,7 +148,6 @@ IF exist "%ORIGIN%\%~1\index.html" (
             )
         )
 )
-
 
 @REM some courses however are in the old format even if the :supersam" string is present: migration can be forced
 If "%3" EQU "/M" Set "_migrate=1"
