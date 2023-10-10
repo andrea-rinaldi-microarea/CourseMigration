@@ -52,17 +52,20 @@ call convert_course Logistics\Barcode-CL-EN                                     
 @REM IMMAGINI MANCANTI, NON PUBBLICATO IN UNIVERSITY, DA VERIFICARE
 
 call convert_course Logistics\FatturazioneElettronicaPassivaAvanzata                                    University_IT\Mago4\MDC\Advanced_Purchase_Electronic_Invoices
-@REM DOPPIONE
+@REM DOPPIONI
 call convert_course Logistics\FatturazioneElettronicaPassivaAvanzataNEW                                 University_IT\Mago4\MDC\Advanced_Purchase_Electronic_Invoices
-@REM DOPPIONE
+@REM DOPPIONI
+
+call convert_course Financial\Percipienti                                                               University_IT\Mago4\Financial\Payees
+@REM WARNING MISSING CONTEXT
+call convert_course Financial\BilanciConsolidati                                                        University_IT\Mago4\Financial\Multicompany_Balances
+@REM WARNING MISSING CONTEXT
 
 :skipToOk
 goto:skipToEnd
 
 call convert_course CGM\CGM_EN                                                                          University_EN\Mago4\Masters\CGM 
 call convert_course CGM\CGM_EN                                                                          University_EN\Mago4\Masters\CGM 
-call convert_course Financial\Percipienti                                                               University_IT\Mago4\Financial\Payees @REM WARNING MISSING CONTEXT
-call convert_course Financial\BilanciConsolidati                                                        University_IT\Mago4\Financial\Multicompany_Balances @REM WARNING MISSING CONTEXT
 call convert_course Financial\FatturazioneElettronicaPassiva_CL                                         University_IT\MagoCloud\MDC\Purchase_Electronic_Invoices /S
 call convert_course Financial\FatturazioneElettronicaPassiva                                            University_IT\Mago4\MDC\Purchase_Electronic_Invoices /M /S
 call convert_course Financial\Anagrafiche                                                               University_IT\Mago4\Masters\Masters
