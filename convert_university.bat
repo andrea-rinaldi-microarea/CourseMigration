@@ -28,6 +28,18 @@ mkdir "%folderPath%\output"
 
 goto:skipToOk
 
+call convert_course Logistics\GliArticoliEquivalenti-CL-IT                                              University_IT\MagoCloud\Logistics\Substitute_Items 
+@REM riferimenti a immagini in /gliarticoliequivalenti-cl-it/images/[NOME_IMMAGINE]
+call convert_course Logistics\LAnagraficaAgenti-CL-IT                                                   University_IT\MagoCloud\Sales\Salespeople_Master 
+@REM riferimenti a immagini in /images/[NOME_IMMAGINE]
+@REM riferimenti sia a /images/PerImporto03.png che a PerImporto03.png
+call convert_course Logistics\IDocumentiDelCicloAttivo-CL-IT                                            University_IT\MagoCloud\Sales\Sale_Documents 
+@REM riferimenti a immagini in /images/[NOME_IMMAGINE]
+call convert_course Logistics\LeUnitaDiMisura-CL-IT                                                     University_IT\MagoCloud\Logistics\Units_Of_Measure 
+@REM riferimenti a immagini in /images/[NOME_IMMAGINE]
+call convert_course Logistics\PrezziEScontiNelCicloAttivo-CL-IT                                         University_IT\MagoCloud\Sales\Price_Discount_Polices 
+@REM riferimenti a immagini in /images/[NOME_IMMAGINE]
+
 call convert_course "Logistics\Articoli e relativi dati anagrafici - EN"                                University_EN\Mago4\Logistics\Items_Master_Data
 @REM MULTIPLI TXT
 @REM BUILDA CON TUTTI E DUE, FORSE SONO DA FARE DUE CORSI SEPARATI? 
@@ -46,9 +58,9 @@ call convert_course CGM\CGM                                                     
 
 call convert_course Logistics\GliArticoliEquivalenti-CL-EN                                              University_EN\MagoCloud\Logistics\Substitute_Items
 @REM IMMAGINI MANCANTI, NON PUBBLICATO IN UNIVERSITY, DA VERIFICARE
-call convert_course Logistics\LaGestioneVarianti                                                        University_IT\Mago4\Logistics\Variants_Management /F
+call convert_course Logistics\LaGestioneVarianti                                                        University_IT\Mago4\Logistics\Variants_Management 
 @REM IMMAGINI MANCANTI, NON PUBBLICATO IN UNIVERSITY, DA VERIFICARE
-call convert_course Logistics\Barcode-CL-EN                                                             University_EN\MagoCloud\Logistics\Barcode /F
+call convert_course Logistics\Barcode-CL-EN                                                             University_EN\MagoCloud\Logistics\Barcode 
 @REM IMMAGINI MANCANTI, NON PUBBLICATO IN UNIVERSITY, DA VERIFICARE
 
 call convert_course Logistics\FatturazioneElettronicaPassivaAvanzata                                    University_IT\Mago4\MDC\Advanced_Purchase_Electronic_Invoices
@@ -62,6 +74,7 @@ call convert_course Financial\BilanciConsolidati                                
 @REM WARNING MISSING CONTEXT
 
 :skipToOk
+goto:skipToEnd
 
 call convert_course CGM\CGM_EN                                                                          University_EN\Mago4\Masters\CGM 
 call convert_course CGM\CGM_EN                                                                          University_EN\Mago4\Masters\CGM 
@@ -129,11 +142,7 @@ call convert_course IMago\SsoMappatura                                          
 call convert_course IMago\WizardDiConfigurazione                                                        University_IT\Mago4\CRM\Configuration_Wizard
 call convert_course Logistics\UscitaMerceWMS                                                            University_IT\MagoCloud\Logistics\Goods_Delivery
 call convert_course Logistics\UscitaMerceWMS_EN                                                         University_EN\MagoCloud\Logistics\Goods_Delivery
-call convert_course Logistics\GliArticoliEquivalenti-CL-IT                                              University_IT\MagoCloud\Logistics\Substitute_Items /F /F /L
-call convert_course Logistics\LAnagraficaAgenti-CL-IT                                                   University_IT\MagoCloud\Sales\Salespeople_Master /F /F /F
-call convert_course Logistics\IDocumentiDelCicloAttivo-CL-IT                                            University_IT\MagoCloud\Sales\Sale_Documents /F /F
-call convert_course Logistics\LeUnitaDiMisura-CL-IT                                                     University_IT\MagoCloud\Logistics\Units_Of_Measure /F /F
-call convert_course Logistics\PrezziEScontiNelCicloAttivo-CL-IT                                         University_IT\MagoCloud\Sales\Price_Discount_Polices /F /F
+
 call convert_course Logistics\ArticoliAcquisizione-EN                                                   University_IT\MagoCloud\Logistics\Acquisition_Item
 call convert_course "Logistics\ArticoliERelativiDatiAnagrafici-CL EN"                                   University_EN\MagoCloud\Logistics\Items_Master_Data
 call convert_course Logistics\ArticoliERelativiDatiAnagrafici-CL-RO                                     University_RO\MagoCloud\Logistics\Items_Master_Data

@@ -45,33 +45,7 @@ if "%3" EQU "/F" (
 )
 
 :CopyFiles
-if defined sourceFolder (
-    if "%4" EQU "/F" (
-        for %%i in ("!sourceFolder!") do (
-            set "lastFolderName=%%~nxi"
-        )
-        xcopy "!sourceFolder!" %DESTINATION%\%2\!lastFolderName! /S /I /Y /Q /E /H /K > nul
-        
-        @REM sometimes there is a different path reference to the same image
-        if "%5" EQU "/F" (
-            xcopy "%sourceFolder%\*" %DESTINATION%\%2 /S /I /Y /Q > nul
-        )
-        
-        @REM sometimes there are images inside an image folder inside a folder with the same name of the sam file
-        set "subSourceFolder="
-        if "%5" EQU "/L" (
-            for /r "%ORIGIN%\%~1" %%F in (*.sam) do (
-                set "fileName=%%~nF"
-                for /d %%D in ("%%~dpF*") do (
-                    set "folderName=%%~nxD"
-                    if /i "!folderName!"=="!fileName!" (
-                        set "subSourceFolder=%%~dpD"
-                        xcopy "!subSourceFolder!!folderName!\images" %DESTINATION%\%2\!folderName!\images\ /S /I /Y /Q /E /H /K >nul
-                    )
-                )
-            )
-        )
-    ) else (
+if defined sourceFolder ( 
         set special_characters='
         for %%F in (%sourceFolder%\*.*) do (
             set "filename=%%~nF"
@@ -82,7 +56,6 @@ if defined sourceFolder (
         )
 
         xcopy "%sourceFolder%\*" %DESTINATION%\%2 /S /I /Y /Q > nul
-    )
 )
 
 EndLocal
