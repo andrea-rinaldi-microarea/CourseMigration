@@ -62,7 +62,6 @@ call convert_course Financial\BilanciConsolidati                                
 @REM WARNING MISSING CONTEXT
 
 :skipToOk
-goto:skipToEnd
 
 call convert_course CGM\CGM_EN                                                                          University_EN\Mago4\Masters\CGM 
 call convert_course CGM\CGM_EN                                                                          University_EN\Mago4\Masters\CGM 
@@ -259,10 +258,10 @@ call convert_course Logistics\PrezziEScontiNelCicloAttivo-CL-RO                 
 call convert_course Logistics\PrezziEScontiNelCicloAttivo-EN                                            University_EN\Mago4\Sales\Price_Discount_Polices
 call convert_course Logistics\ProduttoriCategorieeTipi                                                  University_IT\Mago4\Logistics\Manufacturers_Categories_Types
 call convert_course Logistics\ProduttoriCategorieeTipi-EN                                               University_EN\Mago4\Logistics\Manufacturers_Categories_Types
-call convert_course Logistics\RicMerciConPosizADimoraCLD                                                University_IT\MagoCloud\Good_Receipt_Direct_Putaway
-call convert_course Logistics\RicMerciConPosizADimoraCLD_EN                                             University_EN\MagoCloud\Good_Receipt_Direct_Putaway
-call convert_course Logistics\RicMerciDueFasiCLD                                                        University_IT\MagoCloud\Good_Receipt_Direct_Putaway_Two_Steps
-call convert_course Logistics\RicMerciDueFasiCLD_EN                                                     University_EN\MagoCloud\Good_Receipt_Direct_Putaway_Two_Steps
+call convert_course Logistics\RicMerciConPosizADimoraCLD                                                University_IT\MagoCloud\Logistics\Good_Receipt_Direct_Putaway
+call convert_course Logistics\RicMerciConPosizADimoraCLD_EN                                             University_EN\MagoCloud\Logistics\Good_Receipt_Direct_Putaway
+call convert_course Logistics\RicMerciDueFasiCLD                                                        University_IT\MagoCloud\Logistics\Good_Receipt_Direct_Putaway_Two_Steps
+call convert_course Logistics\RicMerciDueFasiCLD_EN                                                     University_EN\MagoCloud\Logistics\Good_Receipt_Direct_Putaway_Two_Steps
 call convert_course Logistics\RiordinoPuntoVendita-EN                                                   University_EN\Mago4\Logistics\Shop_Replenishment
 call convert_course Logistics\RivalutazioneLifoFifo                                                     University_IT\Mago4\Logistics\Annual_LIFO_FIFO_Revaluation
 call convert_course Logistics\Scontrini-EN                                                              University_EN\MagoCloud\Sales\Fiscal_Bills                           
