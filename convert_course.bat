@@ -1,5 +1,8 @@
 @echo off
 
+IF NOT DEFINED ORIGIN set ORIGIN=C:\eLearning4\eLearning4\courses
+IF NOT DEFINED DESTINATION set DESTINATION=C:\working\courses\University
+
 @REM set the code for italian special characters
 chcp 65001 > nul
 
