@@ -55,7 +55,7 @@ if defined sourceFolder (
             for %%C in (%special_characters%) do (
                 set "filename=!filename:%%C=_!"
             )
-            @ren "%%F" "!filename!%%~xF"
+            @ren "%%F" "!filename!%%~xF" 2>nul
         )
 
         xcopy "%sourceFolder%\*" %DESTINATION%\%2 /S /I /Y /Q > nul

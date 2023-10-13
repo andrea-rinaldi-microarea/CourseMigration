@@ -9,6 +9,7 @@ set DESTINATION=C:\working\courses\University
 
 if exist errors.log del errors.log
 
+goto:AfterDelete
 @REM Only for debug, clearing the folders
 set "folderPath=C:\working\courses"
 if exist "%folderPath%\University" (
@@ -20,6 +21,7 @@ if exist "%folderPath%\output" (
 
 mkdir "%folderPath%\University"
 mkdir "%folderPath%\output"
+:AfterDelete
 
 @REM C:\eLearning4\eLearning4\courses\Financial\VideoMagoCloud
 @REM C:\eLearning4\eLearning4\courses\Logistics\VideoMagoCloud
@@ -76,7 +78,6 @@ call convert_course Financial\BilanciConsolidati                                
 :skipToOk
 goto:skipToEnd
 
-call convert_course CGM\CGM_EN                                                                          University_EN\Mago4\Masters\CGM 
 call convert_course CGM\CGM_EN                                                                          University_EN\Mago4\Masters\CGM 
 call convert_course Financial\FatturazioneElettronicaPassiva_CL                                         University_IT\MagoCloud\MDC\Purchase_Electronic_Invoices /S
 call convert_course Financial\FatturazioneElettronicaPassiva                                            University_IT\Mago4\MDC\Purchase_Electronic_Invoices /M /S
@@ -140,9 +141,11 @@ call convert_course IMago\ProcessoDiValidazione                                 
 call convert_course IMago\SincroInfMago                                                                 University_IT\Mago4\CRM\Infinity_Mago_Synchronization
 call convert_course IMago\SsoMappatura                                                                  University_IT\Mago4\CRM\Mapping_SSO
 call convert_course IMago\WizardDiConfigurazione                                                        University_IT\Mago4\CRM\Configuration_Wizard
+call convert_course "Logistics\Transferimenti Tra Punti Vendita"                                        University_IT\Mago4\Retail\InterStore_Movement_Documents /F
+call convert_course "Logistics\Transferimenti Tra Punti Vendita -EN"                                    University_EN\Mago4\Retail\InterStore_Movement_Documents /F
+call convert_course "Logistics\FormatiUM - EN"                                                          University_EN\Mago4\Retail\UoM_Sizes /F
 call convert_course Logistics\UscitaMerceWMS                                                            University_IT\MagoCloud\Logistics\Goods_Delivery
 call convert_course Logistics\UscitaMerceWMS_EN                                                         University_EN\MagoCloud\Logistics\Goods_Delivery
-
 call convert_course Logistics\ArticoliAcquisizione-EN                                                   University_IT\MagoCloud\Logistics\Acquisition_Item
 call convert_course "Logistics\ArticoliERelativiDatiAnagrafici-CL EN"                                   University_EN\MagoCloud\Logistics\Items_Master_Data
 call convert_course Logistics\ArticoliERelativiDatiAnagrafici-CL-RO                                     University_RO\MagoCloud\Logistics\Items_Master_Data
@@ -160,7 +163,6 @@ call convert_course Logistics\EtichettePrezzoVendita-EN                         
 call convert_course Logistics\EvasioneInterattivaOrdiniCliente                                          University_IT\Mago4\Sales\Sale_Orders_Fulfillment
 call convert_course Logistics\EvasioneInterattivaOrdiniCliente-CL-IT                                    University_IT\MagoCloud\Sales\Sale_Orders_Fulfillment
 call convert_course Logistics\FatturazioneElettronicaGestioneAsincrona                                  University_IT\Mago4\MDC\Asynchronous_Electronic_Invoices
-call convert_course "Logistics\FormatiUM - EN"                                                          University_EN\Mago4\Retail\UoM_Sizes /F
 call convert_course Logistics\GestioneVouchers-EN                                                       University_EN\Mago4\Retail\Vouchers /F
 call convert_course Logistics\GliArticoliEquivalenti                                                    University_IT\Mago4\Logistics\Substitute_Items
 call convert_course Logistics\GliArticoliEquivalenti-EN                                                 University_EN\Mago4\Logistics\Substitute_Items
@@ -277,8 +279,7 @@ call convert_course Logistics\Scontrini-EN                                      
 call convert_course Logistics\TCPOSPrimoAvvio                                                           University_IT\Mago4\Retail\TCPOS_Getting_Started
 call convert_course Logistics\TCPOSPrimoAvvio-EN                                                        University_EN\Mago4\Retail\TCPOS_Getting_Started
 call convert_course Logistics\TransazioniDiCassa-EN                                                     University_EN\MagoCloud\Retail\Cash_Transaction
-call convert_course "Logistics\Transferimenti Tra Punti Vendita"                                        University_IT\Mago4\Retail\InterStore_Movement_Documents /F
-call convert_course "Logistics\Transferimenti Tra Punti Vendita -EN"                                    University_EN\Mago4\Retail\InterStore_Movement_Documents /F
+
 call convert_course "Logistics\VisibilitàTCPOS"                                                         University_IT\Mago4\Retail\TCPOS_Visibility /F
 call convert_course "Logistics\VisibilitàTCPOS-EN"                                                      University_EN\Mago4\Retail\TCPOS_Visibility /F
 call convert_course MigrazioneMago4\MigrazioneMago4                                                     University_IT\Mago4\TB_Studio\Mago4_Migration
