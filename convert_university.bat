@@ -9,7 +9,7 @@ set DESTINATION=C:\working\courses\University
 
 if exist errors.log del errors.log
 
-goto:AfterDelete
+@REM goto:AfterDelete
 @REM Only for debug, clearing the folders
 set "folderPath=C:\working\courses"
 if exist "%folderPath%\University" (
@@ -30,18 +30,6 @@ mkdir "%folderPath%\output"
 
 goto:skipToOk
 
-call convert_course Logistics\GliArticoliEquivalenti-CL-IT                                              University_IT\MagoCloud\Logistics\Substitute_Items 
-@REM riferimenti a immagini in /gliarticoliequivalenti-cl-it/images/[NOME_IMMAGINE]
-call convert_course Logistics\LAnagraficaAgenti-CL-IT                                                   University_IT\MagoCloud\Sales\Salespeople_Master 
-@REM riferimenti a immagini in /images/[NOME_IMMAGINE]
-@REM riferimenti sia a /images/PerImporto03.png che a PerImporto03.png
-call convert_course Logistics\IDocumentiDelCicloAttivo-CL-IT                                            University_IT\MagoCloud\Sales\Sale_Documents 
-@REM riferimenti a immagini in /images/[NOME_IMMAGINE]
-call convert_course Logistics\LeUnitaDiMisura-CL-IT                                                     University_IT\MagoCloud\Logistics\Units_Of_Measure 
-@REM riferimenti a immagini in /images/[NOME_IMMAGINE]
-call convert_course Logistics\PrezziEScontiNelCicloAttivo-CL-IT                                         University_IT\MagoCloud\Sales\Price_Discount_Polices 
-@REM riferimenti a immagini in /images/[NOME_IMMAGINE]
-
 call convert_course "Logistics\Articoli e relativi dati anagrafici - EN"                                University_EN\Mago4\Logistics\Items_Master_Data
 @REM MULTIPLI TXT
 @REM BUILDA CON TUTTI E DUE, FORSE SONO DA FARE DUE CORSI SEPARATI? 
@@ -51,15 +39,7 @@ call convert_course "Logistics\Articoli e relativi dati anagrafici"             
 call convert_course "Logistics\Articoli e relativi dati anagrafici-CL"                                  University_IT\MagoCloud\Logistics\Items_Master_Data
 @REM MULTIPLI TXT
 @REM BUILDA CON TUTTI E DUE, FORSE SONO DA FARE DUE CORSI SEPARATI? 
-call convert_course Logistics\GuidaPerIniziareLaGestioneWMS                                             University_IT\Mago4\Logisitics\Wms_Starting_Guide
-@REM MULTIPLI TXT
-@REM IL SECONDO TXT E' VUOTO, CANCELLARLO A MANO? 
-call convert_course CGM\CGM                                                                             University_IT\Mago4\Masters\CGM 
-@REM MULTIPLI TXT
-@REM SONO DIVERSI 
 
-call convert_course Logistics\GliArticoliEquivalenti-CL-EN                                              University_EN\MagoCloud\Logistics\Substitute_Items
-@REM IMMAGINI MANCANTI, NON PUBBLICATO IN UNIVERSITY, DA VERIFICARE
 call convert_course Logistics\LaGestioneVarianti                                                        University_IT\Mago4\Logistics\Variants_Management 
 @REM IMMAGINI MANCANTI, NON PUBBLICATO IN UNIVERSITY, DA VERIFICARE
 call convert_course Logistics\Barcode-CL-EN                                                             University_EN\MagoCloud\Logistics\Barcode 
@@ -78,6 +58,7 @@ call convert_course Financial\BilanciConsolidati                                
 :skipToOk
 goto:skipToEnd
 
+call convert_course CGM\CGM                                                                             University_IT\Mago4\Masters\CGM 
 call convert_course CGM\CGM_EN                                                                          University_EN\Mago4\Masters\CGM 
 call convert_course Financial\FatturazioneElettronicaPassiva_CL                                         University_IT\MagoCloud\MDC\Purchase_Electronic_Invoices /S
 call convert_course Financial\FatturazioneElettronicaPassiva                                            University_IT\Mago4\MDC\Purchase_Electronic_Invoices /M /S
@@ -141,6 +122,13 @@ call convert_course IMago\ProcessoDiValidazione                                 
 call convert_course IMago\SincroInfMago                                                                 University_IT\Mago4\CRM\Infinity_Mago_Synchronization
 call convert_course IMago\SsoMappatura                                                                  University_IT\Mago4\CRM\Mapping_SSO
 call convert_course IMago\WizardDiConfigurazione                                                        University_IT\Mago4\CRM\Configuration_Wizard
+call convert_course Logistics\GliArticoliEquivalenti-CL-EN                                              University_EN\MagoCloud\Logistics\Substitute_Items
+call convert_course Logistics\GuidaPerIniziareLaGestioneWMS                                             University_IT\Mago4\Logisitics\Wms_Starting_Guide
+call convert_course Logistics\GliArticoliEquivalenti-CL-IT                                              University_IT\MagoCloud\Logistics\Substitute_Items 
+call convert_course Logistics\LAnagraficaAgenti-CL-IT                                                   University_IT\MagoCloud\Sales\Salespeople_Master 
+call convert_course Logistics\IDocumentiDelCicloAttivo-CL-IT                                            University_IT\MagoCloud\Sales\Sale_Documents 
+call convert_course Logistics\LeUnitaDiMisura-CL-IT                                                     University_IT\MagoCloud\Logistics\Units_Of_Measure 
+call convert_course Logistics\PrezziEScontiNelCicloAttivo-CL-IT                                         University_IT\MagoCloud\Sales\Price_Discount_Polices 
 call convert_course "Logistics\Transferimenti Tra Punti Vendita"                                        University_IT\Mago4\Retail\InterStore_Movement_Documents /F
 call convert_course "Logistics\Transferimenti Tra Punti Vendita -EN"                                    University_EN\Mago4\Retail\InterStore_Movement_Documents /F
 call convert_course "Logistics\FormatiUM - EN"                                                          University_EN\Mago4\Retail\UoM_Sizes /F
