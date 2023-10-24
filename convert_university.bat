@@ -23,43 +23,30 @@ mkdir "%folderPath%\University"
 mkdir "%folderPath%\output"
 :AfterDelete
 
+@REM VIDEO 
 @REM C:\eLearning4\eLearning4\courses\Financial\VideoMagoCloud
 @REM C:\eLearning4\eLearning4\courses\Logistics\VideoMagoCloud
 @REM C:\eLearning4\eLearning4\courses\Produzione\Videocorsi
 @REM C:\eLearning4\eLearning4\courses\Task Builder\Videocorsi 
 
+@REM call convert_course Logistics\LaGestioneVarianti                                                        University_IT\Mago4\Logistics\Variants_Management 
+@REM call convert_course Logistics\Barcode-CL-EN                                                             University_EN\MagoCloud\Logistics\Barcode 
+
 goto:skipToOk
-
-call convert_course "Logistics\Articoli e relativi dati anagrafici - EN"                                University_EN\Mago4\Logistics\Items_Master_Data
-@REM MULTIPLI TXT
-@REM BUILDA CON TUTTI E DUE, FORSE SONO DA FARE DUE CORSI SEPARATI? 
-call convert_course "Logistics\Articoli e relativi dati anagrafici"                                     University_IT\Mago4\Logistics\Items_Master_Data
-@REM MULTIPLI TXT
-@REM BUILDA CON TUTTI E DUE, FORSE SONO DA FARE DUE CORSI SEPARATI? 
-call convert_course "Logistics\Articoli e relativi dati anagrafici-CL"                                  University_IT\MagoCloud\Logistics\Items_Master_Data
-@REM MULTIPLI TXT
-@REM BUILDA CON TUTTI E DUE, FORSE SONO DA FARE DUE CORSI SEPARATI? 
-
-call convert_course Logistics\LaGestioneVarianti                                                        University_IT\Mago4\Logistics\Variants_Management 
-@REM IMMAGINI MANCANTI, NON PUBBLICATO IN UNIVERSITY, DA VERIFICARE
-call convert_course Logistics\Barcode-CL-EN                                                             University_EN\MagoCloud\Logistics\Barcode 
-@REM IMMAGINI MANCANTI, NON PUBBLICATO IN UNIVERSITY, DA VERIFICARE
 
 call convert_course Logistics\FatturazioneElettronicaPassivaAvanzata                                    University_IT\Mago4\MDC\Advanced_Purchase_Electronic_Invoices
 @REM DOPPIONI
 call convert_course Logistics\FatturazioneElettronicaPassivaAvanzataNEW                                 University_IT\Mago4\MDC\Advanced_Purchase_Electronic_Invoices
 @REM DOPPIONI
 
-call convert_course Financial\Percipienti                                                               University_IT\Mago4\Financial\Payees
-@REM WARNING MISSING CONTEXT
-call convert_course Financial\BilanciConsolidati                                                        University_IT\Mago4\Financial\Multicompany_Balances
-@REM WARNING MISSING CONTEXT
-
 :skipToOk
 goto:skipToEnd
 
+call convert_course PlatformApi                                                                         University_EN\MagoCloud\Masters\Platform_Api 
 call convert_course CGM\CGM                                                                             University_IT\Mago4\Masters\CGM 
 call convert_course CGM\CGM_EN                                                                          University_EN\Mago4\Masters\CGM 
+call convert_course Financial\Percipienti                                                               University_IT\Mago4\Financial\Payees
+call convert_course Financial\BilanciConsolidati                                                        University_IT\Mago4\Financial\Multicompany_Balances
 call convert_course Financial\FatturazioneElettronicaPassiva_CL                                         University_IT\MagoCloud\MDC\Purchase_Electronic_Invoices /S
 call convert_course Financial\FatturazioneElettronicaPassiva                                            University_IT\Mago4\MDC\Purchase_Electronic_Invoices /M /S
 call convert_course Financial\Anagrafiche                                                               University_IT\Mago4\Masters\Masters
@@ -122,6 +109,9 @@ call convert_course IMago\ProcessoDiValidazione                                 
 call convert_course IMago\SincroInfMago                                                                 University_IT\Mago4\CRM\Infinity_Mago_Synchronization
 call convert_course IMago\SsoMappatura                                                                  University_IT\Mago4\CRM\Mapping_SSO
 call convert_course IMago\WizardDiConfigurazione                                                        University_IT\Mago4\CRM\Configuration_Wizard
+call convert_course "Logistics\Articoli e relativi dati anagrafici - EN"                                University_EN\Mago4\Logistics\Items_Master_Data
+call convert_course "Logistics\Articoli e relativi dati anagrafici"                                     University_IT\Mago4\Logistics\Items_Master_Data
+call convert_course "Logistics\Articoli e relativi dati anagrafici-CL"                                  University_IT\MagoCloud\Logistics\Items_Master_Data
 call convert_course Logistics\GliArticoliEquivalenti-CL-EN                                              University_EN\MagoCloud\Logistics\Substitute_Items
 call convert_course Logistics\GuidaPerIniziareLaGestioneWMS                                             University_IT\Mago4\Logisitics\Wms_Starting_Guide
 call convert_course Logistics\GliArticoliEquivalenti-CL-IT                                              University_IT\MagoCloud\Logistics\Substitute_Items 
@@ -267,7 +257,6 @@ call convert_course Logistics\Scontrini-EN                                      
 call convert_course Logistics\TCPOSPrimoAvvio                                                           University_IT\Mago4\Retail\TCPOS_Getting_Started
 call convert_course Logistics\TCPOSPrimoAvvio-EN                                                        University_EN\Mago4\Retail\TCPOS_Getting_Started
 call convert_course Logistics\TransazioniDiCassa-EN                                                     University_EN\MagoCloud\Retail\Cash_Transaction
-
 call convert_course "Logistics\VisibilitàTCPOS"                                                         University_IT\Mago4\Retail\TCPOS_Visibility /F
 call convert_course "Logistics\VisibilitàTCPOS-EN"                                                      University_EN\Mago4\Retail\TCPOS_Visibility /F
 call convert_course MigrazioneMago4\MigrazioneMago4                                                     University_IT\Mago4\TB_Studio\Mago4_Migration
