@@ -107,7 +107,7 @@ call convert_course "Logistics\Articoli e relativi dati anagrafici - EN"        
 call convert_course "Logistics\Articoli e relativi dati anagrafici"                                     University_IT\Mago4\Logistics\Items_Master_Data
 call convert_course "Logistics\Articoli e relativi dati anagrafici-CL"                                  University_IT\MagoCloud\Logistics\Items_Master_Data
 call convert_course Logistics\GliArticoliEquivalenti-CL-EN                                              University_EN\MagoCloud\Logistics\Substitute_Items
-call convert_course Logistics\GuidaPerIniziareLaGestioneWMS                                             University_IT\Mago4\Logisitics\Wms_Starting_Guide
+call convert_course Logistics\GuidaPerIniziareLaGestioneWMS                                             University_IT\Mago4\Logistics\Wms_Starting_Guide
 call convert_course Logistics\GliArticoliEquivalenti-CL-IT                                              University_IT\MagoCloud\Logistics\Substitute_Items 
 call convert_course Logistics\LAnagraficaAgenti-CL-IT                                                   University_IT\MagoCloud\Sales\Salespeople_Master 
 call convert_course Logistics\IDocumentiDelCicloAttivo-CL-IT                                            University_IT\MagoCloud\Sales\Sale_Documents 
@@ -138,7 +138,7 @@ call convert_course Logistics\FatturazioneElettronicaGestioneAsincrona          
 call convert_course Logistics\GestioneVouchers-EN                                                       University_EN\Mago4\Retail\Vouchers /F
 call convert_course Logistics\GliArticoliEquivalenti                                                    University_IT\Mago4\Logistics\Substitute_Items
 call convert_course Logistics\GliArticoliEquivalenti-EN                                                 University_EN\Mago4\Logistics\Substitute_Items
-call convert_course Logistics\GuidaPerIniziareLaGestioneWMS_EN                                          University_EN\Mago4\Logisitics\Wms_Starting_Guide
+call convert_course Logistics\GuidaPerIniziareLaGestioneWMS_EN                                          University_EN\Mago4\Logistics\Wms_Starting_Guide
 call convert_course Logistics\IDatiClienteArticoloFornitoreArticolo                                     University_IT\Mago4\Logistics\Item_Customers_Suppliers
 call convert_course Logistics\IDatiClienteArticoloFornitoreArticolo-CL-EN                               University_EN\MagoCloud\Logistics\Item_Customers_Suppliers
 call convert_course Logistics\IDatiClienteArticoloFornitoreArticolo-CL-RO                               University_RO\MagoCloud\Logistics\Item_Customers_Suppliers
