@@ -9,7 +9,7 @@ set DESTINATION=C:\working\courses\University
 
 if exist errors.log del errors.log
 
-@REM goto:AfterDelete
+goto:AfterDelete
 @REM Only for debug, clearing the folders
 set "folderPath=C:\working\courses"
 if exist "%folderPath%\University" (
@@ -29,17 +29,10 @@ mkdir "%folderPath%\output"
 @REM C:\eLearning4\eLearning4\courses\Produzione\Videocorsi
 @REM C:\eLearning4\eLearning4\courses\Task Builder\Videocorsi 
 
+@REM DA ULTIMARE
 @REM call convert_course Logistics\LaGestioneVarianti                                                        University_IT\Mago4\Logistics\Variants_Management 
 @REM call convert_course Logistics\Barcode-CL-EN                                                             University_EN\MagoCloud\Logistics\Barcode 
 
-goto:skipToOk
-
-call convert_course Logistics\FatturazioneElettronicaPassivaAvanzata                                    University_IT\Mago4\MDC\Advanced_Purchase_Electronic_Invoices
-@REM DOPPIONI
-call convert_course Logistics\FatturazioneElettronicaPassivaAvanzataNEW                                 University_IT\Mago4\MDC\Advanced_Purchase_Electronic_Invoices
-@REM DOPPIONI
-
-:skipToOk
 goto:skipToEnd
 
 call convert_course PlatformApi                                                                         University_EN\MagoCloud\Masters\Platform_Api 
@@ -109,6 +102,7 @@ call convert_course IMago\ProcessoDiValidazione                                 
 call convert_course IMago\SincroInfMago                                                                 University_IT\Mago4\CRM\Infinity_Mago_Synchronization
 call convert_course IMago\SsoMappatura                                                                  University_IT\Mago4\CRM\Mapping_SSO
 call convert_course IMago\WizardDiConfigurazione                                                        University_IT\Mago4\CRM\Configuration_Wizard
+call convert_course Logistics\FatturazioneElettronicaPassivaAvanzataNEW                                 University_IT\Mago4\MDC\Advanced_Purchase_Electronic_Invoices
 call convert_course "Logistics\Articoli e relativi dati anagrafici - EN"                                University_EN\Mago4\Logistics\Items_Master_Data
 call convert_course "Logistics\Articoli e relativi dati anagrafici"                                     University_IT\Mago4\Logistics\Items_Master_Data
 call convert_course "Logistics\Articoli e relativi dati anagrafici-CL"                                  University_IT\MagoCloud\Logistics\Items_Master_Data
