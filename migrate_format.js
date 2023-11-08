@@ -122,9 +122,8 @@ function fix_bold(line) {
         if (i % 2 == 0) {
             result += parts[i];
         } else {
-            var startSpace = parts[i].startsWith(' ') ? ' ' : '';
             var endSpace = parts[i].endsWith(' ') ? ' ' : '';
-            result += startSpace + "**" + parts[i].trim() + "**" + endSpace;
+            result += "**" + parts[i].trim() + "**" + endSpace;
         }
     }
     return result;
@@ -140,55 +139,3 @@ input.on('data', line => {
 });
 
 input.on('error', e => console.error(e));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-function convert_image(line) {
-    var match = '"';
-    // var start = line.indexOf(match, 4);
-    // if (start == -1) {
-    //     match = ' ';
-    //     start = 4;
-    // }
-    var start = line.split(4).search(/\S/);
-    if (start == -1) {
-        match = ' ';
-        start = 4;
-    }
-    
-    var stop = line.indexOf(match, start + 1);
-    if (stop == -1) {
-        stop = line.length - 1;
-    }
-
-    var filename = line.substr(start + 1, stop - start - 1);
-
-    var size = "";
-    if (fs.existsSync(path.join(sourcePath,filename))) {
-        var dimensions = sizeOf(path.join(sourcePath,filename));
-        size =`${dimensions.width}x${dimensions.height}`;
-    }
-
-    var caption = "";
-    if (line[stop + 1] != ']') {
-        caption = line.substr(stop + 1,line.length - stop - 2).trim();
-    }
-    if (caption.trim().length == 0) {
-        return `[IMG "${filename}" ${size}]`;
-    } else {
-        return `[IMG "${filename}" ${size}]\n[LABEL ${caption}]`;
-    }
-}
-*/
