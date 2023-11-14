@@ -29,10 +29,7 @@ mkdir "%folderPath%\output"
 @REM C:\eLearning4\eLearning4\courses\Produzione\Videocorsi
 @REM C:\eLearning4\eLearning4\courses\Task Builder\Videocorsi 
 
-@REM call convert_course Logistics\WMSMobile                                                                 University_IT\MagoCloud\Logistics\WMSMobile_Config_Startup
-@REM text file ridondante
-
-goto:skipToEnd
+@REM goto:skipToEnd
 
 call convert_course PlatformApi                                                                         University_EN\MagoCloud\Masters\Platform_Api 
 call convert_course CGM\CGM                                                                             University_IT\Mago4\Masters\CGM 
@@ -100,6 +97,7 @@ call convert_course IMago\ProcessoDiValidazione                                 
 call convert_course IMago\SincroInfMago                                                                 University_IT\Mago4\CRM\Infinity_Mago_Synchronization
 call convert_course IMago\SsoMappatura                                                                  University_IT\Mago4\CRM\Mapping_SSO
 call convert_course IMago\WizardDiConfigurazione                                                        University_IT\Mago4\CRM\Configuration_Wizard
+call convert_course Logistics\WMSMobile                                                                 University_IT\MagoCloud\Logistics\WMSMobile_Config_Startup
 call convert_course Logistics\WMSMobile_EN                                                              University_EN\MagoCloud\Logistics\WMSMobile_Config_Startup
 call convert_course Logistics\FatturazioneElettronicaPassivaAvanzataNEW                                 University_IT\Mago4\MDC\Advanced_Purchase_Electronic_Invoices
 call convert_course "Logistics\Articoli e relativi dati anagrafici - EN"                                University_EN\Mago4\Logistics\Items_Master_Data
