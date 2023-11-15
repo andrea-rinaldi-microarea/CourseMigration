@@ -5,13 +5,13 @@ chcp 65001 > nul
 
 @REM set ORIGIN=C:\eLearning4\courses 
 set ORIGIN=C:\eLearning4\eLearning4\courses
-set DESTINATION=C:\working\courses\University
+set DESTINATION=C:\Working\courses\University
 
 if exist errors.log del errors.log
 
 @REM goto:AfterDelete
 @REM Only for debug, clearing the folders
-set "folderPath=C:\working\courses"
+set "folderPath=C:\Working\courses"
 if exist "%folderPath%\University" (
     rmdir /s /q "%folderPath%\University"
 )

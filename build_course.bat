@@ -2,8 +2,8 @@ Setlocal EnableDelayedExpansion
 
 @REM set SUPERSAM="C:\Program Files\Zucchetti Supersam\supersam.exe"
 set SUPERSAM="C:\Program Files (x86)\Zucchetti Supersam\supersam.exe"
-IF NOT DEFINED SOURCE set SOURCE=C:\working\courses\University
-IF NOT DEFINED OUTPUT set OUTPUT=C:\working\courses\output
+IF NOT DEFINED SOURCE set SOURCE=C:\Working\courses\University
+IF NOT DEFINED OUTPUT set OUTPUT=C:\Working\courses\output
 
 Call strLen.cmd %SOURCE% _len
 @REM suppress "University_"
