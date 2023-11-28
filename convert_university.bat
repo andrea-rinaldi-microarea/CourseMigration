@@ -34,6 +34,7 @@ mkdir "%folderPath%\output"
 call convert_course PlatformApi                                                                         University_EN\MagoCloud\Masters\Platform_Api 
 call convert_course CGM\CGM                                                                             University_IT\Mago4\Masters\CGM 
 call convert_course CGM\CGM_EN                                                                          University_EN\Mago4\Masters\CGM 
+call convert_course Financial\Percipienti                                                               University_IT\Mago4\Financial\Payees
 call convert_course Financial\BilanciConsolidati                                                        University_IT\Mago4\Financial\Multicompany_Balances
 call convert_course Financial\ElenchiIntrastat                                                          University_IT\Mago4\Financial\Intrastat
 call convert_course Financial\StampeFiscali                                                             University_IT\Mago4\Financial\Fiscal_Printouts
@@ -42,7 +43,6 @@ call convert_course Financial\StampeFiscaliRO                                   
 call convert_course Financial\StampeFiscali_CL                                                          University_IT\MagoCloud\Financial\Fiscal_Printouts
 call convert_course Financial\StampeFiscali_CL_EN                                                       University_EN\MagoCloud\Financial\Fiscal_Printouts
 call convert_course Financial\StampeFiscali_CL_RO                                                       University_RO\MagoCloud\Financial\Fiscal_Printouts
-call convert_course Financial\Percipienti                                                               University_IT\Mago4\Financial\Payees
 call convert_course Financial\FatturazioneElettronicaPassiva_CL                                         University_IT\MagoCloud\MDC\Purchase_Electronic_Invoices /S
 call convert_course Financial\FatturazioneElettronicaPassiva                                            University_IT\Mago4\MDC\Purchase_Electronic_Invoices /M /S
 call convert_course Financial\Anagrafiche                                                               University_IT\Mago4\Masters\Masters
@@ -115,7 +115,7 @@ call convert_course "Logistics\Transferimenti Tra Punti Vendita -EN"            
 call convert_course "Logistics\FormatiUM - EN"                                                          University_EN\MagoCloud\Retail\UoM_Sizes /F
 call convert_course Logistics\UscitaMerceWMS                                                            University_IT\MagoCloud\Logistics\Goods_Delivery
 call convert_course Logistics\UscitaMerceWMS_EN                                                         University_EN\MagoCloud\Logistics\Goods_Delivery
-call convert_course Logistics\ArticoliAcquisizione-EN                                                   University_IT\MagoCloud\Retail\Acquisition_Item
+call convert_course Logistics\ArticoliAcquisizione-EN                                                   University_EN\MagoCloud\Retail\Acquisition_Item
 call convert_course "Logistics\ArticoliERelativiDatiAnagrafici-CL EN"                                   University_EN\MagoCloud\Logistics\Items_Master_Data
 call convert_course Logistics\ArticoliERelativiDatiAnagrafici-CL-RO                                     University_RO\MagoCloud\Logistics\Items_Master_Data
 call convert_course Logistics\Barcode-EN                                                                University_EN\Mago4\Logistics\Barcode

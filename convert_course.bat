@@ -147,4 +147,4 @@ for %%T in (%DESTINATION%\%2\*.sam) do (
 
 @REM create the project file from a template
 @copy _template.prjsam %DESTINATION%\%2\%~n2.prjsam >nul
-@echo project=%~n2.sam >> %DESTINATION%\%2\%~n2.prjsam
+@echo project=%~n2.sam >> %DESTINATION%\%2\%~n2.prjsam 
