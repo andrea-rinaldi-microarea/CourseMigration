@@ -26,15 +26,3 @@ if "%2" NEQ "/B" (
     )
 )
 
-@REM remove a default string injected by the build process of supersam, that appears in the background of some pages
-for /r "%OUTPUT%" %%i in (sam_it.css) do (
-    if exist "%%i" (
-        set "file=%%i"
-        set search=".txt_empty_page::before"
-        set replace=".no_class_existent"
-        (
-            powershell -Command "& {(Get-Content '!file!' -Raw) -replace [regex]::Escape('!search!'), '!replace!' | Set-Content '!file!'}"
-        )
-
-    )
-) 
