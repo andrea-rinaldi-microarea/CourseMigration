@@ -26,7 +26,6 @@ for /r "%OUTPUT%" %%i in (sam_it.css) do (
         (
             powershell -Command "& {(Get-Content '!file!' -Raw) -replace [regex]::Escape('!search!'), '!replace!' | Set-Content '!file!'}"
         )
-
     )
 ) 
 
