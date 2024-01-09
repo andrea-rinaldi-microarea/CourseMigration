@@ -29,4 +29,16 @@ for /r "%OUTPUT%" %%i in (sam_it.css) do (
     )
 ) 
 
+@REM remove the injected logo by the build process of supersam, that appears in the background of some pages
+for /r "%OUTPUT%" %%i in (sam_help.css) do (
+    if exist "%%i" (
+        set "file=%%i"
+        set search=".txt_empty_page"
+        set replace=".no_class_existent"
+        (
+            powershell -Command "& {(Get-Content '!file!' -Raw) -replace [regex]::Escape('!search!'), '!replace!' | Set-Content '!file!'}"
+        )
+    )
+) 
+
 

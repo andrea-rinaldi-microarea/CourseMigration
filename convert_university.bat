@@ -31,18 +31,35 @@ mkdir "%folderPath%\output"
 
 goto:skipToEnd
 
-@REM committati
+goto:skipMigrated
+
+call convert_course Accounting_Entries                                                                  University_DE\Mago4\Financial\Accounting_Entries
+call convert_course Credit_Notes                                                                        University_DE\Mago4\Sales\Credit_Notes
+call convert_course Delivery_Notes                                                                      University_DE\Mago4\Sales\Delivery_Notes
+call convert_course Delivery_Notes_Deferred_Invoicing                                                   University_DE\Mago4\Sales\Delivery_Notes_Deferred_Invoicing
+call convert_course Equivalent_Items                                                                    University_DE\Mago4\Logistics\Substitute_Items
+call convert_course Factories                                                                           University_DE\Mago4\Manufacturing\Factories
+call convert_course Inventory_Closing                                                                   University_DE\Mago4\Logistics\Inventory_Closing
+call convert_course Inventory_Entries                                                                   University_DE\Mago4\Logistics\Inventory_Entries
+call convert_course Inventory_Entries_Maintenance                                                       University_DE\Mago4\Logistics\Inventory_Entries_Maintenance
+call convert_course Items_Master_Data                                                                   University_DE\Mago4\Logistics\Items_Master_Data
+call convert_course Item_Customers_Suppliers                                                            University_DE\Mago4\Logistics\Item_Customers_Suppliers
+call convert_course Lots_Automatic_Procedures                                                           University_DE\Mago4\Logistics\Lots_Automatic_Procedures
+call convert_course Manufacturers_Categories_Types                                                      University_DE\Mago4\Logistics\Manufacturers_Categories_Types
+call convert_course Masters                                                                             University_DE\Mago4\Masters\Masters
+call convert_course "Smart Codes"                                                                       University_DE\Mago4\Logistics\Smart_Codes
+call convert_course Units_Of_Measure                                                                    University_DE\Mago4\Logistics\Units_Of_Measure
+call convert_course WMS_Storage_Configuration                                                           University_DE\Mago4\Logistics\WMS_Storage_Configuration
+
 call convert_course CGM\CGM                                                                             University_IT\Mago4\Masters\CGM 
-call convert_course Financial\Percipienti                                                               University_IT\Mago4\Financial\Payees
-call convert_course Financial\FatturazioneElettronicaPassiva_CL                                         University_IT\MagoCloud\MDC\Purchase_Electronic_Invoices /S
-call convert_course Financial\FatturazioneElettronica_Autofatture                                       University_IT\Mago4\MDC\Self_Electronic_Invoices /I
-call convert_course Logistics\WMSMobile                                                                 University_IT\MagoCloud\Logistics\WMSMobile_Config_Startup
+call convert_course Financial\Percipienti                                                               University_IT\Mago4\Financial\Payees OK
+call convert_course Financial\FatturazioneElettronicaPassiva_CL                                         University_IT\MagoCloud\MDC\Purchase_Electronic_Invoices /S 
+call convert_course Financial\FatturazioneElettronica_Autofatture                                       University_IT\Mago4\MDC\Self_Electronic_Invoices /I 
 call convert_course Logistics\IDocumentiDelCicloAttivo-CL-IT                                            University_IT\MagoCloud\Sales\Sale_Documents 
-call convert_course Produzione\DistintaBase-CL\LeProcedure-CL                                           University_IT\MagoCloud\Manufacturing\Bill_Of_Materials_Procedures
+call convert_course Produzione\DistintaBase-CL\LeProcedure-CL                                           University_IT\MagoCloud\Manufacturing\Bill_Of_Materials_Procedures 
 call convert_course Produzione\Enterprise\Kanban                                                        University_IT\Mago4\Manufacturing\Kanban
 call convert_course Visibility\LaVisibilita                                                             University_IT\Mago4\TB_Framework\Visibility
 call convert_course IMago\SincroInfMago                                                                 University_IT\Mago4\CRM\Infinity_Mago_Synchronization
-call convert_course Logistics\IlTrasferimentoDellaMerceWMS                                              University_IT\MagoCloud\Logistics\WMS_Stock_Transfer
 call convert_course Logistics\IntroduzioneMagoCloud                                                     University_IT\MagoCloud\Masters\MagoCloud_Introduction
 call convert_course Logistics\LaChiusuraDiMagazzino                                                     University_IT\Mago4\Logistics\Inventory_Closing
 call convert_course Financial\BilanciConsolidati                                                        University_IT\Mago4\Financial\Multicompany_Balances
@@ -61,9 +78,6 @@ call convert_course Financial\CespitiMovimenti                                  
 call convert_course Financial\ChiusureAperture                                                          University_IT\Mago4\Financial\Opening_Closing
 call convert_course Financial\ChiusureAperture_CL                                                       University_IT\MagoCloud\Financial\Opening_Closing
 
-
-
-
 call convert_course Financial\EffettiEMandati                                                           University_IT\Mago4\Financial\Bills_and_Payment_Orders
 call convert_course Financial\EffettiEMandati_CL                                                        University_IT\MagoCloud\Financial\Bills_and_Payment_Orders
 call convert_course Financial\Enasarco                                                                  University_IT\Mago4\Financial\Enasarco
@@ -71,17 +85,23 @@ call convert_course Financial\FatturazioneElettronicaAttiva_CL                  
 call convert_course Financial\FatturazioneElettronica_Integrazioni                                      University_IT\Mago4\MDC\Electronic_Invoices_Integrations
 call convert_course Financial\MovimentiContabili                                                        University_IT\Mago4\Financial\Accounting_Entries
 call convert_course Financial\MovimentiContabili_CL                                                     University_IT\MagoCloud\Financial\Accounting_Entries
-call convert_course Financial\Partite                                                                   University_IT\Mago4\Financial\AP_AR
 call convert_course Financial\Partite_CL                                                                University_IT\MagoCloud\Financial\AP_AR
-call convert_course Financial\FatturazioneElettronica_Autofatture                                       University_IT\Mago4\MDC\Self_Electronic_Invoices /I
+call convert_course Financial\Partite                                                                   University_IT\Mago4\Financial\AP_AR
 call convert_course Financial\FatturazioneElettronicaAttiva                                             University_IT\Mago4\MDC\Sales_Electronic_Invoices
 call convert_course IMago\Gadget                                                                        University_IT\Mago4\CRM\Gadget
 call convert_course IMago\InstallazioneComponenti                                                       University_IT\Mago4\CRM\Components_Installation
 call convert_course IMago\Posta                                                                         University_IT\Mago4\CRM\Mail
 call convert_course IMago\ProcessoDiSincronizzazione                                                    University_IT\Mago4\CRM\Synchronization_Process
 call convert_course IMago\ProcessoDiValidazione                                                         University_IT\Mago4\CRM\Validation_Process
-call convert_course IMago\SincroInfMago                                                                 University_IT\Mago4\CRM\Infinity_Mago_Synchronization
 call convert_course IMago\SsoMappatura                                                                  University_IT\Mago4\CRM\Mapping_SSO
+call convert_course IMago\WizardDiConfigurazione                                                        University_IT\Mago4\CRM\Configuration_Wizard
+
+:skipMigrated
+
+@REM ? call convert_course Logistics\WMSMobile                                                                 University_IT\MagoCloud\Logistics\WMSMobile_Config_Startup
+@REM ? call convert_course Logistics\IlTrasferimentoDellaMerceWMS                                              University_IT\MagoCloud\Logistics\WMS_Stock_Transfer
+
+call convert_course Logistics\FatturazioneElettronicaPassivaAvanzataNEW                                 University_IT\Mago4\MDC\Advanced_Purchase_Electronic_Invoices
 call convert_course IMago\WizardDiConfigurazione                                                        University_IT\Mago4\CRM\Configuration_Wizard
 call convert_course Logistics\WMSMobile                                                                 University_IT\MagoCloud\Logistics\WMSMobile_Config_Startup
 call convert_course Logistics\FatturazioneElettronicaPassivaAvanzataNEW                                 University_IT\Mago4\MDC\Advanced_Purchase_Electronic_Invoices
