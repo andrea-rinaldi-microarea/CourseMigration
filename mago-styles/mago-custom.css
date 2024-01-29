@@ -261,22 +261,22 @@ pre code {
 }
 
 .info {
-    background-color: #e4f0f5;
+    background-color: #e4f0f5 !important;
     border: 1px solid hsla(198, 45%, 45%, 0.1);
-    border-left: 5px solid #3f87a6;
+    border-left: 5px solid #3f87a6 !important;
 }
 
 .example {
     font-size: 106%;
-    background-color: #f8f8f8;
+    background-color: #f8f8f8 !important;
     border: 1px solid hsla(0, 0%, 60%, 0.1);
-    border-left: 5px solid #999999;
+    border-left: 5px solid #999999 !important;
 }
 
 .warning {
-    background-color: #ffedcc;
+    background-color: #ffedcc !important;
     border: 1px solid hsla(28, 79%, 72%, 0.1);
-    border-left: 5px solid #f0b37e;
+    border-left: 5px solid #f0b37e !important;
 }
 
 .marginnote {

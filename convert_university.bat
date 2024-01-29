@@ -29,6 +29,8 @@ mkdir "%folderPath%\output"
 @REM C:\eLearning4\eLearning4\courses\Produzione\Videocorsi
 @REM C:\eLearning4\eLearning4\courses\Task Builder\Videocorsi 
 
+call convert_course Logistics\Barcode-CL-EN                                                             University_EN\MagoCloud\Logistics\Barcode
+
 goto:skipToEnd
 
 goto:skipMigrated
@@ -50,9 +52,11 @@ call convert_course Masters                                                     
 call convert_course "Smart Codes"                                                                       University_DE\Mago4\Logistics\Smart_Codes
 call convert_course Units_Of_Measure                                                                    University_DE\Mago4\Logistics\Units_Of_Measure
 call convert_course WMS_Storage_Configuration                                                           University_DE\Mago4\Logistics\WMS_Storage_Configuration
+call convert_course Financial\AmazonDSP_DE                                                              University_DE\MagoCloud\Financial\AmazonDSP /I
 
+call convert_course Financial\FatturazioneElettronica                                                   University_IT\Mago4\Financial\Electronic_Invoices 
 call convert_course CGM\CGM                                                                             University_IT\Mago4\Masters\CGM 
-call convert_course Financial\Percipienti                                                               University_IT\Mago4\Financial\Payees OK
+call convert_course Financial\Percipienti                                                               University_IT\Mago4\Financial\Payees 
 call convert_course Financial\FatturazioneElettronicaPassiva_CL                                         University_IT\MagoCloud\MDC\Purchase_Electronic_Invoices /S 
 call convert_course Financial\FatturazioneElettronica_Autofatture                                       University_IT\Mago4\MDC\Self_Electronic_Invoices /I 
 call convert_course Logistics\IDocumentiDelCicloAttivo-CL-IT                                            University_IT\MagoCloud\Sales\Sale_Documents 
@@ -77,7 +81,6 @@ call convert_course Financial\CespitiDismissioni                                
 call convert_course Financial\CespitiMovimenti                                                          University_IT\Mago4\Financial\Fixed_Assets_Entries
 call convert_course Financial\ChiusureAperture                                                          University_IT\Mago4\Financial\Opening_Closing
 call convert_course Financial\ChiusureAperture_CL                                                       University_IT\MagoCloud\Financial\Opening_Closing
-
 call convert_course Financial\EffettiEMandati                                                           University_IT\Mago4\Financial\Bills_and_Payment_Orders
 call convert_course Financial\EffettiEMandati_CL                                                        University_IT\MagoCloud\Financial\Bills_and_Payment_Orders
 call convert_course Financial\Enasarco                                                                  University_IT\Mago4\Financial\Enasarco
@@ -89,107 +92,81 @@ call convert_course Financial\Partite_CL                                        
 call convert_course Financial\Partite                                                                   University_IT\Mago4\Financial\AP_AR
 call convert_course Financial\FatturazioneElettronicaAttiva                                             University_IT\Mago4\MDC\Sales_Electronic_Invoices
 call convert_course IMago\Gadget                                                                        University_IT\Mago4\CRM\Gadget
-call convert_course IMago\InstallazioneComponenti                                                       University_IT\Mago4\CRM\Components_Installation
 call convert_course IMago\Posta                                                                         University_IT\Mago4\CRM\Mail
 call convert_course IMago\ProcessoDiSincronizzazione                                                    University_IT\Mago4\CRM\Synchronization_Process
 call convert_course IMago\ProcessoDiValidazione                                                         University_IT\Mago4\CRM\Validation_Process
 call convert_course IMago\SsoMappatura                                                                  University_IT\Mago4\CRM\Mapping_SSO
 call convert_course IMago\WizardDiConfigurazione                                                        University_IT\Mago4\CRM\Configuration_Wizard
-
-:skipMigrated
-
-@REM ? call convert_course Logistics\WMSMobile                                                                 University_IT\MagoCloud\Logistics\WMSMobile_Config_Startup
-@REM ? call convert_course Logistics\IlTrasferimentoDellaMerceWMS                                              University_IT\MagoCloud\Logistics\WMS_Stock_Transfer
-
-call convert_course Logistics\FatturazioneElettronicaPassivaAvanzataNEW                                 University_IT\Mago4\MDC\Advanced_Purchase_Electronic_Invoices
-call convert_course IMago\WizardDiConfigurazione                                                        University_IT\Mago4\CRM\Configuration_Wizard
-call convert_course Logistics\WMSMobile                                                                 University_IT\MagoCloud\Logistics\WMSMobile_Config_Startup
+call convert_course Logistics\LaFatturaImmediata-CL-IT                                                  University_IT\MagoCloud\Sales\Sale_Invoice
+call convert_course Logistics\IlDocumentoDiTrasporto-CL-IT                                              University_IT\MagoCloud\Sales\Delivery_Notes
+call convert_course Logistics\LaFatturazioneDifferitaDDT-CL                                             University_IT\MagoCloud\Sales\Delivery_Notes_Deferred_Invoicing
+call convert_course Logistics\IDocumentiDelCicloPassivo-CL-IT                                           University_IT\MagoCloud\Purchases\Purchase_Documents
+call convert_course "Logistics\Articoli e relativi dati anagrafici-CL"                                  University_IT\MagoCloud\Logistics\Items_Master_Data
+call convert_course Logistics\MovimentiDiMagazzino-CL                                                   University_IT\MagoCloud\Logistics\Inventory_Entries
+call convert_course Logistics\LaChiusuraDiMagazzino-CL                                                  University_IT\MagoCloud\Logistics\Inventory_Closing
+call convert_course Logistics\LOrdineDaCliente-CL                                                       University_IT\MagoCloud\Sales\Sales_Order /F
+call convert_course Logistics\LeProcedureStampaRegistra-CL-IT                                           University_IT\MagoCloud\Sales\Print_And_Post_Procedures /F
+call convert_course Logistics\LeUnitaDiMisura-CL-IT                                                     University_IT\MagoCloud\Logistics\Units_Of_Measure 
+call convert_course Logistics\LaManutenzioneDeiMovimenti-CL-IT                                          University_IT\MagoCloud\Logistics\Inventory_Entries_Maintenance /F
+call convert_course Logistics\LaGestioneDeiLotti-CL-IT                                                  University_IT\MagoCloud\Logistics\Lots_Management /F
+call convert_course Logistics\LaMovimentazionedeiLotti-CL-IT                                            University_IT\MagoCloud\Logistics\Lots_In_Documents
+call convert_course Logistics\LeProcedureAutomatichedeiLotti-CL-IT                                      University_IT\MagoCloud\Logistics\Lots_Automatic_Procedures
+call convert_course Logistics\LOffertaACliente-CL-IT                                                    University_IT\MagoCloud\Sales\Customer_Quotation
+call convert_course Logistics\PrezziEScontiNelCicloAttivo-CL-IT                                         University_IT\MagoCloud\Sales\Price_Discount_Polices 
+call convert_course Logistics\LAnagraficaAgenti-CL-IT                                                   University_IT\MagoCloud\Sales\Salespeople_Master 
+call convert_course Produzione\DistintaBase-CL\LaDistintaBase-CL                                        University_IT\MagoCloud\Manufacturing\Bill_Of_Materials
+call convert_course Produzione\DistintaBase-CL\LaProduzione-CL                                          University_IT\MagoCloud\Manufacturing\Bill_Of_Materials_Development                   
+call convert_course Produzione\DistintaBase-CL\LaProduzioneDaiDocumentiDiVendita-CL                     University_IT\MagoCloud\Manufacturing\Manufacturing_Through_Sales_Documents
 call convert_course Logistics\FatturazioneElettronicaPassivaAvanzataNEW                                 University_IT\Mago4\MDC\Advanced_Purchase_Electronic_Invoices
 call convert_course Logistics\UscitaMerceWMS                                                            University_IT\MagoCloud\Logistics\WMS_Goods_Delivery
 call convert_course "Logistics\Articoli e relativi dati anagrafici"                                     University_IT\Mago4\Logistics\Items_Master_Data
-call convert_course "Logistics\Articoli e relativi dati anagrafici-CL"                                  University_IT\MagoCloud\Logistics\Items_Master_Data
-call convert_course Logistics\GuidaPerIniziareLaGestioneWMS                                             University_IT\MagoCloud\Logistics\WMS_Starting_Guide
 call convert_course Logistics\GliArticoliEquivalenti-CL-IT                                              University_IT\MagoCloud\Logistics\Substitute_Items 
-call convert_course Logistics\LAnagraficaAgenti-CL-IT                                                   University_IT\MagoCloud\Sales\Salespeople_Master 
-call convert_course Logistics\IDocumentiDelCicloAttivo-CL-IT                                            University_IT\MagoCloud\Sales\Sale_Documents 
-call convert_course Logistics\LeUnitaDiMisura-CL-IT                                                     University_IT\MagoCloud\Logistics\Units_Of_Measure 
-call convert_course Logistics\PrezziEScontiNelCicloAttivo-CL-IT                                         University_IT\MagoCloud\Sales\Price_Discount_Polices 
+call convert_course Logistics\EvasioneInterattivaOrdiniCliente-CL-IT                                    University_IT\MagoCloud\Sales\Sale_Orders_Fulfillment
 call convert_course "Logistics\Transferimenti Tra Punti Vendita"                                        University_IT\Mago4\Retail\InterStore_Movement_Documents /F
 call convert_course Logistics\ConfigurazioneInizialeMagoKonaKart                                        University_IT\MagoCloud\Logistics\Konakart_Setup
 call convert_course Logistics\EvasioneInterattivaOrdiniCliente                                          University_IT\Mago4\Sales\Sale_Orders_Fulfillment
-call convert_course Logistics\EvasioneInterattivaOrdiniCliente-CL-IT                                    University_IT\MagoCloud\Sales\Sale_Orders_Fulfillment
-call convert_course Logistics\FatturazioneElettronicaGestioneAsincrona                                  University_IT\Mago4\MDC\Asynchronous_Electronic_Invoices
 call convert_course Logistics\GliArticoliEquivalenti                                                    University_IT\Mago4\Logistics\Substitute_Items
 call convert_course Logistics\IDatiClienteArticoloFornitoreArticolo                                     University_IT\Mago4\Logistics\Item_Customers_Suppliers
 call convert_course Logistics\IDocumentiDelCicloAttivo                                                  University_IT\Mago4\Sales\Sale_Documents
-call convert_course Logistics\IDocumentiDelCicloPassivo                                                 University_IT\Mago4\Purchases\Purchase_Documents
-call convert_course Logistics\IDocumentiDelCicloPassivo-CL-IT                                           University_IT\MagoCloud\Purchases\Purchase_Documents
-call convert_course Logistics\IlCodiceParlante                                                          University_IT\Mago4\Logistics\Smart_Codes
+call convert_course Logistics\IDocumentiDelCicloPassivo                                                 University_IT\Mago4\Purchases\Purchase_Document
 call convert_course Logistics\IlDocumentoDiTrasporto                                                    University_IT\Mago4\Sales\Delivery_Notes
-call convert_course Logistics\IlDocumentoDiTrasporto-CL-IT                                              University_IT\MagoCloud\Sales\Delivery_Notes
-call convert_course Logistics\IMovimentiAgenti                                                          University_IT\Mago4\Sales\Salespeople_Entries
-call convert_course Logistics\LaChiusuraDiMagazzino-CL                                                  University_IT\MagoCloud\Logistics\Inventory_Closing
 call convert_course Logistics\KKPrimoAvvio                                                              University_IT\Mago4\Retail\KonaKart_Getting_Started
 call convert_course Logistics\LAnagraficaAgenti                                                         University_IT\Mago4\Sales\Salespeople_Master
 call convert_course Logistics\LOffertaACliente                                                          University_IT\Mago4\Sales\Customer_Quotation
-call convert_course Logistics\LOffertaACliente-CL-IT                                                    University_IT\MagoCloud\Sales\Customer_Quotation
 call convert_course Logistics\LOrdineDaCliente                                                          University_IT\Mago4\Sales\Sales_Order
-call convert_course Logistics\LOrdineDaCliente-CL                                                       University_IT\MagoCloud\Sales\Sales_Order /F
 call convert_course Logistics\LaConfigurazioneDiUnDepositoDiWMS                                         University_IT\Mago4\Logistics\WMS_Storage_Configuration
-call convert_course Logistics\LaConfigurazioneDiUnDepositoDiWMS-CL-IT                                   University_IT\MagoCloud\Logistics\WMS_Storage_Configuration
 call convert_course Logistics\LaFatturaAccompagnatoria                                                  University_IT\Mago4\Sales\Accompanying_Invoice
 call convert_course Logistics\LaFatturaImmediata                                                        University_IT\Mago4\Sales\Sale_Invoice
-call convert_course Logistics\LaFatturaImmediata-CL-IT                                                  University_IT\MagoCloud\Sales\Sale_Invoice
 call convert_course Logistics\LaFatturaProforma                                                         University_IT\Mago4\Sales\ProForma_Invoice
 call convert_course Logistics\LaFatturazioneDifferitaDDT                                                University_IT\Mago4\Sales\Delivery_Notes_Deferred_Invoicing
-call convert_course Logistics\LaFatturazioneDifferitaDDT-CL                                             University_IT\MagoCloud\Sales\Delivery_Notes_Deferred_Invoicing
 call convert_course Logistics\LaGestioneDeiLotti                                                        University_IT\Mago4\Logistics\Lots_Management
-call convert_course Logistics\LaGestioneDeiLotti-CL-IT                                                  University_IT\MagoCloud\Logistics\Lots_Management /F
 call convert_course Logistics\LaGestioneMatricole                                                       University_IT\Mago4\Logistics\Serial_Number_Management
 call convert_course Logistics\LaManutenzioneDeiMovimenti                                                University_IT\Mago4\Logistics\Inventory_Entries_Maintenance
-call convert_course Logistics\LaManutenzioneDeiMovimenti-CL-IT                                          University_IT\MagoCloud\Logistics\Inventory_Entries_Maintenance /F
 call convert_course Logistics\LaMovimentazioneDeiLotti                                                  University_IT\Mago4\Logistics\Lots_In_Documents
-call convert_course Logistics\LaMovimentazionedeiLotti-CL-IT                                            University_IT\MagoCloud\Logistics\Lots_In_Documents
 call convert_course Logistics\LaNotaDiCredito                                                           University_IT\Mago4\Sales\Credit_Notes
 call convert_course Logistics\LaRicevutaFiscale                                                         University_IT\Mago4\Sales\Fiscal_Receipt
-call convert_course Logistics\LeProcedureAutomatichedeiLotti-CL-IT                                      University_IT\MagoCloud\Logistics\Lots_Automatic_Procedures
 call convert_course Logistics\LeProcedureAutomatiche                                                    University_IT\Mago4\Logistics\Lots_Automatic_Procedures
-call convert_course Logistics\LeProcedureStampaRegistra                                                 University_IT\Mago4\Sales\Print_And_Post_Procedures
-call convert_course Logistics\LeProcedureStampaRegistra-CL-IT                                           University_IT\MagoCloud\Sales\Print_And_Post_Procedures /F
-call convert_course Logistics\LeProcedureStampaRegistra-Rev02                                           University_IT\Mago4\Sales\Print_And_Post_Procedures
-call convert_course Logistics\LeProvvigioniNeiDocumentiDelCicloAttivo                                   University_IT\Mago4\Sales\Commissions_In_Sale_Documents
 call convert_course Logistics\LeUnitaDiMisura                                                           University_IT\Mago4\Logistics\Units_Of_Measure
 call convert_course Logistics\MovimentiDiMagazzino                                                      University_IT\Mago4\Logistics\Inventory_Entries
-call convert_course Logistics\MovimentiDiMagazzino-CL                                                   University_IT\MagoCloud\Logistics\Inventory_Entries
 call convert_course Logistics\PrezziEScontiNelCicloAttivo                                               University_IT\Mago4\Sales\Price_Discount_Polices
 call convert_course Logistics\ProduttoriCategorieeTipi                                                  University_IT\Mago4\Logistics\Manufacturers_Categories_Types
-call convert_course Logistics\RicMerciConPosizADimoraCLD                                                University_IT\MagoCloud\Logistics\Good_Receipt_Direct_Putaway
 call convert_course Logistics\RicMerciDueFasiCLD                                                        University_IT\MagoCloud\Logistics\WMS_Goods_Receipt_With_Two_Steps_Putaway
 call convert_course Logistics\RivalutazioneLifoFifo                                                     University_IT\Mago4\Logistics\Annual_LIFO_FIFO_Revaluation
 call convert_course Logistics\TCPOSPrimoAvvio                                                           University_IT\Mago4\Retail\TCPOS_Getting_Started
 call convert_course "Logistics\VisibilitàTCPOS"                                                         University_IT\Mago4\Retail\TCPOS_Visibility /F
 call convert_course MigrazioneMago4\MigrazioneMago4                                                     University_IT\Mago4\TB_Studio\Mago4_Migration
-call convert_course MyMagoStudio\MMS_For_Power_User                                                     University_IT\Mago4\TB_Studio\MMS_For_Power_User
 call convert_course Produzione\DistintaBase\LaDistintaBase                                              University_IT\Mago4\Manufacturing\Bill_Of_Materials
 call convert_course Produzione\Configuratore                                                            University_IT\Mago4\Manufacturing\Configurator
 call convert_course Produzione\CriteriValorizzazionePuntuale\FIFOAScattiEsempiPraticiDiProduzione       University_IT\Mago4\Manufacturing\SingleStepFIFOPracticalExamples
-call convert_course Produzione\DistintaBase-CL\LaDistintaBase-CL                                        University_IT\MagoCloud\Manufacturing\Bill_Of_Materials
-call convert_course Produzione\DistintaBase-CL\LaProduzione-CL                                          University_IT\MagoCloud\Manufacturing\Bill_Of_Materials_Development                   
-call convert_course Produzione\DistintaBase-CL\LaProduzioneDaiDocumentiDiVendita-CL                     University_IT\MagoCloud\Manufacturing\Manufacturing_Through_Sales_Documents
-call convert_course Produzione\DistintaBase-CL\LeProcedure-CL                                           University_IT\MagoCloud\Manufacturing\Bill_Of_Materials_Procedures
-call convert_course Produzione\DistintaBase-CL\TestFinaliDistintaBase                                   University_IT\MagoCloud\Manufacturing\Bill_Of_Materials_Final_Tests
 call convert_course Produzione\DistintaBase\LaProduzione                                                University_IT\Mago4\Manufacturing\Bill_Of_Materials_Development
 call convert_course Produzione\DistintaBase\LaProduzioneDaiDocumentiDiVendita                           University_IT\Mago4\Manufacturing\Manufacturing_Through_Sales_Documents
 call convert_course Produzione\DistintaBase\LeProcedure                                                 University_IT\Mago4\Manufacturing\Bill_Of_Materials_Procedures
-call convert_course Produzione\DistintaBase\TestFinaliDistintaBase                                      University_IT\Mago4\Manufacturing\Bill_Of_Materials_Final_Tests
 call convert_course Produzione\Enterprise\Disegni                                                       University_IT\Mago4\Manufacturing\Drawings
 call convert_course Produzione\Enterprise\ECO                                                           University_IT\Mago4\Manufacturing\Eco
-call convert_course Produzione\Enterprise\Kanban                                                        University_IT\Mago4\Manufacturing\Kanban
 call convert_course "Produzione\Enterprise\Pannello di controllo"                                       University_IT\Mago4\Manufacturing\Control_Panel
 call convert_course "Produzione\Pianificazione\La pianificazione avanzata MRP"                          University_IT\Mago4\Manufacturing\MRP
 call convert_course Produzione\Pianificazione\Stabilimenti                                              University_IT\Mago4\Manufacturing\Factories
 call convert_course Produzione\ProduzioneAvanzata-CL\ProduzioneAvanzataLaDistintaBase-CL                University_IT\MagoCloud\Manufacturing\Advanced_Manufacturing_Bill_Of_Materials
-call convert_course Produzione\ProduzioneAvanzata\Attrezzi                                              University_IT\Mago4\Manufacturing\Tools_Management
 call convert_course Produzione\ProduzioneAvanzata\ProduzioneAvanzataIlContoLavoro                       University_IT\Mago4\Manufacturing\Advanced_Manufacturing_Subcontracting 
 call convert_course Produzione\ProduzioneAvanzata\ProduzioneAvanzataLaDistintaBase                      University_IT\Mago4\Manufacturing\Advanced_Manufacturing_Bill_Of_Materials
 call convert_course Produzione\ProduzioneAvanzata\ProduzioneAvanzataLaGestioneDeiLotti                  University_IT\Mago4\Manufacturing\Advanced_Manufacturing_Lots_Management
@@ -204,101 +181,79 @@ call convert_course Produzione\ProduzioneBase\ProduzioneBaseLeProcedureDiManuten
 call convert_course Produzione\RicettaAlimentare\RicettaAlimentare                                      University_IT\Mago4\Manufacturing\FoodRecipe
 call convert_course Produzione\Varianti                                                                 University_IT\Mago4\Manufacturing\Variants
 call convert_course Produzione\WMS                                                                      University_IT\Mago4\Manufacturing\WMS_And_Manufacturing
-call convert_course Visibility\LaVisibilita                                                             University_IT\Mago4\TB_Framework\Visibility
+call convert_course Logistics\GuidaPerIniziareLaGestioneWMS                                             University_IT\MagoCloud\Logistics\WMS_Starting_Guide
+call convert_course Logistics\LaConfigurazioneDiUnDepositoDiWMS-CL-IT                                   University_IT\MagoCloud\Logistics\WMS_Storage_Configuration
+call convert_course Logistics\RicMerciConPosizADimoraCLD                                                University_IT\MagoCloud\Logistics\Good_Receipt_Direct_Putaway
+call convert_course Logistics\LeProcedureStampaRegistra                                                 University_IT\Mago4\Sales\Print_And_Post_Procedures
+call convert_course Logistics\WMSMobile                                                                 University_IT\MagoCloud\Logistics\WMSMobile_Config_Startup
+call convert_course Logistics\IlTrasferimentoDellaMerceWMS                                              University_IT\MagoCloud\Logistics\WMS_Stock_Transfer
+call convert_course Logistics\FatturazioneElettronicaGestioneAsincrona                                  University_IT\Mago4\MDC\Asynchronous_Electronic_Invoices
+call convert_course Logistics\IlCodiceParlante                                                          University_IT\Mago4\Logistics\Smart_Codes
+call convert_course Logistics\IMovimentiAgenti                                                          University_IT\Mago4\Sales\Salespeople_Entries
+call convert_course Logistics\LeProcedureStampaRegistra-Rev02                                           University_IT\Mago4\Sales\Print_And_Post_Procedures
+call convert_course Logistics\LeProvvigioniNeiDocumentiDelCicloAttivo                                   University_IT\Mago4\Sales\Commissions_In_Sale_Documents
+call convert_course Produzione\DistintaBase-CL\TestFinaliDistintaBase                                   University_IT\MagoCloud\Manufacturing\Bill_Of_Materials_Final_Tests
+call convert_course Produzione\DistintaBase\TestFinaliDistintaBase                                      University_IT\Mago4\Manufacturing\Bill_Of_Materials_Final_Tests
+call convert_course Produzione\ProduzioneAvanzata\Attrezzi                                              University_IT\Mago4\Manufacturing\Tools_Management
+call convert_course IMago\InstallazioneComponenti                                                       University_IT\Mago4\CRM\Components_Installation
+call convert_course MyMagoStudio\MMS_For_Power_User                                                     University_IT\Mago4\TB_Studio\MMS_For_Power_User
 
-call convert_course Logistics\UscitaMerceWMS_EN                                                         University_EN\MagoCloud\Logistics\WMS_Goods_Delivery
-call convert_course Logistics\GuidaPerIniziareLaGestioneWMS_EN                                          University_EN\MagoCloud\Logistics\WMS_Starting_Guide
-call convert_course Logistics\IlTrasferimentoDellaMerceWMS_EN                                           University_EN\MagoCloud\Logistics\WMS_Stock_Transfer
-call convert_course Logistics\LaConfigurazioneDiUnDepositoDiWMS-EN                                      University_EN\Mago4\Logistics\WMS_Storage_Configuration
-call convert_course Logistics\PosizionamentoDirettoWMS-EN                                               University_EN\Mago4\Logistics\WMS_Good_Receipt_Direct_Putaway
-call convert_course Logistics\RicMerciDueFasiCLD_EN                                                     University_EN\MagoCloud\Logistics\WMS_Goods_Receipt_With_Two_Steps_Putaway
-call convert_course Produzione\WMSEN                                                                    University_EN\Mago4\Manufacturing\WMS_And_Manufacturing
-call convert_course PlatformApi                                                                         University_EN\MagoCloud\Masters\Platform_Api 
-call convert_course CGM\CGM_EN                                                                          University_EN\Mago4\Masters\CGM 
+call convert_course Financial\StampeFiscaliRO                                                           University_RO\Mago4\Financial\Fiscal_Printouts
+call convert_course Financial\ChiusureApertureRO                                                        University_RO\Mago4\Financial\Opening_Closing
+call convert_course Financial\EffettiEMandatiRO                                                         University_RO\Mago4\Financial\Bills_and_Payment_Orders
+call convert_course Financial\LocalizzazioniFinancialRomaniaRO                                          University_RO\Mago4\Financial\Romanian_Localizations
+call convert_course Financial\MovimentiContabiliRO                                                      University_RO\Mago4\Financial\Accounting_Entries
+call convert_course Financial\PartiteRO                                                                 University_RO\Mago4\Financial\AP_AR
+call convert_course Financial\AnagraficheRO                                                             University_RO\Mago4\Masters\Masters
+call convert_course Financial\StampeFiscali_CL_RO                                                       University_RO\MagoCloud\Financial\Fiscal_Printouts
+call convert_course Financial\ChiusureAperture_CL_RO                                                    University_RO\MagoCloud\Financial\Opening_Closing
+call convert_course Financial\EffettiEMandati_CL_RO                                                     University_RO\MagoCloud\Financial\Bills_and_Payment_Orders
+call convert_course Financial\Partite_CL_RO                                                             University_RO\MagoCloud\Financial\AP_AR
+call convert_course Financial\MovimentiContabili_CL_RO                                                  University_RO\MagoCloud\Financial\Accounting_Entries
+call convert_course Logistics\ArticoliERelativiDatiAnagrafici-CL-RO                                     University_RO\MagoCloud\Logistics\Items_Master_Data
+call convert_course Logistics\CodiceParlante-CL-RO                                                      University_RO\MagoCloud\Logistics\Smart_Codes
+call convert_course Logistics\LaChiusuraDiMagazzino-CL-RO                                               University_RO\MagoCloud\Logistics\Inventory_Closing
+call convert_course Logistics\LeUnitaDiMisura-CL-RO                                                     University_RO\MagoCloud\Logistics\Units_Of_Measure
+call convert_course Logistics\MovimentiDiMagazzino-CL-RO                                                University_RO\MagoCloud\Logistics\Inventory_Entries
+call convert_course Logistics\LaManutenzioneDeiMovimenti-CL-RO                                          University_RO\MagoCloud\Logistics\Inventory_Entries_Maintenance
+call convert_course Logistics\IDatiClienteArticoloFornitoreArticolo-CL-RO                               University_RO\MagoCloud\Logistics\Item_Customers_Suppliers
+call convert_course Logistics\LaGestioneDeiLotti-CL-RO                                                  University_RO\MagoCloud\Logistics\Lots_Management
+call convert_course Logistics\IntroduzioneMagoCloudRO                                                   University_RO\MagoCloud\Masters\MagoCloud_Introduction
+call convert_course Financial\Anagrafiche_CL_RO                                                         University_RO\MagoCloud\Masters\Masters
+call convert_course Logistics\IlDocumentoDiTrasporto-CL-RO                                              University_RO\MagoCloud\Sales\Delivery_Notes
+call convert_course Logistics\IDocumentiDelCicloAttivo-CL-RO                                            University_RO\MagoCloud\Sales\Sale_Documents
+call convert_course Logistics\LaFatturaImmediata-CL-RO                                                  University_RO\MagoCloud\Sales\Sale_Invoice
+call convert_course Logistics\LaFatturazioneDifferitaDDT-CL-RO                                          University_RO\MagoCloud\Sales\Delivery_Notes_Deferred_Invoicing
+call convert_course Logistics\PrezziEScontiNelCicloAttivo-CL-RO                                         University_RO\MagoCloud\Sales\Price_Discount_Polices
+
+call convert_course Logistics\LaConfigDiUnDepositoCloud_EN                                              University_EN\MagoCloud\Logistics\WMS_Storage_Configuration
+call convert_course Produzione\Pianificazione-CL-EN\MRP-CL-EN                                           University_EN\MagoCloud\Manufacturing\MRP
+call convert_course Produzione\Pianificazione-CL-EN\Stabilimenti-CL-EN                                  University_EN\MagoCloud\Manufacturing\Factories 
 call convert_course Financial\StampeFiscaliEN                                                           University_EN\Mago4\Financial\Fiscal_Printouts
-call convert_course Financial\StampeFiscali_CL_EN                                                       University_EN\MagoCloud\Financial\Fiscal_Printouts
-call convert_course Financial\AnagraficheEN                                                             University_EN\Mago4\Masters\Masters
-call convert_course Financial\Anagrafiche_CL_EN                                                         University_EN\MagoCloud\Masters\Masters
 call convert_course Financial\ChiusureApertureEN                                                        University_EN\Mago4\Financial\Opening_Closing
-call convert_course Financial\ChiusureAperture_CL_EN                                                    University_EN\MagoCloud\Financial\Opening_Closing
 call convert_course Financial\EffettiEMandatiEN                                                         University_EN\Mago4\Financial\Bills_and_Payment_Orders
-call convert_course Financial\EffettiEMandati_CL_EN                                                     University_EN\MagoCloud\Financial\Bills_and_Payment_Orders
 call convert_course Financial\LocalizzazioniFinancialRomaniaEN                                          University_EN\Mago4\Financial\Romanian_Localizations
 call convert_course Financial\MovimentiContabiliEN                                                      University_EN\Mago4\Financial\Accounting_Entries
-call convert_course Financial\MovimentiContabili_CL_EN                                                  University_EN\MagoCloud\Financial\Accounting_Entries
 call convert_course Financial\PartiteEN                                                                 University_EN\Mago4\Financial\AP_AR
-call convert_course Financial\Partite_CL_EN                                                             University_EN\MagoCloud\Financial\AP_AR
+call convert_course Logistics\LaConfigurazioneDiUnDepositoDiWMS-EN                                      University_EN\Mago4\Logistics\WMS_Storage_Configuration
+call convert_course Logistics\PosizionamentoDirettoWMS-EN                                               University_EN\Mago4\Logistics\WMS_Good_Receipt_Direct_Putaway
 call convert_course "Logistics\Articoli e relativi dati anagrafici - EN"                                University_EN\Mago4\Logistics\Items_Master_Data
-call convert_course Logistics\GliArticoliEquivalenti-CL-EN                                              University_EN\MagoCloud\Logistics\Substitute_Items
-call convert_course "Logistics\Transferimenti Tra Punti Vendita -EN"                                    University_EN\Mago4\Retail\InterStore_Movement_Documents /F
-call convert_course "Logistics\FormatiUM - EN"                                                          University_EN\MagoCloud\Retail\UoM_Sizes /F
-call convert_course Logistics\ArticoliAcquisizione-EN                                                   University_EN\MagoCloud\Retail\Acquisition_Item
-call convert_course "Logistics\ArticoliERelativiDatiAnagrafici-CL EN"                                   University_EN\MagoCloud\Logistics\Items_Master_Data
 call convert_course Logistics\Barcode-EN                                                                University_EN\Mago4\Logistics\Barcode
-call convert_course "Logistics\CodiceParlante - CL - EN"                                                University_EN\MagoCloud\Logistics\Smart_Codes
-call convert_course Logistics\ComeTrasferireMerceTraPV-EN                                               University_EN\MagoCloud\Retail\Transfer_Between_Shops
-call convert_course Logistics\ConfigurazioneInizialeMagoKonaKart_ENG                                    University_EN\MagoCloud\Logistics\Konakart_Setup
-call convert_course Logistics\Convenzioni-EN                                                            University_EN\MagoCloud\Retail\Subsidies /F
-call convert_course Logistics\DatiAlimentari-EN                                                         University_EN\MagoCloud\Retail\Alimentary_Data
-call convert_course Logistics\DESADV-EN                                                                 University_EN\MagoCloud\Logistics\DESADV
-call convert_course Logistics\EDI-EN                                                                    University_EN\MagoCloud\Logistics\EDI
-call convert_course Logistics\EtichettePrezzoVendita-EN                                                 University_EN\MagoCloud\Logistics\Label_Sale_Price
-call convert_course Logistics\GestioneVouchers-EN                                                       University_EN\MagoCloud\Retail\Vouchers /F
 call convert_course Logistics\GliArticoliEquivalenti-EN                                                 University_EN\Mago4\Logistics\Substitute_Items
-call convert_course Logistics\IDatiClienteArticoloFornitoreArticolo-CL-EN                               University_EN\MagoCloud\Logistics\Item_Customers_Suppliers
 call convert_course Logistics\IDatiClienteArticoloFornitoreArticolo-EN                                  University_EN\Mago4\Logistics\Item_Customers_Suppliers
-call convert_course Logistics\IDocumentiDelCicloAttivo-CL-EN                                            University_EN\MagoCloud\Sales\Sale_Documents
-call convert_course Logistics\IDocumentiDelCicloAttivo-EN                                               University_EN\Mago4\Sales\Sale_Documents
-call convert_course Logistics\IDocumentiDelCicloPassivo-CL-EN                                           University_EN\MagoCloud\Purchases\Purchase_Documents
-call convert_course Logistics\IlCodiceParlante-EN                                                       University_EN\Mago4\Logistics\Smart_Codes
-call convert_course Logistics\IlDocumentoDiTrasporto-EN                                                 University_EN\Mago4\Sales\Delivery_Notes
-call convert_course Logistics\InStoreApp-GoodReceipt-EN                                                 University_EN\MagoCloud\Retail\InStore_Good_Receipt
-call convert_course Logistics\InStoreApp-InformazioniArticolo-EN                                        University_EN\MagoCloud\Retail\InStore_Item_Info
-call convert_course Logistics\InStoreApp-Inventario-EN                                                  University_EN\MagoCloud\Retail\InStore_Inventory
-call convert_course Logistics\InStoreApp-InventoryTransaction-EN                                        University_EN\MagoCloud\Retail\InStore_Inventory_Transaction
-call convert_course Logistics\InStoreApp-OrdineAFornitore-EN                                            University_EN\MagoCloud\Retail\InStore_Order_Supplier
-call convert_course Logistics\InStoreApp-TrasferimentoTraDepositi-EN                                    University_EN\MagoCloud\Retail\InStore_Storage_Transfer
-call convert_course Logistics\InStoreAppIntroduction-EN                                                 University_EN\MagoCloud\Retail\InStore_Introduction
-call convert_course Logistics\InStoreAppTrasferimentiTraPuntiVendita-EN                                 University_EN\MagoCloud\Retail\InStore_Store_Transfer
-call convert_course Logistics\IntroduzioneMagoCloudEN                                                   University_EN\MagoCloud\Masters\MagoCloud_Introduction
-call convert_course Logistics\KKPrimoAvvio-EN                                                           University_EN\Mago4\Retail\KonaKart_Getting_Started
-call convert_course Logistics\LAnagraficaAgenti-CL-EN                                                   University_EN\MagoCloud\Sales\Salespeople_Master
-call convert_course Logistics\LaFatturazioneDifferitaDDT-EN                                             University_EN\Mago4\Sales\Delivery_Notes_Deferred_Invoicing
-call convert_course Logistics\LaGestioneDeiLotti-CL-EN                                                  University_EN\MagoCloud\Logistics\Lots_Management
-call convert_course Logistics\LOrdineDaCliente-CL-EN                                                    University_EN\MagoCloud\Sales\Sales_Order
-call convert_course Logistics\LOrdineDaCliente-EN                                                       University_EN\Mago4\Sales\Sales_Order
-call convert_course Logistics\LaChiusuraDiMagazzino-CL-EN                                               University_EN\MagoCloud\Logistics\Inventory_Closing
 call convert_course Logistics\LaChiusuraDiMagazzino-EN                                                  University_EN\Mago4\Logistics\Inventory_Closing
 call convert_course Logistics\LaGestioneDeiLotti-EN                                                     University_EN\Mago4\Logistics\Lots_Management
 call convert_course Logistics\LaGestioneVarianti-EN                                                     University_EN\Mago4\Logistics\Variants_Management
-call convert_course Logistics\LaManutenzioneDeiMovimenti-CL-EN                                          University_EN\MagoCloud\Logistics\Inventory_Entries_Maintenance
 call convert_course Logistics\LaManutenzioneDeiMovimenti-EN                                             University_EN\Mago4\Logistics\Inventory_Entries_Maintenance
 call convert_course Logistics\LaMovimentazioneDeiLotti-EN                                               University_EN\Mago4\Logistics\Lots_In_Documents
-call convert_course Logistics\LaMovimentazionedeiLotti-CL-EN                                            University_EN\MagoCloud\Logistics\Lots_In_Documents
-call convert_course Logistics\LaNotaDiCredito-EN                                                        University_EN\Mago4\Sales\Credit_Notes
 call convert_course Logistics\LeProcedureAutomatiche-EN                                                 University_EN\Mago4\Logistics\Lots_Automatic_Procedures
-call convert_course Logistics\LeProcedureStampaRegistra-CL-EN                                           University_EN\MagoCloud\Sales\Print_And_Post_Procedures
-call convert_course Logistics\LeUnitaDiMisura-CL-EN                                                     University_EN\MagoCloud\Logistics\Units_Of_Measure
+call convert_course Logistics\IlCodiceParlante-EN                                                       University_EN\Mago4\Logistics\Smart_Codes
 call convert_course Logistics\LeUnitaDiMisura-EN                                                        University_EN\Mago4\Logistics\Units_Of_Measure
-call convert_course Logistics\MovimentiDiCassa-EN                                                       University_EN\Mago4\Retail\Cash_Transaction /F
-call convert_course Logistics\MovimentiDiMagazzino-CL-EN                                                University_EN\MagoCloud\Logistics\Inventory_Entries
 call convert_course Logistics\MovimentiDiMagazzino-EN                                                   University_EN\Mago4\Logistics\Inventory_Entries
-call convert_course Logistics\PrezziEScontiNelCicloAttivo-CL-EN                                         University_EN\MagoCloud\Sales\Price_Discount_Polices
-call convert_course Logistics\PrezziEScontiNelCicloAttivo-EN                                            University_EN\Mago4\Sales\Price_Discount_Polices
 call convert_course Logistics\ProduttoriCategorieeTipi-EN                                               University_EN\Mago4\Logistics\Manufacturers_Categories_Types
-call convert_course Logistics\RicMerciConPosizADimoraCLD_EN                                             University_EN\MagoCloud\Logistics\WMS_Good_Receipt_Direct_Putaway
-call convert_course Logistics\RiordinoPuntoVendita-EN                                                   University_EN\MagoCloud\Retail\Shop_Replenishment
-call convert_course Logistics\Scontrini-EN                                                              University_EN\MagoCloud\Retail\Fiscal_Bills                           
-call convert_course Logistics\TCPOSPrimoAvvio-EN                                                        University_EN\Mago4\Retail\TCPOS_Getting_Started
-call convert_course Logistics\TransazioniDiCassa-EN                                                     University_EN\MagoCloud\Retail\Cash_Transaction
-call convert_course "Logistics\VisibilitàTCPOS-EN"                                                      University_EN\Mago4\Retail\TCPOS_Visibility /F
-call convert_course Produzione\Configuratore-CL-EN                                                      University_EN\MagoCloud\Manufacturing\Configurator
+call convert_course Produzione\WMSEN                                                                    University_EN\Mago4\Manufacturing\WMS_And_Manufacturing
 call convert_course Produzione\ConfiguratoreEN                                                          University_EN\Mago4\Manufacturing\Configurator
 call convert_course Produzione\CriteriValorizzazionePuntualeEN\WAPProduzioneEN                          University_EN\Mago4\Manufacturing\WAP_In_Manufacturing
-call convert_course Produzione\DistintaBase-CL-EN\LaDistintaBase-CL-EN                                  University_EN\MagoCloud\Manufacturing\Bill_Of_Materials
-call convert_course Produzione\DistintaBase-CL-EN\LaProduzione-CL-EN                                    University_EN\MagoCloud\Manufacturing\Bill_Of_Materials_Development
-call convert_course Produzione\DistintaBase-CL-EN\LaProduzioneDaiDocumentiDiVendita-CL-EN               University_EN\MagoCloud\Manufacturing\Manufacturing_Through_Sales_Documents
-call convert_course Produzione\DistintaBase-CL-EN\LeProcedure-CL-EN                                     University_EN\MagoCloud\Manufacturing\Bill_Of_Materials_Procedures
 call convert_course Produzione\DistintaBaseEN\LaDistintaBaseEN                                          University_EN\Mago4\Manufacturing\Bill_Of_Materials
 call convert_course Produzione\DistintaBaseEN\LaProduzioneDaiDocumentiDiVenditaEN                       University_EN\Mago4\Manufacturing\Manufacturing_Through_Sales_Documents
 call convert_course Produzione\DistintaBaseEN\LaProduzioneEN                                            University_EN\Mago4\Manufacturing\Bill_Of_Materials_Development
@@ -307,22 +262,12 @@ call convert_course Produzione\EnterpriseEN\DisegniEN                           
 call convert_course Produzione\EnterpriseEN\ECOEN                                                       University_EN\Mago4\Manufacturing\Eco
 call convert_course Produzione\EnterpriseEN\KanbanEN                                                    University_EN\Mago4\Manufacturing\Kanban
 call convert_course Produzione\EnterpriseEN\PannelloDiControlloEN                                       University_EN\Mago4\Manufacturing\Control_Panel
-call convert_course Produzione\Enterprise-CL-EN\ECO-CL-EN                                               University_EN\MagoCloud\Manufacturing\Eco
-call convert_course Produzione\Enterprise-CL-EN\Kanban-CL-EN                                            University_EN\MagoCloud\Manufacturing\Kanban
-call convert_course Produzione\PianificazioneEN\MRP                                                     University_EN\MagoCloud\Manufacturing\MRP
-call convert_course Produzione\PianificazioneEN\StabilimentiEN                                          University_EN\MagoCloud\Manufacturing\Factories
-call convert_course Produzione\ProduzioneAvanzata-CL-EN\ProduzioneAvanzataLaGestioneDeiLotti-CL-EN      University_EN\MagoCloud\Manufacturing\Advanced_Manufacturing_Lots_Management
 call convert_course Produzione\ProduzioneAvanzataEN\AttrezziEN                                          University_EN\Mago4\Manufacturing\Tools_Management
 call convert_course Produzione\ProduzioneAvanzataEN\ProduzioneAvanzataIlContoLavoroEN                   University_EN\Mago4\Manufacturing\Advanced_Manufacturing_Subcontracting 
 call convert_course Produzione\ProduzioneAvanzataEN\ProduzioneAvanzataLaDistintaBaseEN                  University_EN\Mago4\Manufacturing\Advanced_Manufacturing_Bill_Of_Materials
 call convert_course Produzione\ProduzioneAvanzataEN\ProduzioneAvanzataLaGestioneDeiLottiEN              University_EN\Mago4\Manufacturing\Advanced_Manufacturing_Lots_Management
 call convert_course Produzione\ProduzioneAvanzataEN\ProduzioneAvanzataLaProduzioneEN                    University_EN\Mago4\Manufacturing\Advanced_Manufacturing
 call convert_course Produzione\ProduzioneAvanzataEN\ProduzioneAvanzataLeProcedureDiProduzioneEN         University_EN\Mago4\Manufacturing\Advanced_Manufacturing_Procedures
-call convert_course Produzione\ProduzioneBase-CL-EN\ProduzioneBaseIlContoLavoro-CL-EN                   University_EN\MagoCloud\Manufacturing\Basic_Manufacturing_Subcontracting /F
-call convert_course Produzione\ProduzioneBase-CL-EN\ProduzioneBaseLaDistintaBase-CL-EN                  University_EN\MagoCloud\Manufacturing\Basic_Manufacturing_Bill_Of_Materials
-call convert_course Produzione\ProduzioneBase-CL-EN\ProduzioneBaseLaPianificazioneProduzione-CL-EN      University_EN\MagoCloud\Manufacturing\Basic_Advanced_Manufacturing_Planning
-call convert_course Produzione\ProduzioneBase-CL-EN\ProduzioneBaseLaProduzione-CL-EN                    University_EN\MagoCloud\Manufacturing\Basic_Manufacturing
-call convert_course Produzione\ProduzioneBase-CL-EN\ProduzioneBaseLeProcedureDiManutenzione-CL-EN       University_EN\MagoCloud\Manufacturing\Basic_Manufacturing_Maintenance_Procedures
 call convert_course Produzione\ProduzioneBaseEN\ProduzioneBaseIlContoLavoroEN                           University_EN\Mago4\Manufacturing\Basic_Manufacturing_Subcontracting
 call convert_course Produzione\ProduzioneBaseEN\ProduzioneBaseLaDistintaBaseEN                          University_EN\Mago4\Manufacturing\Basic_Manufacturing_Bill_Of_Materials
 call convert_course Produzione\ProduzioneBaseEN\ProduzioneBaseLaPianificazioneDellaProduzioneEN         University_EN\Mago4\Manufacturing\Basic_Advanced_Manufacturing_Planning
@@ -330,38 +275,88 @@ call convert_course Produzione\ProduzioneBaseEN\ProduzioneBaseLaProduzioneEN    
 call convert_course Produzione\ProduzioneBaseEN\ProduzioneBaseLeProcedureDiManutenzioneEN               University_EN\Mago4\Manufacturing\Basic_Manufacturing_Maintenance_Procedures
 call convert_course Produzione\RicettaAlimentareEN                                                      University_EN\Mago4\Manufacturing\FoodRecipe
 call convert_course Produzione\VariantiEN                                                               University_EN\Mago4\Manufacturing\Variants
-call convert_course Produzione\Varianti-CL-EN                                                           University_EN\MagoCloud\Manufacturing\Variants
+call convert_course CGM\CGM_EN                                                                          University_EN\Mago4\Masters\CGM 
+call convert_course Financial\AnagraficheEN                                                             University_EN\Mago4\Masters\Masters
+call convert_course Logistics\KKPrimoAvvio-EN                                                           University_EN\Mago4\Retail\KonaKart_Getting_Started
+call convert_course "Logistics\Transferimenti Tra Punti Vendita -EN"                                    University_EN\Mago4\Retail\InterStore_Movement_Documents /F
+call convert_course Logistics\MovimentiDiCassa-EN                                                       University_EN\Mago4\Retail\Cash_Transaction /F
+call convert_course Logistics\TCPOSPrimoAvvio-EN                                                        University_EN\Mago4\Retail\TCPOS_Getting_Started
+call convert_course "Logistics\VisibilitàTCPOS-EN"                                                      University_EN\Mago4\Retail\TCPOS_Visibility /F
+call convert_course Logistics\IDocumentiDelCicloAttivo-EN                                               University_EN\Mago4\Sales\Sale_Documents
+call convert_course Logistics\LOrdineDaCliente-EN                                                       University_EN\Mago4\Sales\Sales_Order
+call convert_course Logistics\LaNotaDiCredito-EN                                                        University_EN\Mago4\Sales\Credit_Notes
+call convert_course Logistics\LaFatturazioneDifferitaDDT-EN                                             University_EN\Mago4\Sales\Delivery_Notes_Deferred_Invoicing
+call convert_course Logistics\PrezziEScontiNelCicloAttivo-EN                                            University_EN\Mago4\Sales\Price_Discount_Polices
+call convert_course Logistics\IlDocumentoDiTrasporto-EN                                                 University_EN\Mago4\Sales\Delivery_Notes
 call convert_course Visibility\LaVisibilitaEN                                                           University_EN\Mago4\TB_Framework\Visibility
+call convert_course Financial\StampeFiscali_CL_EN                                                       University_EN\MagoCloud\Financial\Fiscal_Printouts
+call convert_course Financial\ChiusureAperture_CL_EN                                                    University_EN\MagoCloud\Financial\Opening_Closing
+call convert_course Financial\EffettiEMandati_CL_EN                                                     University_EN\MagoCloud\Financial\Bills_and_Payment_Orders
+call convert_course Financial\MovimentiContabili_CL_EN                                                  University_EN\MagoCloud\Financial\Accounting_Entries
+call convert_course Financial\Partite_CL_EN                                                             University_EN\MagoCloud\Financial\AP_AR
+call convert_course "Logistics\CodiceParlante - CL - EN"                                                University_EN\MagoCloud\Logistics\Smart_Codes
+call convert_course Logistics\UscitaMerceWMS_EN                                                         University_EN\MagoCloud\Logistics\WMS_Goods_Delivery
+call convert_course Logistics\GuidaPerIniziareLaGestioneWMS_EN                                          University_EN\MagoCloud\Logistics\WMS_Starting_Guide
+call convert_course Logistics\IlTrasferimentoDellaMerceWMS_EN                                           University_EN\MagoCloud\Logistics\WMS_Stock_Transfer
+call convert_course Logistics\RicMerciDueFasiCLD_EN                                                     University_EN\MagoCloud\Logistics\WMS_Goods_Receipt_With_Two_Steps_Putaway
+call convert_course Logistics\GliArticoliEquivalenti-CL-EN                                              University_EN\MagoCloud\Logistics\Substitute_Items
+call convert_course "Logistics\ArticoliERelativiDatiAnagrafici-CL EN"                                   University_EN\MagoCloud\Logistics\Items_Master_Data
+call convert_course Logistics\ConfigurazioneInizialeMagoKonaKart_ENG                                    University_EN\MagoCloud\Logistics\Konakart_Setup
+call convert_course Logistics\IDatiClienteArticoloFornitoreArticolo-CL-EN                               University_EN\MagoCloud\Logistics\Item_Customers_Suppliers
+call convert_course Logistics\DESADV-EN                                                                 University_EN\MagoCloud\Logistics\DESADV
+call convert_course Logistics\EDI-EN                                                                    University_EN\MagoCloud\Logistics\EDI
+call convert_course Logistics\EtichettePrezzoVendita-EN                                                 University_EN\MagoCloud\Logistics\Label_Sale_Price
+call convert_course Logistics\RicMerciConPosizADimoraCLD_EN                                             University_EN\MagoCloud\Logistics\WMS_Good_Receipt_Direct_Putaway
+call convert_course Logistics\LaGestioneDeiLotti-CL-EN                                                  University_EN\MagoCloud\Logistics\Lots_Management
+call convert_course Logistics\MovimentiDiMagazzino-CL-EN                                                University_EN\MagoCloud\Logistics\Inventory_Entries
+call convert_course Logistics\LeUnitaDiMisura-CL-EN                                                     University_EN\MagoCloud\Logistics\Units_Of_Measure
+call convert_course Logistics\LaMovimentazionedeiLotti-CL-EN                                            University_EN\MagoCloud\Logistics\Lots_In_Documents
+call convert_course Logistics\LaManutenzioneDeiMovimenti-CL-EN                                          University_EN\MagoCloud\Logistics\Inventory_Entries_Maintenance
+call convert_course Logistics\LaChiusuraDiMagazzino-CL-EN                                               University_EN\MagoCloud\Logistics\Inventory_Closing
+call convert_course Produzione\Varianti-CL-EN                                                           University_EN\MagoCloud\Manufacturing\Variants
+call convert_course Produzione\ProduzioneBase-CL-EN\ProduzioneBaseIlContoLavoro-CL-EN                   University_EN\MagoCloud\Manufacturing\Basic_Manufacturing_Subcontracting /F
+call convert_course Produzione\ProduzioneBase-CL-EN\ProduzioneBaseLaDistintaBase-CL-EN                  University_EN\MagoCloud\Manufacturing\Basic_Manufacturing_Bill_Of_Materials
+call convert_course Produzione\ProduzioneBase-CL-EN\ProduzioneBaseLaPianificazioneProduzione-CL-EN      University_EN\MagoCloud\Manufacturing\Basic_Advanced_Manufacturing_Planning
+call convert_course Produzione\ProduzioneBase-CL-EN\ProduzioneBaseLaProduzione-CL-EN                    University_EN\MagoCloud\Manufacturing\Basic_Manufacturing
+call convert_course Produzione\ProduzioneBase-CL-EN\ProduzioneBaseLeProcedureDiManutenzione-CL-EN       University_EN\MagoCloud\Manufacturing\Basic_Manufacturing_Maintenance_Procedures
+call convert_course Produzione\Enterprise-CL-EN\ECO-CL-EN                                               University_EN\MagoCloud\Manufacturing\Eco
+call convert_course Produzione\Enterprise-CL-EN\Kanban-CL-EN                                            University_EN\MagoCloud\Manufacturing\Kanban
+call convert_course Produzione\PianificazioneEN\MRP                                                     University_EN\MagoCloud\Manufacturing\MRP
+call convert_course Produzione\PianificazioneEN\StabilimentiEN                                          University_EN\Mago4\Manufacturing\Factories
+call convert_course Produzione\ProduzioneAvanzata-CL-EN\ProduzioneAvanzataLaGestioneDeiLotti-CL-EN      University_EN\MagoCloud\Manufacturing\Advanced_Manufacturing_Lots_Management
+call convert_course Produzione\DistintaBase-CL-EN\LaDistintaBase-CL-EN                                  University_EN\MagoCloud\Manufacturing\Bill_Of_Materials
+call convert_course Produzione\DistintaBase-CL-EN\LaProduzione-CL-EN                                    University_EN\MagoCloud\Manufacturing\Bill_Of_Materials_Development
+call convert_course Produzione\DistintaBase-CL-EN\LaProduzioneDaiDocumentiDiVendita-CL-EN               University_EN\MagoCloud\Manufacturing\Manufacturing_Through_Sales_Documents
+call convert_course Produzione\DistintaBase-CL-EN\LeProcedure-CL-EN                                     University_EN\MagoCloud\Manufacturing\Bill_Of_Materials_Procedures
+call convert_course Produzione\Configuratore-CL-EN                                                      University_EN\MagoCloud\Manufacturing\Configurator
+call convert_course Logistics\IntroduzioneMagoCloudEN                                                   University_EN\MagoCloud\Masters\MagoCloud_Introduction
+call convert_course PlatformApi                                                                         University_EN\MagoCloud\Masters\Platform_Api 
+call convert_course Financial\Anagrafiche_CL_EN                                                         University_EN\MagoCloud\Masters\Masters
+call convert_course Logistics\IDocumentiDelCicloPassivo-CL-EN                                           University_EN\MagoCloud\Purchases\Purchase_Documents
+call convert_course "Logistics\FormatiUM - EN"                                                          University_EN\MagoCloud\Retail\UoM_Sizes /F
+call convert_course Logistics\ArticoliAcquisizione-EN                                                   University_EN\MagoCloud\Retail\Acquisition_Item
+call convert_course Logistics\RiordinoPuntoVendita-EN                                                   University_EN\MagoCloud\Retail\Shop_Replenishment
+call convert_course Logistics\Scontrini-EN                                                              University_EN\MagoCloud\Retail\Fiscal_Bills    
+call convert_course Logistics\TransazioniDiCassa-EN                                                     University_EN\MagoCloud\Retail\Cash_Transaction
+call convert_course Logistics\ComeTrasferireMerceTraPV-EN                                               University_EN\MagoCloud\Retail\Transfer_Between_Shops
+call convert_course Logistics\Convenzioni-EN                                                            University_EN\MagoCloud\Retail\Subsidies /F
+call convert_course Logistics\DatiAlimentari-EN                                                         University_EN\MagoCloud\Retail\Alimentary_Data
+call convert_course Logistics\GestioneVouchers-EN                                                       University_EN\MagoCloud\Retail\Vouchers /F
+call convert_course Logistics\InStoreApp-GoodReceipt-EN                                                 University_EN\MagoCloud\Retail\InStore_Good_Receipt
+call convert_course Logistics\InStoreApp-InformazioniArticolo-EN                                        University_EN\MagoCloud\Retail\InStore_Item_Info
+call convert_course Logistics\InStoreApp-Inventario-EN                                                  University_EN\MagoCloud\Retail\InStore_Inventory
+call convert_course Logistics\InStoreApp-InventoryTransaction-EN                                        University_EN\MagoCloud\Retail\InStore_Inventory_Transaction
+call convert_course Logistics\InStoreApp-OrdineAFornitore-EN                                            University_EN\MagoCloud\Retail\InStore_Order_Supplier
+call convert_course Logistics\InStoreApp-TrasferimentoTraDepositi-EN                                    University_EN\MagoCloud\Retail\InStore_Storage_Transfer
+call convert_course Logistics\InStoreAppIntroduction-EN                                                 University_EN\MagoCloud\Retail\InStore_Introduction
+call convert_course Logistics\InStoreAppTrasferimentiTraPuntiVendita-EN                                 University_EN\MagoCloud\Retail\InStore_Store_Transfer
+call convert_course Logistics\IDocumentiDelCicloAttivo-CL-EN                                            University_EN\MagoCloud\Sales\Sale_Documents
+call convert_course Logistics\LAnagraficaAgenti-CL-EN                                                   University_EN\MagoCloud\Sales\Salespeople_Master
+call convert_course Logistics\LOrdineDaCliente-CL-EN                                                    University_EN\MagoCloud\Sales\Sales_Order
+call convert_course Logistics\PrezziEScontiNelCicloAttivo-CL-EN                                         University_EN\MagoCloud\Sales\Price_Discount_Polices
+call convert_course Logistics\LeProcedureStampaRegistra-CL-EN                                           University_EN\MagoCloud\Sales\Print_And_Post_Procedures
 
-call convert_course Financial\StampeFiscaliRO                                                           University_RO\Mago4\Financial\Fiscal_Printouts
-call convert_course Financial\StampeFiscali_CL_RO                                                       University_RO\MagoCloud\Financial\Fiscal_Printouts
-call convert_course Financial\AnagraficheRO                                                             University_RO\Mago4\Masters\Masters
-call convert_course Financial\Anagrafiche_CL_RO                                                         University_RO\MagoCloud\Masters\Masters
-call convert_course Financial\ChiusureApertureRO                                                        University_RO\Mago4\Financial\Opening_Closing
-call convert_course Financial\ChiusureAperture_CL_RO                                                    University_RO\MagoCloud\Financial\Opening_Closing
-call convert_course Financial\EffettiEMandatiRO                                                         University_RO\Mago4\Financial\Bills_and_Payment_Orders
-call convert_course Financial\EffettiEMandati_CL_RO                                                     University_RO\MagoCloud\Financial\Bills_and_Payment_Orders
-call convert_course Financial\LocalizzazioniFinancialRomaniaRO                                          University_RO\Mago4\Financial\Romanian_Localizations
-call convert_course Financial\MovimentiContabiliRO                                                      University_RO\Mago4\Financial\Accounting_Entries
-call convert_course Financial\PartiteRO                                                                 University_RO\Mago4\Financial\AP_AR
-call convert_course Financial\Partite_CL_RO                                                             University_RO\MagoCloud\Financial\AP_AR
-call convert_course Financial\MovimentiContabili_CL_RO                                                  University_RO\MagoCloud\Financial\Accounting_Entries
-call convert_course Logistics\ArticoliERelativiDatiAnagrafici-CL-RO                                     University_RO\MagoCloud\Logistics\Items_Master_Data
-call convert_course Logistics\CodiceParlante-CL-RO                                                      University_RO\MagoCloud\Logistics\Smart_Codes
-call convert_course Logistics\IDocumentiDelCicloAttivo-CL-RO                                            University_RO\MagoCloud\Sales\Sale_Documents
-call convert_course Logistics\IDatiClienteArticoloFornitoreArticolo-CL-RO                               University_RO\MagoCloud\Logistics\Item_Customers_Suppliers
-call convert_course Logistics\IlDocumentoDiTrasporto-CL-RO                                              University_RO\MagoCloud\Sales\Delivery_Notes
-call convert_course Logistics\IntroduzioneMagoCloudRO                                                   University_RO\MagoCloud\Masters\MagoCloud_Introduction
-call convert_course Logistics\LaChiusuraDiMagazzino-CL-RO                                               University_RO\MagoCloud\Logistics\Inventory_Closing
-call convert_course Logistics\LaFatturaImmediata-CL-RO                                                  University_RO\MagoCloud\Sales\Sale_Invoice
-call convert_course Logistics\LaFatturazioneDifferitaDDT-CL-RO                                          University_RO\MagoCloud\Sales\Delivery_Notes_Deferred_Invoicing
-call convert_course Logistics\LeUnitaDiMisura-CL-RO                                                     University_RO\MagoCloud\Logistics\Units_Of_Measure
-call convert_course Logistics\MovimentiDiMagazzino-CL-RO                                                University_RO\MagoCloud\Logistics\Inventory_Entries
-call convert_course Logistics\PrezziEScontiNelCicloAttivo-CL-RO                                         University_RO\MagoCloud\Sales\Price_Discount_Polices
-call convert_course Logistics\LaGestioneDeiLotti-CL-RO                                                  University_RO\MagoCloud\Logistics\Lots_Management
-call convert_course Logistics\LaManutenzioneDeiMovimenti-CL-RO                                          University_RO\MagoCloud\Logistics\Inventory_Entries_Maintenance
-
-call convert_course Financial\AmazonDSP_DE                                                              University_DE\MagoCloud\Financial\AmazonDSP /I
+:skipMigrated
 
 :skipToEnd
 

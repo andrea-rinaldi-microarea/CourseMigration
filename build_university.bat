@@ -5,7 +5,9 @@ set SOURCE=C:\Working\courses\University
 set OUTPUT=C:\Working\courses\output
 
 for /R %SOURCE% %%G in (*.prjsam) do (
-    call build_course %%G /B
+    if /I not "%%~nG" == "Template" (
+        call build_course %%G /B
+    )
 )
 
 for /R %OUTPUT% %%G in (*.log) do (
