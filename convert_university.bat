@@ -29,8 +29,6 @@ mkdir "%folderPath%\output"
 @REM C:\eLearning4\eLearning4\courses\Produzione\Videocorsi
 @REM C:\eLearning4\eLearning4\courses\Task Builder\Videocorsi 
 
-call convert_course Logistics\Barcode-CL-EN                                                             University_EN\MagoCloud\Logistics\Barcode
-
 goto:skipToEnd
 
 goto:skipMigrated
