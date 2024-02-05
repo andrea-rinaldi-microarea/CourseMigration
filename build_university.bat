@@ -4,9 +4,12 @@ Setlocal EnableDelayedExpansion
 set SOURCE=C:\Working\courses\University
 set OUTPUT=C:\Working\courses\output
 
+@REM build only completed courses, ignore draft ones and Template folder example course
 for /R %SOURCE% %%G in (*.prjsam) do (
-    if /I not "%%~nG" == "Template" (
-        call build_course %%G /B
+    if /I not "%%~nG" == "Draft" (
+        if /I not "%%~nG" == "Template" (
+            call build_course %%G /B
+        )
     )
 )
 
